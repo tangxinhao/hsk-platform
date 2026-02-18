@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "HSK Study Assistant",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "language-switcher": "/components/language-switcher/language-switcher"
+  }
+}

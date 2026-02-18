@@ -1,0 +1,112 @@
+<view class="culture-home">
+  
+  <!-- 页面头部 -->
+  <view class="page-header">
+    <view class="header-content">
+      <text class="header-title">{{pageTitle}}</text>
+      <text class="header-subtitle">{{pageSubtitle}}</text>
+    </view>
+    <language-switcher class="header-lang-btn"></language-switcher>
+  </view>
+
+  <!-- 中国八大菜系专区 -->
+  <view class="section">
+    <view class="section-header">
+      <view class="section-title">
+        <text class="title-icon">🍽️</text>
+        <text class="title-text">{{cuisinesTitle}}</text>
+      </view>
+      <view class="section-more" bind:tap="viewAllCuisines">
+        <text>{{viewAllText}}</text>
+        <text class="arrow">›</text>
+      </view>
+    </view>
+
+    <view class="cuisines-grid">
+      <view 
+        wx:for="{{cuisines}}" 
+        wx:key="name"
+        class="cuisine-card"
+        style="border-left: 6rpx solid {{item.color}}"
+        bind:tap="navigateToCuisine"
+        data-cuisine="{{item.name}}"
+      >
+        <view class="cuisine-emoji">{{item.emoji}}</view>
+        <view class="cuisine-info">
+          <view class="cuisine-name">{{item.displayName}}</view>
+          <view class="cuisine-region">{{item.displayRegion}}</view>
+        </view>
+        <view class="cuisine-desc">{{item.displayDesc}}</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 分类快速入口 -->
+  <view class="section" wx:if="{{categories.length > 0}}">
+    <view class="section-header">
+      <view class="section-title">
+        <text class="title-icon">📚</text>
+        <text class="title-text">{{categoriesTitle}}</text>
+      </view>
+    </view>
+
+    <scroll-view scroll-x class="categories-scroll">
+      <view class="categories-list">
+        <view 
+          wx:for="{{categories}}" 
+          wx:key="id"
+          class="category-item"
+          bind:tap="navigateToList"
+          data-id="{{item.id}}"
+          data-name="{{item.displayName}}"
+        >
+          <view class="category-icon">
+            <text>{{item.icon}}</text>
+          </view>
+          <view class="category-name">{{item.displayName}}</view>
+          <view class="category-level">{{item.displayLevel}}</view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <!-- 推荐内容 -->
+  <view class="section" wx:if="{{recommendedContent.length > 0}}">
+    <view class="section-header">
+      <view class="section-title">
+        <text class="title-icon">⭐</text>
+        <text class="title-text">{{recommendedTitle}}</text>
+      </view>
+    </view>
+
+    <view class="recommended-list">
+      <view 
+        wx:for="{{recommendedContent}}" 
+        wx:key="id"
+        class="recommended-item"
+        bind:tap="navigateToDetail"
+        data-id="{{item.id}}"
+      >
+        <image 
+          class="recommended-image" 
+          src="{{item.cover_image || '/images/default-culture.png'}}" 
+          mode="aspectFill"
+        />
+        <view class="recommended-info">
+          <view class="recommended-title">{{item.displayTitle}}</view>
+          <view class="recommended-meta">
+            <text class="meta-tag">{{item.categoryName}}</text>
+            <text class="meta-level">{{item.displayDifficulty}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 加载状态 -->
+  <view wx:if="{{loading}}" class="loading-box">
+    <view class="loading-spinner"></view>
+    <text class="loading-text">{{loadingText}}</text>
+  </view>
+
+</view> 

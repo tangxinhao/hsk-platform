@@ -1,0 +1,282 @@
+/* HSK详情页面样式 */
+.hsk-detail-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f5f7fa;
+  padding-bottom: 30rpx;
+}
+
+/* 加载状态 */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 300rpx;
+}
+
+.loading-icon {
+  width: 80rpx;
+  height: 80rpx;
+  border: 6rpx solid #f3f3f3;
+  border-top: 6rpx solid #e74c3c;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20rpx;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading-text {
+  font-size: 28rpx;
+  color: #999;
+}
+
+/* HSK级别标题 */
+.hsk-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40rpx 30rpx;
+  background-color: #ffffff;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+
+.hsk-level-badge {
+  background-color: #e74c3c;
+  color: white;
+  font-size: 32rpx;
+  font-weight: bold;
+  padding: 10rpx 30rpx;
+  border-radius: 30rpx;
+  margin-bottom: 20rpx;
+}
+
+.hsk-level-desc {
+  font-size: 28rpx;
+  color: #666;
+  text-align: center;
+  line-height: 1.5;
+}
+
+/* 词汇量和考试信息 */
+.hsk-info-card {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 30rpx 20rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.info-value {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #e74c3c;
+  margin-bottom: 10rpx;
+}
+
+.info-label {
+  font-size: 24rpx;
+  color: #666;
+}
+
+.info-divider {
+  width: 2rpx;
+  height: 50rpx;
+  background-color: #eee;
+}
+
+/* 章节标题 */
+.section-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  padding: 30rpx 30rpx 20rpx;
+}
+
+/* 练习模式 */
+.practice-modes {
+  background-color: #ffffff;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+
+.mode-grid {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 15rpx 30rpx;
+}
+
+.mode-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 33.33%;
+  padding: 20rpx 0;
+}
+
+.mode-icon {
+  width: 80rpx;
+  height: 80rpx;
+  margin-bottom: 15rpx;
+}
+
+.mode-name {
+  font-size: 26rpx;
+  color: #333;
+}
+
+/* 学习进度 */
+.progress-section {
+  background-color: #ffffff;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+
+.progress-card {
+  padding: 0 30rpx 30rpx;
+}
+
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15rpx;
+}
+
+.progress-title {
+  font-size: 28rpx;
+  color: #333;
+}
+
+.progress-percentage {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #e74c3c;
+}
+
+.progress-bar {
+  margin-bottom: 30rpx;
+}
+
+.progress-details {
+  margin-top: 20rpx;
+}
+
+.progress-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15rpx;
+}
+
+.progress-item-label {
+  width: 80rpx;
+  font-size: 26rpx;
+  color: #666;
+}
+
+.progress-item-bar {
+  flex: 1;
+}
+
+.progress-item-value {
+  width: 70rpx;
+  text-align: right;
+  font-size: 26rpx;
+  color: #e74c3c;
+  margin-left: 10rpx;
+}
+
+/* 学习资料 */
+.resources-section {
+  background-color: #ffffff;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+
+.resources-list {
+  padding: 0 30rpx;
+}
+
+.resource-item {
+  display: flex;
+  align-items: center;
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.resource-item:last-child {
+  border-bottom: none;
+}
+
+.resource-icon {
+  width: 60rpx;
+  height: 60rpx;
+  margin-right: 20rpx;
+}
+
+.resource-info {
+  flex: 1;
+}
+
+.resource-name {
+  font-size: 28rpx;
+  color: #333;
+  margin-bottom: 5rpx;
+}
+
+.resource-desc {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.arrow-icon {
+  width: 32rpx;
+  height: 32rpx;
+  opacity: 0.5;
+}
+
+/* 错误状态 */
+.error-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 400rpx;
+}
+
+.error-icon {
+  width: 100rpx;
+  height: 100rpx;
+  margin-bottom: 20rpx;
+}
+
+.error-text {
+  font-size: 28rpx;
+  color: #999;
+  margin-bottom: 30rpx;
+}
+
+.retry-button {
+  background-color: #e74c3c;
+  color: white;
+  font-size: 28rpx;
+  padding: 12rpx 40rpx;
+  border-radius: 30rpx;
+  border: none;
+  line-height: 1.5;
+} 

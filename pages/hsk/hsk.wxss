@@ -1,0 +1,163 @@
+/**hsk.wxss**/
+
+.header {
+  padding: 0 0 30rpx;
+}
+
+.title {
+  font-size: 40rpx;
+  font-weight: bold;
+}
+
+/* 每日练习卡片 */
+.daily-practice {
+  background-color: #4285f4;
+  color: #fff;
+  position: relative;
+  padding: 30rpx;
+}
+
+.daily-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30rpx;
+}
+
+.daily-title {
+  font-size: 34rpx;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 10rpx;
+}
+
+.daily-subtitle {
+  font-size: 24rpx;
+  opacity: 0.8;
+}
+
+.continue-btn {
+  background-color: #fff;
+  color: #4285f4;
+  font-size: 26rpx;
+  padding: 10rpx 30rpx;
+  line-height: 1.5;
+  border-radius: 30rpx;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 10rpx;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 5rpx;
+  margin-bottom: 10rpx;
+}
+
+.progress-inner {
+  height: 100%;
+  background-color: #fff;
+  border-radius: 5rpx;
+}
+
+.progress-text {
+  font-size: 24rpx;
+  opacity: 0.8;
+}
+
+/* 错题本 */
+.wrong-book {
+  display: flex;
+  align-items: center;
+  padding: 20rpx 30rpx;
+}
+
+.wrong-book-icon {
+  width: 80rpx;
+  height: 80rpx;
+  margin-right: 20rpx;
+}
+
+.wrong-book-info {
+  flex: 1;
+}
+
+.wrong-book-title {
+  font-size: 30rpx;
+  font-weight: bold;
+  display: block;
+}
+
+.wrong-book-count {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.arrow-icon {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+/* 等级标签页 */
+.level-tabs {
+  display: flex;
+  background-color: #fff;
+  border-radius: 12rpx;
+  margin-bottom: 20rpx;
+  overflow: hidden;
+}
+
+.level-tab {
+  flex: 1;
+  text-align: center;
+  padding: 20rpx 0;
+  font-size: 28rpx;
+  color: #666;
+  position: relative;
+}
+
+.level-tab.active {
+  color: #4285f4;
+  font-weight: bold;
+}
+
+.level-tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40rpx;
+  height: 4rpx;
+  background-color: #4285f4;
+}
+
+/* 题型列表 */
+.question-types {
+  width: 100%;
+}
+
+.question-type {
+  display: flex;
+  align-items: center;
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+}
+
+.type-icon {
+  width: 60rpx;
+  height: 60rpx;
+  margin-right: 20rpx;
+}
+
+.type-name {
+  flex: 1;
+  font-size: 30rpx;
+}
+
+/* 底部提示 */
+.footer-tips {
+  text-align: center;
+  margin-top: 30rpx;
+  color: #999;
+  font-size: 26rpx;
+} 

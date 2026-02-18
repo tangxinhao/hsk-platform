@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "Mock Exam",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "language-switcher": "/components/language-switcher/language-switcher"
+  }
+}

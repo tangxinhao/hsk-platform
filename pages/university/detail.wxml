@@ -1,0 +1,154 @@
+<!--pages/university/detail.wxml-->
+<view class="container">
+  <!-- 加载中状态 -->
+  <view class="loading-state" wx:if="{{loading}}">
+    <view class="loading-icon"></view>
+    <text>加载中...</text>
+  </view>
+
+  <block wx:if="{{!loading && university}}">
+    <!-- 顶部Banner和校徽 -->
+    <view class="university-header">
+      <image src="{{university.banner || '/images/universities/default_banner.jpg'}}" class="university-banner" mode="aspectFill"></image>
+      <view class="university-badge-container">
+        <image src="{{university.badge}}" class="university-badge" mode="aspectFit"></image>
+      </view>
+    </view>
+    
+    <!-- 大学名称和标签 -->
+    <view class="university-title-container">
+      <view class="university-title">
+        <text class="university-name">{{university.name}}</text>
+        <text class="university-english">{{university.englishName}}</text>
+      </view>
+      <view class="university-tags">
+        <view class="university-tag" wx:if="{{university.is985}}">985工程</view>
+        <view class="university-tag" wx:if="{{university.is211}}">211工程</view>
+        <view class="university-tag" wx:if="{{university.isDoubleFirstClass}}">双一流</view>
+      </view>
+    </view>
+    
+    <!-- 快速信息 -->
+    <view class="quick-info">
+      <view class="info-item">
+        <image src="/images/icons/location.png" class="info-icon"></image>
+        <text>{{university.region}}</text>
+      </view>
+      <view class="info-item">
+        <image src="/images/icons/calendar.png" class="info-icon"></image>
+        <text>建校: {{university.established}}</text>
+      </view>
+      <view class="info-item">
+        <image src="/images/icons/rank.png" class="info-icon"></image>
+        <text>排名: {{university.ranking}}</text>
+      </view>
+    </view>
+    
+    <!-- 标签栏 -->
+    <view class="tab-container">
+      <view 
+        class="tab {{currentTab === index ? 'active' : ''}}" 
+        wx:for="{{tabs}}" 
+        wx:key="*this"
+        data-index="{{index}}"
+        bindtap="switchTab"
+      >
+        <text>{{item}}</text>
+      </view>
+    </view>
+    
+    <!-- 内容区域 -->
+    <view class="content-area">
+      <!-- 基本信息标签 -->
+      <view class="tab-content" wx:if="{{currentTab === 0}}">
+        <view class="card">
+          <view class="card-title">学校简介</view>
+          <text class="university-description">{{university.description}}</text>
+        </view>
+        
+        <view class="card">
+          <view class="card-title">联系方式</view>
+          <view class="contact-item" bindtap="viewLocationMap">
+            <image src="/images/icons/address.png" class="contact-icon"></image>
+            <text>{{university.address}}</text>
+            <image src="/images/icons/map-pin.png" class="contact-action"></image>
+          </view>
+          <view class="contact-item" bindtap="openWebsite">
+            <image src="/images/icons/website.png" class="contact-icon"></image>
+            <text>{{university.website}}</text>
+            <image src="/images/icons/external-link.png" class="contact-action"></image>
+          </view>
+        </view>
+      </view>
+      
+      <!-- 院系专业标签 -->
+      <view class="tab-content" wx:if="{{currentTab === 1}}">
+        <block wx:if="{{departments.length > 0}}">
+          <view class="card" wx:for="{{departments}}" wx:key="id">
+            <view class="card-title">{{item.name}}</view>
+            <view class="major-list">
+              <view class="major-item" wx:for="{{item.majors}}" wx:for-item="major" wx:key="*this">
+                <image src="/images/icons/graduation-cap.png" class="major-icon"></image>
+                <text>{{major}}</text>
+              </view>
+            </view>
+          </view>
+        </block>
+        <view class="loading-mini" wx:else>
+          <view class="loading-dot"></view>
+          <view class="loading-dot"></view>
+          <view class="loading-dot"></view>
+        </view>
+      </view>
+      
+      <!-- 招生政策标签 -->
+      <view class="tab-content" wx:if="{{currentTab === 2}}">
+        <block wx:if="{{admissionPolicies.length > 0}}">
+          <view class="card" wx:for="{{admissionPolicies}}" wx:key="*this">
+            <view class="card-title">
+              <text>{{item.title}}</text>
+              <text class="admission-year">{{item.year}}年</text>
+            </view>
+            <text class="admission-description">{{item.description}}</text>
+            <view class="admission-link">
+              <text>查看详情</text>
+              <image src="/images/icons/arrow-right.png" class="link-arrow"></image>
+            </view>
+          </view>
+        </block>
+        <view class="loading-mini" wx:else>
+          <view class="loading-dot"></view>
+          <view class="loading-dot"></view>
+          <view class="loading-dot"></view>
+        </view>
+      </view>
+      
+      <!-- 校园风光标签 -->
+      <view class="tab-content" wx:if="{{currentTab === 3}}">
+        <block wx:if="{{campusScenery.length > 0}}">
+          <view class="scenery-grid">
+            <view class="scenery-item" wx:for="{{campusScenery}}" wx:key="id" bindtap="previewImage" data-url="{{item.image}}">
+              <image src="{{item.image}}" mode="aspectFill" class="scenery-image"></image>
+              <view class="scenery-info">
+                <text class="scenery-title">{{item.title}}</text>
+                <text class="scenery-description">{{item.description}}</text>
+              </view>
+            </view>
+          </view>
+        </block>
+        <view class="loading-mini" wx:else>
+          <view class="loading-dot"></view>
+          <view class="loading-dot"></view>
+          <view class="loading-dot"></view>
+        </view>
+      </view>
+    </view>
+  </block>
+  
+  <!-- 错误状态 -->
+  <view class="error-state" wx:if="{{!loading && !university}}">
+    <image src="/images/error.png" class="error-image"></image>
+    <text>加载大学信息失败</text>
+    <button class="retry-button" bindtap="fetchUniversityDetail" data-id="{{universityId}}">重试</button>
+  </view>
+</view> 

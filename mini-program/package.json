@@ -1,0 +1,15 @@
+{
+  "name": "mini-program",
+  "version": "1.0.0",
+  "description": "请在微信开发者工具中打开本目录，并在 `app.json` 或项目设置中**手动配置 AppID**。",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@vant/weapp": "^1.11.7"
+  }
+}

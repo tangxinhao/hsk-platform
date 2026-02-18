@@ -1,0 +1,4 @@
+<view class="language-switcher" bindtap="showLanguageMenu">
+  <text class="language-icon">🌐</text>
+  <text class="language-text">{{currentLang === 'zh' ? '中' : 'EN'}}</text>
+</view>

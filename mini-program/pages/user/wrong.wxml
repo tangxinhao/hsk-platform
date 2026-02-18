@@ -1,0 +1,6 @@
+<!-- 错题本 - 功能开发中（简洁版） -->
+<view class="simple-dev-page">
+  <text class="simple-title">错题本功能开发中</text>
+  <text class="simple-text">后续会支持云端同步错题并智能分析薄弱点。</text>
+  <button class="simple-btn" bindtap="gotoPractice">去练习</button>
+</view>

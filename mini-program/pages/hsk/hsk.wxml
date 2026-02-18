@@ -1,0 +1,65 @@
+<!--pages/hsk/hsk.wxml-->
+<view class="hsk-container">
+  <!-- 页面标题 -->
+  <view class="header">
+    <text class="title">HSK练习</text>
+  </view>
+  
+  <!-- 每日练习卡片 -->
+  <view class="daily-card">
+    <view class="daily-info">
+      <view class="daily-title">每日练习</view>
+      <view class="daily-subtitle">完成今日学习任务，提高汉语水平</view>
+      <view class="progress-container">
+        <view class="progress-bar">
+          <view class="progress-inner" style="width: {{dailyProgress}}%"></view>
+        </view>
+        <text class="progress-text">{{dailyProgress}}%</text>
+      </view>
+    </view>
+    <button class="daily-button" bindtap="continueDailyPractice">继续学习</button>
+  </view>
+  
+  <!-- 错题本卡片 -->
+  <view class="wrong-book-card" bindtap="goToWrongBook">
+    <image class="wrong-book-icon" src="../../images/tab-home.png" mode="aspectFit"></image>
+    <view class="wrong-book-info">
+      <view class="wrong-book-title">错题本</view>
+      <view class="wrong-book-count">共{{wrongCount}}道题</view>
+    </view>
+    <image class="arrow-icon" src="../../images/tab-home.png" mode="aspectFit"></image>
+  </view>
+  
+  <!-- 级别选择 -->
+  <view class="level-tabs">
+    <view 
+      class="level-tab {{activeLevel === level.id ? 'active' : ''}}" 
+      wx:for="{{levels}}" 
+      wx:for-item="level" 
+      wx:key="id"
+      bindtap="switchLevel"
+      data-level="{{level.id}}"
+    >
+      {{level.name}}
+    </view>
+  </view>
+  
+  <!-- 题型列表 -->
+  <view class="question-types">
+    <view 
+      class="question-type-item" 
+      wx:for="{{questionTypes}}" 
+      wx:key="id"
+      bindtap="startPractice"
+      data-type="{{item.id}}"
+    >
+      <image class="question-type-icon" src="{{item.icon}}" mode="aspectFit"></image>
+      <text class="question-type-name">{{item.name}}</text>
+    </view>
+  </view>
+  
+  <!-- 提示 -->
+  <view class="tip">
+    <text>选择题型开始练习</text>
+  </view>
+</view>

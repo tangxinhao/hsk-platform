@@ -1,0 +1,123 @@
+<!-- HSK详情页面 -->
+<view class="hsk-detail-container">
+  <!-- 加载状态 -->
+  <view class="loading-container" wx:if="{{loading}}">
+    <view class="loading-icon"></view>
+    <text class="loading-text">加载中...</text>
+  </view>
+
+  <!-- 内容区域 -->
+  <block wx:else>
+    <!-- HSK级别标题 -->
+    <view class="hsk-header">
+      <view class="hsk-level-badge">HSK {{level}}</view>
+      <text class="hsk-level-desc">{{levelDescription}}</text>
+    </view>
+
+    <!-- 词汇量和考试信息 -->
+    <view class="hsk-info-card">
+      <view class="info-item">
+        <text class="info-value">{{vocabularyCount}}</text>
+        <text class="info-label">词汇量</text>
+      </view>
+      <view class="info-divider"></view>
+      <view class="info-item">
+        <text class="info-value">{{examTime}}</text>
+        <text class="info-label">考试时长</text>
+      </view>
+      <view class="info-divider"></view>
+      <view class="info-item">
+        <text class="info-value">{{passingScore}}</text>
+        <text class="info-label">通过分数</text>
+      </view>
+    </view>
+
+    <!-- 练习模式选择 -->
+    <view class="practice-modes">
+      <view class="section-title">练习模式</view>
+      <view class="mode-grid">
+        <view class="mode-item" bindtap="startPractice" data-mode="vocabulary">
+          <image class="mode-icon" src="../../images/vocabulary-icon.png" mode="aspectFit"></image>
+          <text class="mode-name">词汇练习</text>
+        </view>
+        <view class="mode-item" bindtap="startPractice" data-mode="listening">
+          <image class="mode-icon" src="../../images/listening-icon.png" mode="aspectFit"></image>
+          <text class="mode-name">听力练习</text>
+        </view>
+        <view class="mode-item" bindtap="startPractice" data-mode="reading">
+          <image class="mode-icon" src="../../images/reading-icon.png" mode="aspectFit"></image>
+          <text class="mode-name">阅读练习</text>
+        </view>
+        <view class="mode-item" bindtap="startPractice" data-mode="writing">
+          <image class="mode-icon" src="../../images/writing-icon.png" mode="aspectFit"></image>
+          <text class="mode-name">写作练习</text>
+        </view>
+        <view class="mode-item" bindtap="startPractice" data-mode="mock">
+          <image class="mode-icon" src="../../images/mock-exam-icon.png" mode="aspectFit"></image>
+          <text class="mode-name">模拟考试</text>
+        </view>
+        <view class="mode-item" bindtap="startPractice" data-mode="random">
+          <image class="mode-icon" src="../../images/random-icon.png" mode="aspectFit"></image>
+          <text class="mode-name">随机练习</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 学习进度 -->
+    <view class="progress-section">
+      <view class="section-title">学习进度</view>
+      <view class="progress-card">
+        <view class="progress-header">
+          <text class="progress-title">总体完成度</text>
+          <text class="progress-percentage">{{progressData.overall}}%</text>
+        </view>
+        <progress class="progress-bar" percent="{{progressData.overall}}" stroke-width="4" activeColor="#e74c3c" backgroundColor="#f0f0f0" />
+        
+        <view class="progress-details">
+          <view class="progress-item">
+            <text class="progress-item-label">词汇</text>
+            <progress class="progress-item-bar" percent="{{progressData.vocabulary}}" stroke-width="3" activeColor="#e74c3c" backgroundColor="#f0f0f0" />
+            <text class="progress-item-value">{{progressData.vocabulary}}%</text>
+          </view>
+          <view class="progress-item">
+            <text class="progress-item-label">听力</text>
+            <progress class="progress-item-bar" percent="{{progressData.listening}}" stroke-width="3" activeColor="#e74c3c" backgroundColor="#f0f0f0" />
+            <text class="progress-item-value">{{progressData.listening}}%</text>
+          </view>
+          <view class="progress-item">
+            <text class="progress-item-label">阅读</text>
+            <progress class="progress-item-bar" percent="{{progressData.reading}}" stroke-width="3" activeColor="#e74c3c" backgroundColor="#f0f0f0" />
+            <text class="progress-item-value">{{progressData.reading}}%</text>
+          </view>
+          <view class="progress-item">
+            <text class="progress-item-label">写作</text>
+            <progress class="progress-item-bar" percent="{{progressData.writing}}" stroke-width="3" activeColor="#e74c3c" backgroundColor="#f0f0f0" />
+            <text class="progress-item-value">{{progressData.writing}}%</text>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 学习资料 -->
+    <view class="resources-section">
+      <view class="section-title">学习资料</view>
+      <view class="resources-list">
+        <view class="resource-item" wx:for="{{resources}}" wx:key="id" bindtap="viewResource" data-id="{{item.id}}">
+          <image class="resource-icon" src="{{item.icon}}" mode="aspectFit"></image>
+          <view class="resource-info">
+            <text class="resource-name">{{item.name}}</text>
+            <text class="resource-desc">{{item.description}}</text>
+          </view>
+          <image class="arrow-icon" src="../../images/tab-home.png" mode="aspectFit"></image>
+        </view>
+      </view>
+    </view>
+  </block>
+
+  <!-- 错误状态 -->
+  <view class="error-container" wx:if="{{error}}">
+    <image class="error-icon" src="../../images/error-icon.png" mode="aspectFit"></image>
+    <text class="error-text">{{errorMsg || '加载失败，请重试'}}</text>
+    <button class="retry-button" bindtap="loadHskData">重新加载</button>
+  </view>
+</view> 

@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "Chinese Culture",
+  "usingComponents": {
+    "language-switcher": "/components/language-switcher/language-switcher"
+  }
+}

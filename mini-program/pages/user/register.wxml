@@ -1,0 +1,69 @@
+<view class="register-container">
+  <!-- 顶部装饰 -->
+  <view class="header-bg">
+    <view class="wave"></view>
+  </view>
+
+  <!-- Logo和标题 -->
+  <view class="logo-section">
+    <view class="logo-circle">
+      <text class="logo-icon">✨</text>
+    </view>
+    <text class="app-name">创建账户</text>
+    <text class="app-slogan">开启你的学习之旅</text>
+  </view>
+
+  <!-- 注册表单 -->
+  <view class="form-card">
+    <view class="form-header">
+      <text class="form-title">欢迎加入</text>
+      <text class="form-subtitle">填写信息完成注册</text>
+    </view>
+
+    <view class="input-group">
+      <view class="input-wrapper">
+        <text class="input-icon">👤</text>
+        <input
+          class="input-field"
+          placeholder="请输入用户名"
+          value="{{username}}"
+          data-field="username"
+          bindinput="onInput"
+          placeholder-class="input-placeholder"
+        />
+      </view>
+
+      <view class="input-wrapper">
+        <text class="input-icon">🔒</text>
+        <input
+          class="input-field"
+          placeholder="请输入密码"
+          password
+          value="{{password}}"
+          data-field="password"
+          bindinput="onInput"
+          placeholder-class="input-placeholder"
+        />
+      </view>
+    </view>
+
+    <button 
+      class="register-btn {{loading ? 'loading' : ''}}" 
+      loading="{{loading}}" 
+      bindtap="handleRegister"
+      disabled="{{loading}}"
+    >
+      {{loading ? '注册中...' : '立即注册'}}
+    </button>
+
+    <view class="login-hint">
+      <text class="hint-text">已有账号？</text>
+      <navigator url="/pages/user/login" class="login-link" open-type="redirect">去登录</navigator>
+    </view>
+  </view>
+
+  <!-- 底部信息 -->
+  <view class="footer-info">
+    <text class="footer-text">注册即表示同意《用户协议》和《隐私政策》</text>
+  </view>
+</view>

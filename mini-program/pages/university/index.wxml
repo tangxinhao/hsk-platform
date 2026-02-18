@@ -1,0 +1,9 @@
+<view class="container">
+  <view class="title">院校列表</view>
+  <van-list>
+    <block wx:for="{{universities}}" wx:key="id">
+      <van-cell title="{{item.name}}" label="{{item.region}} | 排名:{{item.ranking}}" />
+    </block>
+  </van-list>
+  <van-button type="primary" style="margin-top:32rpx;" url="/pages/university/recommend">智能推荐</van-button>
+</view> 

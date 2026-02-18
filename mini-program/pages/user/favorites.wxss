@@ -1,0 +1,38 @@
+/* 简洁版开发中占位页样式 */
+.simple-dev-page {
+  min-height: 100vh;
+  padding: 120rpx 40rpx 40rpx;
+  box-sizing: border-box;
+  background-color: #f5f7fa;
+  text-align: center;
+}
+
+.simple-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #303133;
+  margin-bottom: 16rpx;
+}
+
+.simple-text {
+  font-size: 26rpx;
+  color: #909399;
+  margin-bottom: 40rpx;
+  display: block;
+}
+
+.simple-btn {
+  width: 260rpx;
+  height: 72rpx;
+  line-height: 72rpx;
+  border-radius: 36rpx;
+  background-color: #5B9FD7;
+  color: #ffffff;
+  font-size: 26rpx;
+  border: none;
+  margin: 0 auto;
+}
+
+.simple-btn::after {
+  border: none;
+}

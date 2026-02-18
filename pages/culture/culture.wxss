@@ -1,0 +1,209 @@
+/* pages/culture/culture.wxss */
+.container {
+  padding: 0 0 30rpx;
+  background-color: #f8f8f8;
+  min-height: 100vh;
+}
+
+.header {
+  padding: 30rpx 30rpx 20rpx;
+  background-color: #fff;
+}
+
+.title {
+  font-size: 38rpx;
+  font-weight: 600;
+  color: #333;
+}
+
+/* 分类标签栏 */
+.category-tabs {
+  white-space: nowrap;
+  background-color: #fff;
+  padding: 0 20rpx 20rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 4rpx 8rpx rgba(0, 0, 0, 0.05);
+}
+
+.category-tab {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12rpx 24rpx;
+  margin-right: 20rpx;
+  border-radius: 16rpx;
+  background-color: #f0f0f0;
+  position: relative;
+  transition: all 0.3s;
+}
+
+.category-tab.active {
+  background-color: #e6f2ff;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.1);
+}
+
+.tab-name {
+  font-size: 28rpx;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 6rpx;
+}
+
+.active .tab-name {
+  color: #0066cc;
+  font-weight: 600;
+}
+
+.level-tag {
+  font-size: 20rpx;
+  padding: 2rpx 10rpx;
+  border-radius: 10rpx;
+  color: #fff;
+}
+
+.level-tag.beginner {
+  background-color: #4caf50;
+}
+
+.level-tag.intermediate {
+  background-color: #ff9800;
+}
+
+.level-tag.advanced {
+  background-color: #f44336;
+}
+
+/* 内容列表 */
+.content-list {
+  padding: 0 20rpx;
+}
+
+.content-item {
+  display: flex;
+  background-color: #fff;
+  border-radius: 16rpx;
+  margin-bottom: 20rpx;
+  overflow: hidden;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.08);
+}
+
+.content-image {
+  width: 200rpx;
+  height: 200rpx;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+
+.content-info {
+  flex: 1;
+  padding: 20rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.content-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 12rpx;
+}
+
+.content-summary {
+  font-size: 26rpx;
+  color: #666;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.content-footer {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.view-count {
+  display: flex;
+  align-items: center;
+  font-size: 24rpx;
+  color: #999;
+}
+
+.icon-small {
+  width: 28rpx;
+  height: 28rpx;
+  margin-right: 8rpx;
+}
+
+.text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 空状态 */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 100rpx 0;
+}
+
+.empty-image {
+  width: 200rpx;
+  height: 200rpx;
+  margin-bottom: 20rpx;
+  opacity: 0.5;
+}
+
+.empty-state text {
+  color: #999;
+  font-size: 28rpx;
+}
+
+/* 加载状态 */
+.loading-state {
+  padding: 40rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.loading-icon {
+  width: 80rpx;
+  height: 80rpx;
+  margin-bottom: 20rpx;
+  border-radius: 50%;
+  border: 6rpx solid #f0f0f0;
+  border-top-color: #0066cc;
+  animation: spin 0.8s linear infinite;
+}
+
+.loading-state text {
+  color: #999;
+  font-size: 28rpx;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* 卡片样式 */
+.card {
+  background: #fff;
+  border-radius: 16rpx;
+  transition: all 0.3s ease;
+}
+
+.card:active {
+  transform: scale(0.98);
+  opacity: 0.9;
+} 

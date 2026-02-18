@@ -1,0 +1,57 @@
+<!-- 学习进度 -->
+<view class="progress-page">
+  <view class="overall-stats">
+    <text class="stats-title">学习概览</text>
+    <view class="stats-row">
+      <view class="stat-box">
+        <text class="stat-value">{{totalDays}}</text>
+        <text class="stat-label">学习天数</text>
+      </view>
+      <view class="stat-box">
+        <text class="stat-value">{{totalQuestions}}</text>
+        <text class="stat-label">完成题数</text>
+      </view>
+      <view class="stat-box">
+        <text class="stat-value">{{accuracy}}%</text>
+        <text class="stat-label">正确率</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="level-progress">
+    <text class="section-title">各等级进度</text>
+    <view 
+      class="level-item"
+      wx:for="{{levelProgress}}"
+      wx:key="level"
+    >
+      <view class="level-header">
+        <text class="level-name">HSK {{item.level}}级</text>
+        <text class="level-percent">{{item.percent}}%</text>
+      </view>
+      <view class="level-bar">
+        <view class="level-fill level-fill-{{item.level}}" style="width: {{item.percent}}%"></view>
+      </view>
+      <text class="level-text">{{item.completed}}/{{item.total}}题</text>
+    </view>
+  </view>
+
+  <view class="recent-activity" wx:if="{{activities.length > 0}}">
+    <text class="section-title">最近活动</text>
+    <view 
+      class="activity-item"
+      wx:for="{{activities}}"
+      wx:key="id"
+    >
+      <text class="activity-icon">{{item.icon}}</text>
+      <view class="activity-content">
+        <text class="activity-text">{{item.text}}</text>
+        <text class="activity-time">{{item.time}}</text>
+      </view>
+    </view>
+  </view>
+  
+  <view class="empty-activity" wx:else>
+    <text class="empty-text">暂无最近活动</text>
+  </view>
+</view>

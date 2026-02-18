@@ -1,0 +1,211 @@
+<view class="recommend-container">
+  
+  <!-- 页面头部 -->
+  <view class="page-header">
+    <view class="header-content">
+      <text class="header-title">智能推荐</text>
+      <text class="header-subtitle">为您匹配最适合的院校</text>
+    </view>
+    <view class="header-actions">
+      <view class="action-btn" bind:tap="showPreferences">
+        <van-icon name="setting-o" size="40rpx" color="#fff" />
+        <text class="action-text">偏好设置</text>
+      </view>
+      <view class="action-btn" bind:tap="refreshRecommendations">
+        <van-icon name="replay" size="40rpx" color="#fff" />
+        <text class="action-text">刷新</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 用户偏好信息展示 -->
+  <view class="preference-summary">
+    <view class="preference-item">
+      <text class="label">HSK等级</text>
+      <text class="value">HSK {{userPreferences.hskLevel}}</text>
+    </view>
+    <view class="preference-item" wx:if="{{userPreferences.region}}">
+      <text class="label">偏好地区</text>
+      <text class="value">{{userPreferences.region}}</text>
+    </view>
+    <view class="preference-item" wx:if="{{userPreferences.major}}">
+      <text class="label">专业方向</text>
+      <text class="value">{{userPreferences.major}}</text>
+    </view>
+  </view>
+
+  <!-- 加载状态 -->
+  <view wx:if="{{loading}}" class="loading-wrapper">
+    <van-loading size="40rpx" vertical>正在为您匹配...</van-loading>
+  </view>
+
+  <!-- 推荐列表 -->
+  <view wx:else class="recommendations-list">
+    <view 
+      wx:for="{{recommendations}}" 
+      wx:key="id"
+      class="university-card"
+      bind:tap="navigateToDetail"
+      data-id="{{item.id}}"
+    >
+      <!-- 匹配度标签 -->
+      <view class="match-badge" style="background: {{item.match_score >= 90 ? '#07c160' : item.match_score >= 70 ? '#ff976a' : '#999'}}">
+        <text class="match-score">{{item.match_score}}%</text>
+        <text class="match-label">匹配度</text>
+      </view>
+
+      <!-- 院校信息 -->
+      <view class="university-header">
+        <image 
+          class="university-logo" 
+          src="{{item.logo_url || 'https://picsum.photos/100/100'}}" 
+          mode="aspectFill"
+        />
+        <view class="university-info">
+          <view class="university-name">{{item.name}}</view>
+          <view class="university-meta">
+            <text class="meta-item">{{item.region}}</text>
+            <text class="meta-divider">|</text>
+            <text class="meta-item">全国排名 {{item.ranking || item.ranking_national}}</text>
+          </view>
+        </view>
+      </view>
+
+      <!-- 院校描述 -->
+      <view class="university-desc" wx:if="{{item.description}}">
+        {{item.description}}
+      </view>
+
+      <!-- 标签 -->
+      <view class="university-tags" wx:if="{{item.tags && item.tags.length > 0}}">
+        <text 
+          wx:for="{{item.tags}}" 
+          wx:for-item="tag" 
+          wx:key="*this"
+          class="tag"
+        >
+          {{tag}}
+        </text>
+      </view>
+
+      <!-- 匹配原因 -->
+      <view class="match-reasons" wx:if="{{item.match_reasons && item.match_reasons.length > 0}}">
+        <view class="reasons-title">
+          <van-icon name="passed" size="28rpx" color="#07c160" />
+          <text>推荐理由</text>
+        </view>
+        <view class="reasons-list">
+          <text 
+            wx:for="{{item.match_reasons}}" 
+            wx:for-item="reason" 
+            wx:key="*this"
+            class="reason-item"
+          >
+            • {{reason}}
+          </text>
+        </view>
+      </view>
+
+      <!-- HSK要求 -->
+      <view class="hsk-requirement">
+        <view class="requirement-item">
+          <text class="label">最低HSK要求</text>
+          <text class="value {{userPreferences.hskLevel >= item.min_hsk_level ? 'success' : 'warning'}}">
+            HSK {{item.min_hsk_level}}
+          </text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 空状态 -->
+    <view wx:if="{{recommendations.length === 0}}" class="empty-state">
+      <van-empty description="暂无推荐院校">
+        <van-button type="primary" size="small" bind:tap="showPreferences">
+          设置偏好
+        </van-button>
+      </van-empty>
+    </view>
+  </view>
+
+  <!-- 偏好设置弹窗 -->
+  <van-popup 
+    show="{{showPreferenceDialog}}" 
+    position="bottom" 
+    round
+    closeable
+    bind:close="closePreferences"
+  >
+    <view class="preference-dialog">
+      <view class="dialog-title">设置您的偏好</view>
+      
+      <view class="preference-form">
+        <!-- HSK等级 -->
+        <view class="form-item">
+          <view class="form-label">
+            <text>您的HSK等级</text>
+            <text class="required">*</text>
+          </view>
+          <picker 
+            mode="selector" 
+            range="{{[1,2,3,4,5,6]}}" 
+            value="{{userPreferences.hskLevel - 1}}"
+            bind:change="onHSKLevelChange"
+          >
+            <view class="picker-value">
+              HSK {{userPreferences.hskLevel}}
+              <van-icon name="arrow-down" size="24rpx" />
+            </view>
+          </picker>
+        </view>
+
+        <!-- 偏好地区 -->
+        <view class="form-item">
+          <view class="form-label">
+            <text>偏好地区</text>
+          </view>
+          <picker 
+            mode="selector" 
+            range="{{regions}}"
+            bind:change="onRegionChange"
+          >
+            <view class="picker-value">
+              {{userPreferences.region || '请选择'}}
+              <van-icon name="arrow-down" size="24rpx" />
+            </view>
+          </picker>
+        </view>
+
+        <!-- 专业方向 -->
+        <view class="form-item">
+          <view class="form-label">
+            <text>专业方向（选填）</text>
+          </view>
+          <input 
+            class="form-input" 
+            placeholder="如：计算机、经济学等"
+            value="{{userPreferences.major}}"
+            bindinput="onMajorInput"
+          />
+        </view>
+      </view>
+
+      <view class="dialog-actions">
+        <van-button 
+          type="default" 
+          size="large"
+          bind:tap="closePreferences"
+        >
+          取消
+        </van-button>
+        <van-button 
+          type="primary" 
+          size="large"
+          bind:tap="applyPreferences"
+        >
+          应用
+        </van-button>
+      </view>
+    </view>
+  </van-popup>
+
+</view> 

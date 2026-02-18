@@ -1,0 +1,106 @@
+<!--pages/culture/detail.wxml-->
+<view class="container">
+  <!-- 加载中状态 -->
+  <view class="loading-state" wx:if="{{loading}}">
+    <view class="loading-icon"></view>
+    <text>加载中...</text>
+  </view>
+  
+  <block wx:if="{{!loading && article}}">
+    <!-- 文章头部 -->
+    <view class="article-header">
+      <text class="article-title">{{article.title}}</text>
+      <view class="level-tag {{article.level === '初级' ? 'beginner' : (article.level === '中级' ? 'intermediate' : 'advanced')}}">{{article.level}}</view>
+      
+      <view class="article-meta">
+        <text class="article-author">{{article.author}}</text>
+        <text class="article-date">{{article.publishDate}}</text>
+        <view class="view-count">
+          <image src="/images/icons/eye.png" class="icon-small"></image>
+          <text>{{article.viewCount}}</text>
+        </view>
+      </view>
+      
+      <view class="article-tags">
+        <text class="tag" wx:for="{{article.tags}}" wx:key="*this">{{item}}</text>
+      </view>
+    </view>
+    
+    <!-- 文章封面 -->
+    <image src="{{article.coverImage}}" mode="widthFix" class="article-cover"></image>
+    
+    <!-- 文章内容 -->
+    <text class="article-content">{{article.content}}</text>
+    
+    <!-- 互动栏 -->
+    <view class="interaction-bar">
+      <view class="interaction-button {{isCollected ? 'active' : ''}}" bindtap="toggleCollect">
+        <image src="{{isCollected ? '/images/icons/star_filled.png' : '/images/icons/star.png'}}" class="icon-medium"></image>
+        <text>{{isCollected ? '已收藏' : '收藏'}}</text>
+      </view>
+      
+      <view class="interaction-button" bindtap="toggleComments">
+        <image src="/images/icons/comment.png" class="icon-medium"></image>
+        <text>评论 ({{comments.length}})</text>
+      </view>
+      
+      <button open-type="share" class="interaction-button share-button">
+        <image src="/images/icons/share.png" class="icon-medium"></image>
+        <text>分享</text>
+      </button>
+    </view>
+    
+    <!-- 评论区 -->
+    <view class="comments-section" wx:if="{{showComments}}">
+      <view class="section-header">
+        <text class="section-title">评论 ({{comments.length}})</text>
+      </view>
+      
+      <view class="comment-input-area">
+        <input type="text" class="comment-input" placeholder="写下你的评论..." value="{{userComment}}" bindinput="inputComment" />
+        <button class="comment-submit" bindtap="submitComment">发送</button>
+      </view>
+      
+      <view class="comments-list" wx:if="{{comments.length > 0}}">
+        <view class="comment-item" wx:for="{{comments}}" wx:key="id">
+          <image src="{{item.user.avatar}}" class="user-avatar"></image>
+          <view class="comment-content">
+            <view class="comment-header">
+              <text class="user-name">{{item.user.name}}</text>
+              <text class="comment-time">{{item.time}}</text>
+            </view>
+            <text class="comment-text">{{item.content}}</text>
+          </view>
+        </view>
+      </view>
+      
+      <view class="no-comments" wx:else>
+        <text>暂无评论，来发表第一条评论吧！</text>
+      </view>
+    </view>
+    
+    <!-- 相关文章 -->
+    <view class="related-articles">
+      <view class="section-header">
+        <text class="section-title">相关文章</text>
+      </view>
+      
+      <view class="related-list">
+        <view class="related-item" wx:for="{{relatedArticles}}" wx:key="id" bindtap="viewRelatedArticle" data-id="{{item.id}}">
+          <image src="{{item.coverImage}}" class="related-image" mode="aspectFill"></image>
+          <view class="related-info">
+            <text class="related-title">{{item.title}}</text>
+            <text class="related-summary">{{item.summary}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+  
+  <!-- 错误状态 -->
+  <view class="error-state" wx:if="{{!loading && !article}}">
+    <image src="/images/error.png" class="error-image"></image>
+    <text>加载文章失败</text>
+    <button class="retry-button" bindtap="fetchArticleDetail" data-id="{{articleId}}">重试</button>
+  </view>
+</view> 

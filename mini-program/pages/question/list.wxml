@@ -1,0 +1,100 @@
+<!-- 问题列表页面 -->
+<view class="question-container">
+  <!-- 页面标题 -->
+  <view class="page-header">
+    <text class="header-title">HSK题库</text>
+  </view>
+
+  <!-- 筛选区域 -->
+  <view class="filter-area">
+    <view class="filter-row">
+      <picker bindchange="onLevelChange" range="{{levels}}" range-key="label" value="{{levelIndex}}">
+        <view class="filter-item">
+          <text>{{selectedLevel ? selectedLevel : 'HSK等级'}}</text>
+          <text class="dropdown-icon">▼</text>
+        </view>
+      </picker>
+      
+      <picker bindchange="onTypeChange" range="{{questionTypes}}" range-key="label" value="{{typeIndex}}">
+        <view class="filter-item">
+          <text>{{selectedType ? selectedType : '题目类型'}}</text>
+          <text class="dropdown-icon">▼</text>
+        </view>
+      </picker>
+    </view>
+    
+    <view class="search-input-container">
+      <input class="search-input" placeholder="搜索题目内容" bindinput="onSearchInput" value="{{searchQuery}}" />
+      <view class="search-icon" bindtap="handleSearch">
+        <text>🔍</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 问题列表 -->
+  <view class="question-list">
+    <block wx:if="{{loading}}">
+      <view class="loading-container">
+        <view class="loading-spinner"></view>
+        <text class="loading-text">加载中...</text>
+      </view>
+    </block>
+    
+    <block wx:elif="{{questions.length === 0}}">
+      <view class="empty-container">
+        <text class="empty-icon">📝</text>
+        <text class="empty-text">暂无题目</text>
+      </view>
+    </block>
+    
+    <block wx:else>
+      <view class="question-item" wx:for="{{questions}}" wx:key="id" bindtap="navigateToDetail" data-id="{{item.id}}">
+        <view class="question-header">
+          <view class="question-type-tag" style="background-color: {{getTagColor(item.type)}}">
+            {{item.type_display || item.type}}
+          </view>
+          <view class="question-level">HSK {{item.level}}</view>
+        </view>
+        
+        <view class="question-content">
+          <text class="question-text">{{item.content}}</text>
+          
+          <!-- 选项（如果是选择题） -->
+          <view class="question-options" wx:if="{{item.type === 'single' || item.type === 'multiple'}}">
+            <view class="option-item" wx:for="{{item.options}}" wx:for-item="option" wx:key="index">
+              <text class="option-label">{{optionLabels[index]}}.</text>
+              <text class="option-text">{{option}}</text>
+            </view>
+          </view>
+          
+          <!-- 判断题 -->
+          <view class="question-options" wx:if="{{item.type === 'judge'}}">
+            <view class="option-item">
+              <text class="option-label">A.</text>
+              <text class="option-text">正确</text>
+            </view>
+            <view class="option-item">
+              <text class="option-label">B.</text>
+              <text class="option-text">错误</text>
+            </view>
+          </view>
+        </view>
+        
+        <view class="question-footer">
+          <text class="question-category">{{item.category}}</text>
+          <view class="question-arrow">
+            <image src="/assets/icons/arrow-right.png" mode="aspectFit"></image>
+          </view>
+        </view>
+      </view>
+      
+      <!-- 加载更多 -->
+      <view class="load-more" wx:if="{{hasMoreData}}" bindtap="loadMore">
+        <text>加载更多</text>
+      </view>
+      <view class="load-more-end" wx:else>
+        <text>没有更多数据了</text>
+      </view>
+    </block>
+  </view>
+</view> 

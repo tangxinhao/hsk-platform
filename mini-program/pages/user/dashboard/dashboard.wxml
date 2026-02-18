@@ -1,0 +1,171 @@
+<!-- 用户学习Dashboard -->
+<view class="dashboard-container">
+  <!-- 顶部问候 -->
+  <view class="header-section">
+    <view class="greeting">
+      <image class="avatar" src="{{userInfo.avatar || '/images/default-avatar.png'}}" mode="aspectFill"></image>
+      <view class="greeting-text">
+        <text class="hello">你好，{{userInfo.chinese_name || userInfo.username}}！</text>
+        <text class="level">当前等级：HSK {{userInfo.hsk_level}}</text>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 学习目标卡片 -->
+  <view class="goal-card" wx:if="{{studyGoal}}">
+    <view class="goal-header">
+      <text class="goal-title">学习目标</text>
+      <text class="goal-target">目标：HSK {{studyGoal.target_hsk_level}}</text>
+    </view>
+    <view class="goal-progress">
+      <view class="progress-bar">
+        <view class="progress-fill" style="width: {{studyGoal.progress_percentage}}%"></view>
+      </view>
+      <text class="progress-text">{{studyGoal.progress_percentage}}%</text>
+    </view>
+    <view class="goal-info">
+      <view class="goal-item">
+        <text class="goal-label">剩余天数</text>
+        <text class="goal-value">{{studyGoal.days_remaining}}天</text>
+      </view>
+      <view class="goal-item">
+        <text class="goal-label">每日目标</text>
+        <text class="goal-value">{{studyGoal.daily_target}}题</text>
+      </view>
+      <view class="goal-item">
+        <text class="goal-label">当前进度</text>
+        <text class="goal-value">{{studyGoal.current_progress}}题</text>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 设置学习目标按钮 -->
+  <view class="set-goal-btn" wx:else bindtap="navigateToSetGoal">
+    <text>+ 设置学习目标</text>
+  </view>
+  
+  <!-- 统计卡片 -->
+  <view class="stats-section">
+    <view class="stats-card">
+      <view class="stat-item">
+        <text class="stat-value">{{basicStats.total_practice}}</text>
+        <text class="stat-label">累计练习</text>
+      </view>
+      <view class="stat-divider"></view>
+      <view class="stat-item">
+        <text class="stat-value">{{basicStats.accuracy_rate}}%</text>
+        <text class="stat-label">正确率</text>
+      </view>
+      <view class="stat-divider"></view>
+      <view class="stat-item">
+        <text class="stat-value">{{basicStats.study_days}}</text>
+        <text class="stat-label">学习天数</text>
+      </view>
+      <view class="stat-divider"></view>
+      <view class="stat-item">
+        <text class="stat-value">{{basicStats.total_study_time}}</text>
+        <text class="stat-label">学习时长(分)</text>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 学习趋势图 -->
+  <view class="chart-section">
+    <view class="section-header">
+      <text class="section-title">学习趋势</text>
+      <view class="date-selector">
+        <text class="{{selectedDays === 7 ? 'active' : ''}}" bindtap="changeDays" data-days="7">7天</text>
+        <text class="{{selectedDays === 30 ? 'active' : ''}}" bindtap="changeDays" data-days="30">30天</text>
+      </view>
+    </view>
+    <ec-canvas id="practice-chart" canvas-id="practice-chart" ec="{{practiceChart}}"></ec-canvas>
+  </view>
+  
+  <!-- 分类掌握情况 -->
+  <view class="category-section">
+    <view class="section-header">
+      <text class="section-title">分类掌握情况</text>
+    </view>
+    <view class="category-list">
+      <view class="category-item" wx:for="{{categoryPerformance}}" wx:key="category">
+        <view class="category-header">
+          <text class="category-name">{{item.category}}</text>
+          <text class="category-accuracy" style="color: {{item.accuracy >= 80 ? '#67C23A' : item.accuracy >= 60 ? '#E6A23C' : '#F56C6C'}}">
+            {{item.accuracy}}%
+          </text>
+        </view>
+        <view class="category-progress">
+          <view class="progress-bar">
+            <view class="progress-fill" 
+                  style="width: {{item.accuracy}}%; background-color: {{item.accuracy >= 80 ? '#67C23A' : item.accuracy >= 60 ? '#E6A23C' : '#F56C6C'}}">
+            </view>
+          </view>
+        </view>
+        <view class="category-stats">
+          <text class="category-stat">已练 {{item.total}} 题</text>
+          <text class="category-stat">正确 {{item.correct}} 题</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 快捷入口 -->
+  <view class="quick-actions">
+    <view class="section-header">
+      <text class="section-title">快捷入口</text>
+    </view>
+    <view class="action-grid">
+      <view class="action-item" bindtap="navigateTo" data-url="/pages/question/practice">
+        <view class="action-icon" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+          <image src="/images/icon-practice.png" mode="aspectFit"></image>
+        </view>
+        <text class="action-label">继续练习</text>
+      </view>
+      
+      <view class="action-item" bindtap="navigateTo" data-url="/pages/exam/list">
+        <view class="action-icon" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+          <image src="/images/icon-exam.png" mode="aspectFit"></image>
+        </view>
+        <text class="action-label">模拟考试</text>
+      </view>
+      
+      <view class="action-item" bindtap="navigateTo" data-url="/pages/wrong-book/wrong-book">
+        <view class="action-icon" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+          <image src="/images/icon-wrong.png" mode="aspectFit"></image>
+          <view class="badge" wx:if="{{wrongCount > 0}}">{{wrongCount}}</view>
+        </view>
+        <text class="action-label">错题本</text>
+      </view>
+      
+      <view class="action-item" bindtap="navigateTo" data-url="/pages/culture/list">
+        <view class="action-icon" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
+          <image src="/images/icon-culture.png" mode="aspectFit"></image>
+        </view>
+        <text class="action-label">文化学习</text>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 最近活动 -->
+  <view class="activity-section">
+    <view class="section-header">
+      <text class="section-title">最近活动</text>
+    </view>
+    <view class="activity-list">
+      <view class="activity-item" wx:for="{{recentActivities}}" wx:key="question_id">
+        <view class="activity-icon {{item.is_correct ? 'correct' : 'wrong'}}">
+          <image src="{{item.is_correct ? '/images/icon-correct.png' : '/images/icon-wrong.png'}}" mode="aspectFit"></image>
+        </view>
+        <view class="activity-content">
+          <text class="activity-text">{{item.question_content}}</text>
+          <text class="activity-time">{{formatTime(item.created_at)}}</text>
+        </view>
+      </view>
+      
+      <view class="empty-activity" wx:if="{{recentActivities.length === 0}}">
+        <image src="/images/empty.png" mode="aspectFit"></image>
+        <text>暂无练习记录</text>
+      </view>
+    </view>
+  </view>
+</view>

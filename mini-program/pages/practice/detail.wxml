@@ -1,0 +1,108 @@
+<!-- 答题页面 -->
+<view class="practice-detail">
+  <!-- 顶部进度 -->
+  <view class="progress-header">
+    <text class="progress-text">第{{currentIndex + 1}}题 / 共{{total}}题</text>
+    <text class="level-badge">HSK{{question.level}}</text>
+  </view>
+
+  <!-- Loading -->
+  <view class="loading-container" wx:if="{{loading}}">
+    <view class="loading-spinner"></view>
+    <text class="loading-text">加载中...</text>
+  </view>
+
+  <!-- 题目内容 -->
+  <view class="question-container" wx:else>
+    <!-- 题目类型标签 -->
+    <view class="type-tag">{{question.type_display || question.type}}</view>
+
+    <!-- 音频播放器 -->
+    <view class="audio-section" wx:if="{{question.audio_url}}">
+      <view class="audio-player">
+        <view class="audio-icon" bindtap="toggleAudio">
+          <text>{{isPlaying ? '⏸️' : '▶️'}}</text>
+        </view>
+        <view class="audio-info">
+          <text class="audio-title">点击播放音频</text>
+          <text class="audio-duration">{{question.audio_duration}}秒</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 题目图片 -->
+    <view class="question-image" wx:if="{{question.image_url}}">
+      <image src="{{question.image_url}}" mode="aspectFit" bindtap="previewImage"></image>
+    </view>
+
+    <!-- 题目内容 -->
+    <view class="question-content">
+      <text class="content-text">{{question.content}}</text>
+    </view>
+
+    <!-- 选项列表 -->
+    <view class="options-list" wx:if="{{options.length > 0}}">
+      <view 
+        class="option-item {{(item.isImage && userAnswer === item.letter) || (!item.isImage && userAnswer === item.value) ? 'selected' : ''}} {{item.isImage ? 'has-image' : ''}}" 
+        wx:for="{{options}}" 
+        wx:key="index"
+        bindtap="selectOption"
+        data-value="{{item.value}}"
+        data-letter="{{item.letter}}"
+        data-index="{{index}}"
+      >
+        <view class="option-label">{{item.letter}}</view>
+        <!-- 如果是图片URL，显示图片 -->
+        <image wx:if="{{item.isImage}}" class="option-image" src="{{item.value}}" mode="aspectFit" lazy-load></image>
+        <!-- 否则显示文字 -->
+        <text wx:else class="option-text">{{item.value}}</text>
+        <view class="option-check" wx:if="{{(item.isImage && userAnswer === item.letter) || (!item.isImage && userAnswer === item.value)}}">✓</view>
+      </view>
+    </view>
+
+    <!-- 输入框（用于填空题、写作题等） -->
+    <view class="answer-input-section" wx:if="{{options.length === 0 && !submitted}}">
+      <textarea 
+        class="answer-input" 
+        placeholder="请输入您的答案..."
+        value="{{userAnswer}}"
+        bindinput="onAnswerInput"
+        maxlength="500"
+        auto-height
+        show-confirm-bar="{{false}}"
+      />
+      <view class="input-hint">
+        <text class="char-count">{{userAnswer ? userAnswer.length : 0}}/500</text>
+      </view>
+    </view>
+
+    <!-- 答案区域（提交后显示） -->
+    <view class="answer-section" wx:if="{{submitted}}">
+      <view class="answer-card {{isCorrect ? 'correct' : 'wrong'}}">
+        <view class="answer-header">
+          <text class="answer-icon">{{isCorrect ? '✓' : '✗'}}</text>
+          <text class="answer-label">{{isCorrect ? '回答正确' : '回答错误'}}</text>
+        </view>
+        <view class="answer-detail" wx:if="{{options.length === 0 && userAnswer}}">
+          <text class="answer-text">您的答案：{{userAnswer}}</text>
+        </view>
+        <view class="answer-detail">
+          <text class="answer-text">正确答案：{{question.answer}}</text>
+        </view>
+        <view class="explanation" wx:if="{{question.explanation}}">
+          <text class="explanation-label">解析：</text>
+          <text class="explanation-text">{{question.explanation}}</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 操作按钮 -->
+    <view class="action-buttons">
+      <button class="btn btn-secondary" wx:if="{{currentIndex > 0}}" bindtap="prevQuestion">上一题</button>
+      <button class="btn btn-primary" wx:if="{{!submitted}}" bindtap="submitAnswer">提交答案</button>
+      <button class="btn btn-primary" wx:else bindtap="nextQuestion">
+        {{currentIndex < total - 1 ? '下一题' : '完成练习'}}
+      </button>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,29 @@
+.language-switcher {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12rpx 24rpx;
+  background: linear-gradient(135deg, #5B9FD7 0%, #4A8BC2 100%);
+  border-radius: 28rpx;
+  box-shadow: 0 4rpx 12rpx rgba(91, 159, 215, 0.3);
+  min-width: 100rpx;
+  transition: all 0.3s ease;
+}
+
+.language-switcher:active {
+  transform: scale(0.95);
+  box-shadow: 0 2rpx 8rpx rgba(91, 159, 215, 0.4);
+}
+
+.language-icon {
+  font-size: 30rpx;
+  margin-right: 8rpx;
+  filter: grayscale(1) brightness(10);
+}
+
+.language-text {
+  font-size: 24rpx;
+  color: #FFFFFF;
+  font-weight: 700;
+  letter-spacing: 1rpx;
+}

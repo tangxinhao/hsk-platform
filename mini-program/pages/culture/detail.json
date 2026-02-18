@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "Cultural Content",
+  "usingComponents": {
+    "language-switcher": "/components/language-switcher/language-switcher"
+  }
+}

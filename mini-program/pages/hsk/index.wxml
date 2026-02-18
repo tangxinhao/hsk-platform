@@ -1,0 +1,13 @@
+<view class="container">
+  <van-cell-group>
+    <van-cell title="听力练习" is-link url="/pages/hsk/practice?type=listening" />
+    <van-cell title="汉字识别" is-link url="/pages/hsk/practice?type=character" />
+    <van-cell title="答题记录" is-link url="/pages/hsk/record" />
+    <van-cell title="错题本" is-link url="/pages/hsk/wrongbook" />
+  </van-cell-group>
+</view>
+
+<view>HSK练习页</view>
+<view wx:for="{{questions}}" wx:key="id">
+  <text>{{item.title}}</text>
+</view> 

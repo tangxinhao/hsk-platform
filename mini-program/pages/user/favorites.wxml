@@ -1,0 +1,6 @@
+<!-- 收藏夹 - 功能开发中（简洁版） -->
+<view class="simple-dev-page">
+  <text class="simple-title">收藏功能开发中</text>
+  <text class="simple-text">后续会支持云端同步你的收藏题目。</text>
+  <button class="simple-btn" bindtap="gotoPractice">去做题</button>
+</view>

@@ -1,0 +1,8 @@
+<view class="container">
+  <view class="title">院校对比</view>
+  <van-list>
+    <block wx:for="{{compareList}}" wx:key="id">
+      <van-cell title="{{item.name}}" label="{{item.region}} | 排名:{{item.ranking}} | 专业:{{item.majors}}" />
+    </block>
+  </van-list>
+</view> 

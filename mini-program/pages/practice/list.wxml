@@ -1,0 +1,61 @@
+<!-- 题目列表页 -->
+<view class="question-list-page">
+  <!-- 顶部筛选 -->
+  <view class="filter-bar">
+    <picker bindchange="onTypeChange" range="{{types}}" range-key="label" value="{{typeIndex}}">
+      <view class="filter-item">
+        <text>{{selectedType || '全部类型'}}</text>
+        <text class="dropdown">▼</text>
+      </view>
+    </picker>
+  </view>
+
+  <!-- Loading状态 -->
+  <view class="loading-container" wx:if="{{loading}}">
+    <view class="loading-spinner"></view>
+    <text class="loading-text">加载中...</text>
+  </view>
+
+  <!-- 空状态 -->
+  <view class="empty-container" wx:elif="{{questions.length === 0}}">
+    <text class="empty-icon">📝</text>
+    <text class="empty-text">暂无题目</text>
+  </view>
+
+  <!-- 题目列表 -->
+  <view class="question-list" wx:else>
+    <view 
+      class="question-item" 
+      wx:for="{{questions}}" 
+      wx:key="id"
+      bindtap="goToQuestion"
+      data-id="{{item.id}}"
+      data-index="{{index}}"
+    >
+      <view class="question-header">
+        <text class="question-num">{{index + 1}}</text>
+        <view class="question-meta">
+          <text class="question-type">{{item.type_display || item.type}}</text>
+          <text class="question-level">HSK{{item.level}}</text>
+        </view>
+      </view>
+      
+      <text class="question-content">{{item.content}}</text>
+      
+      <view class="question-footer">
+        <view class="question-tags">
+          <text class="tag" wx:if="{{item.audio_url}}">🎵音频</text>
+          <text class="tag" wx:if="{{item.image_url}}">🖼️图片</text>
+        </view>
+        <text class="question-status {{item.done ? 'done' : ''}}">
+          {{item.done ? '✓已完成' : '未做'}}
+        </text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 分页加载 -->
+  <view class="load-more" wx:if="{{hasMore && !loading}}">
+    <text bindtap="loadMore">加载更多...</text>
+  </view>
+</view>

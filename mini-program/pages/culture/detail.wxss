@@ -1,0 +1,305 @@
+.container {
+  background: #f7f8fa;
+  min-height: 100vh;
+  padding-bottom: 160rpx;
+}
+
+/* 加载和错误状态 */
+.loading-wrapper,
+.error-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 200rpx 40rpx;
+}
+
+.error-wrapper van-button {
+  margin-top: 40rpx;
+}
+
+/* 封面图片 */
+.cover {
+  width: 100%;
+  height: 400rpx;
+  object-fit: cover;
+  display: block;
+}
+
+/* 头部信息 */
+.header-section {
+  background: #fff;
+  padding: 32rpx;
+  margin-bottom: 20rpx;
+}
+
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.header-content-wrapper {
+  flex: 1;
+}
+
+.detail-lang-btn {
+  flex-shrink: 0;
+}
+
+.title {
+  font-size: 44rpx;
+  font-weight: bold;
+  color: #333;
+  line-height: 1.4;
+  margin-bottom: 16rpx;
+}
+
+.subtitle {
+  font-size: 28rpx;
+  color: #666;
+  margin-bottom: 20rpx;
+  font-style: italic;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  font-size: 26rpx;
+  color: #999;
+}
+
+.meta-item {
+  padding: 0 8rpx;
+}
+
+.meta-divider {
+  margin: 0 8rpx;
+}
+
+/* 菜系详情 */
+.cuisine-detail {
+  background: #fff;
+}
+
+/* 标签导航 */
+.section-tabs {
+  display: flex;
+  background: #fff;
+  padding: 0 32rpx;
+  border-bottom: 2rpx solid #f0f0f0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.tab-item {
+  flex: 1;
+  text-align: center;
+  padding: 24rpx 16rpx;
+  font-size: 28rpx;
+  color: #666;
+  position: relative;
+  transition: all 0.3s;
+}
+
+.tab-item.active {
+  color: #5B9FD7;
+  font-weight: bold;
+}
+
+.tab-item.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60rpx;
+  height: 6rpx;
+  background: #5B9FD7;
+  border-radius: 3rpx;
+}
+
+/* 内容区块 */
+.content-section {
+  padding: 32rpx;
+  min-height: 500rpx;
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 24rpx;
+  padding-bottom: 16rpx;
+  border-bottom: 2rpx solid #f0f0f0;
+}
+
+.section-title .icon {
+  font-size: 36rpx;
+  margin-right: 12rpx;
+}
+
+.section-content {
+  font-size: 28rpx;
+  line-height: 1.8;
+  color: #666;
+}
+
+/* 简介部分 */
+.description {
+  display: block;
+  margin-bottom: 24rpx;
+  line-height: 2;
+}
+
+.info-item {
+  background: #f7f8fa;
+  padding: 20rpx 24rpx;
+  border-radius: 12rpx;
+  margin-top: 16rpx;
+}
+
+.info-item .label {
+  color: #333;
+  font-weight: bold;
+}
+
+.info-item .value {
+  color: #666;
+}
+
+/* 特点列表 */
+.characteristic-item {
+  display: flex;
+  padding: 16rpx 0;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.characteristic-item:last-child {
+  border-bottom: none;
+}
+
+.characteristic-item .bullet {
+  color: #5B9FD7;
+  font-size: 32rpx;
+  margin-right: 16rpx;
+  font-weight: bold;
+}
+
+.characteristic-item .text {
+  flex: 1;
+  line-height: 1.6;
+}
+
+/* 名菜卡片 */
+.dish-card {
+  background: linear-gradient(135deg, #5B9FD7 0%, #4A8BC2 100%);
+  padding: 24rpx;
+  border-radius: 16rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 4rpx 12rpx rgba(91, 159, 215, 0.3);
+}
+
+.dish-card:last-child {
+  margin-bottom: 0;
+}
+
+.dish-name {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 12rpx;
+}
+
+.dish-desc {
+  font-size: 26rpx;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+}
+
+/* 文化部分 */
+.culture-text {
+  display: block;
+  background: #fffbf0;
+  padding: 24rpx;
+  border-left: 6rpx solid #ff976a;
+  border-radius: 8rpx;
+  line-height: 2;
+}
+
+/* 小贴士 */
+.tips-box {
+  background: linear-gradient(135deg, #5B9FD7 0%, #4A8BC2 100%);
+  padding: 24rpx;
+  border-radius: 16rpx;
+  box-shadow: 0 4rpx 12rpx rgba(91, 159, 215, 0.3);
+}
+
+.tips-text {
+  display: block;
+  color: #fff;
+  line-height: 2;
+}
+
+/* 普通文章内容 */
+.article-content {
+  background: #fff;
+  padding: 32rpx;
+  margin: 20rpx 0;
+  min-height: 400rpx;
+}
+
+/* 底部操作栏 */
+.action-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border-top: 1rpx solid #f0f0f0;
+  padding: 20rpx 32rpx;
+  padding-bottom: calc(20rpx + env(safe-area-inset-bottom));
+  box-shadow: 0 -4rpx 12rpx rgba(0, 0, 0, 0.05);
+  z-index: 999;
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.action-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.share-btn {
+  line-height: 1;
+  padding: 0;
+  margin: 0;
+}
+
+.share-btn::after {
+  border: none;
+}
+
+.action-text {
+  font-size: 24rpx;
+  color: #666;
+  margin-top: 8rpx;
+}
+
+.action-text.active {
+  color: #5B9FD7;
+  font-weight: bold;
+} 

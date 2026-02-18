@@ -1,0 +1,153 @@
+<!-- HSK练习页面 -->
+<view class="practice-container">
+  <!-- 加载状态 -->
+  <view class="loading-container" wx:if="{{loading}}">
+    <view class="loading-icon"></view>
+    <text class="loading-text">正在准备练习题...</text>
+  </view>
+
+  <!-- 练习内容 -->
+  <block wx:elif="{{!completed}}">
+    <!-- 顶部进度条 -->
+    <view class="progress-header">
+      <progress class="progress-bar" percent="{{(currentIndex + 1) / questions.length * 100}}" stroke-width="3" activeColor="#e74c3c" backgroundColor="#f0f0f0" />
+      <text class="progress-text">{{currentIndex + 1}}/{{questions.length}}</text>
+    </view>
+
+    <!-- 题目类型 -->
+    <view class="question-type">
+      <text class="type-tag">{{questions[currentIndex].type}}</text>
+    </view>
+
+    <!-- 题目内容 -->
+    <view class="question-content">
+      <!-- 听力题 -->
+      <block wx:if="{{questions[currentIndex].type === '听力题'}}">
+        <view class="audio-container">
+          <image class="audio-icon {{isPlaying ? 'playing' : ''}}" src="../../images/audio-icon.png" bindtap="playAudio"></image>
+          <text class="audio-text">{{isPlaying ? '播放中...' : '点击播放音频'}}</text>
+        </view>
+        <text class="question-text">{{questions[currentIndex].question}}</text>
+      </block>
+
+      <!-- 阅读题 -->
+      <block wx:elif="{{questions[currentIndex].type === '阅读题'}}">
+        <view class="reading-passage">
+          <text class="passage-text">{{questions[currentIndex].passage}}</text>
+        </view>
+        <text class="question-text">{{questions[currentIndex].question}}</text>
+      </block>
+
+      <!-- 词汇题 -->
+      <block wx:else>
+        <text class="question-text">{{questions[currentIndex].question}}</text>
+        <view wx:if="{{questions[currentIndex].image}}" class="question-image-container">
+          <image class="question-image" src="{{questions[currentIndex].image}}" mode="aspectFit"></image>
+        </view>
+      </block>
+
+      <!-- 拼音提示 -->
+      <view wx:if="{{questions[currentIndex].pinyin}}" class="pinyin-hint">
+        <text>{{questions[currentIndex].pinyin}}</text>
+      </view>
+    </view>
+
+    <!-- 选项列表 -->
+    <view class="options-container">
+      <block wx:if="{{questions[currentIndex].type === '填空题'}}">
+        <input class="fill-input" placeholder="请输入答案" value="{{userAnswer}}" bindinput="onInputAnswer" />
+      </block>
+      <block wx:else>
+        <view 
+          class="option-item {{userAnswer === index ? (showResult ? (item.correct ? 'correct' : 'wrong') : 'selected') : ''}} {{showResult && item.correct ? 'correct' : ''}}"
+          wx:for="{{questions[currentIndex].options}}" 
+          wx:key="index"
+          bindtap="selectOption"
+          data-index="{{index}}"
+        >
+          <text class="option-letter">{{optionLetters[index]}}</text>
+          <text class="option-text">{{item.text}}</text>
+        </view>
+      </block>
+    </view>
+
+    <!-- 操作按钮 -->
+    <view class="action-buttons">
+      <button 
+        class="action-button check-button" 
+        bindtap="checkAnswer" 
+        wx:if="{{!showResult}}"
+        disabled="{{userAnswer === null}}"
+      >检查答案</button>
+      
+      <button 
+        class="action-button next-button" 
+        bindtap="nextQuestion" 
+        wx:if="{{showResult}}"
+      >{{currentIndex < questions.length - 1 ? '下一题' : '完成练习'}}</button>
+    </view>
+
+    <!-- 答案解析 -->
+    <view class="explanation-container" wx:if="{{showResult}}">
+      <view class="result-status {{questions[currentIndex].options[userAnswer].correct ? 'correct-status' : 'wrong-status'}}">
+        <text>{{questions[currentIndex].options[userAnswer].correct ? '回答正确' : '回答错误'}}</text>
+      </view>
+      
+      <view class="explanation-content">
+        <text class="explanation-title">答案解析：</text>
+        <text class="explanation-text">{{questions[currentIndex].explanation}}</text>
+      </view>
+      
+      <view class="example-container" wx:if="{{questions[currentIndex].example}}">
+        <text class="example-title">例句：</text>
+        <text class="example-text">{{questions[currentIndex].example}}</text>
+        <text class="example-pinyin">{{questions[currentIndex].examplePinyin}}</text>
+        <text class="example-translation">{{questions[currentIndex].exampleTranslation}}</text>
+      </view>
+    </view>
+  </block>
+
+  <!-- 完成页面 -->
+  <view class="completion-container" wx:if="{{completed}}">
+    <view class="completion-header">
+      <image class="completion-icon" src="../../images/completion-icon.png" mode="aspectFit"></image>
+      <text class="completion-title">练习完成!</text>
+    </view>
+    
+    <view class="stats-card">
+      <view class="stats-item">
+        <text class="stats-value">{{stats.totalQuestions}}</text>
+        <text class="stats-label">总题数</text>
+      </view>
+      <view class="stats-divider"></view>
+      <view class="stats-item">
+        <text class="stats-value">{{stats.correctCount}}</text>
+        <text class="stats-label">正确数</text>
+      </view>
+      <view class="stats-divider"></view>
+      <view class="stats-item">
+        <text class="stats-value">{{stats.accuracy}}%</text>
+        <text class="stats-label">正确率</text>
+      </view>
+    </view>
+    
+    <view class="completion-buttons">
+      <button class="completion-button review-button" bindtap="reviewWrongAnswers" disabled="{{stats.wrongCount === 0}}">
+        复习错题 ({{stats.wrongCount}})
+      </button>
+      <button class="completion-button retry-button" bindtap="retryPractice">
+        重新练习
+      </button>
+      <button class="completion-button back-button" bindtap="backToDetail">
+        返回HSK {{level}}
+      </button>
+    </view>
+  </view>
+
+  <!-- 错误状态 -->
+  <view class="error-container" wx:if="{{error}}">
+    <image class="error-icon" src="../../images/error-icon.png" mode="aspectFit"></image>
+    <text class="error-text">{{errorMsg || '加载失败，请重试'}}</text>
+    <button class="retry-button" bindtap="loadQuestions">重新加载</button>
+  </view>
+</view> 

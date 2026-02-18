@@ -1,0 +1,118 @@
+<!--pages/user/user.wxml - 优化版-->
+<view class="user-page">
+  <!-- 顶部语言切换 -->
+  <view class="page-top">
+    <language-switcher class="page-lang-btn"></language-switcher>
+  </view>
+  
+  <!-- 用户信息卡片 -->
+  <view class="user-card">
+    <view class="user-avatar-wrap">
+      <image 
+        class="user-avatar" 
+        src="{{hasUserInfo ? (userInfo.avatarUrl || '../../images/tab-user.png') : '../../images/tab-user.png'}}" 
+        mode="aspectFill"
+      ></image>
+    </view>
+    
+    <view class="user-info" wx:if="{{hasUserInfo}}">
+      <text class="user-name">{{userInfo.username || userInfo.nickName || (currentLang === 'zh' ? '用户' : 'User')}}</text>
+      <text class="user-id">ID: {{userInfo.id || notLoginText}}</text>
+    </view>
+    
+    <view class="user-info" wx:else>
+      <text class="user-name">{{notLoginText}}</text>
+      <text class="user-tip">{{loginTipText}}</text>
+    </view>
+    
+    <!-- 登录/退出按钮 -->
+    <button 
+      class="{{hasUserInfo ? 'logout-btn' : 'login-btn'}}"
+      bindtap="{{hasUserInfo ? 'handleLogout' : 'handleLogin'}}"
+    >
+      {{hasUserInfo ? logoutText : loginText}}
+    </button>
+  </view>
+  
+  <!-- 学习统计 -->
+  <view class="stats-grid">
+    <view class="stat-item">
+      <text class="stat-value">{{studyStats.totalDays}}</text>
+      <text class="stat-label">{{studyDaysText}}</text>
+    </view>
+    <view class="stat-item">
+      <text class="stat-value">{{studyStats.totalQuestions}}</text>
+      <text class="stat-label">{{completedQuestionsText}}</text>
+    </view>
+    <view class="stat-item">
+      <text class="stat-value">{{studyStats.correctRate}}%</text>
+      <text class="stat-label">{{correctRateText}}</text>
+    </view>
+  </view>
+  
+  <!-- 功能菜单 -->
+  <view class="menu-section">
+    <text class="section-title">{{studyRecordText}}</text>
+    <view class="menu-list">
+      <view 
+        class="menu-item" 
+        bindtap="gotoPage"
+        data-url="/pages/user/progress"
+      >
+        <view class="menu-left">
+          <text class="menu-icon">📊</text>
+          <text class="menu-text">{{progressText}}</text>
+        </view>
+        <text class="menu-arrow">›</text>
+      </view>
+      
+      <view 
+        class="menu-item" 
+        bindtap="gotoPage"
+        data-url="/pages/user/wrong"
+      >
+        <view class="menu-left">
+          <text class="menu-icon">❌</text>
+          <text class="menu-text">{{wrongBookText}}</text>
+          <text class="menu-badge" wx:if="{{wrongCount > 0}}">{{wrongCount}}</text>
+        </view>
+        <text class="menu-arrow">›</text>
+      </view>
+      
+      <view 
+        class="menu-item" 
+        bindtap="gotoPage"
+        data-url="/pages/user/favorites"
+      >
+        <view class="menu-left">
+          <text class="menu-icon">⭐</text>
+          <text class="menu-text">{{favoritesText}}</text>
+          <text class="menu-badge" wx:if="{{favoriteCount > 0}}">{{favoriteCount}}</text>
+        </view>
+        <text class="menu-arrow">›</text>
+      </view>
+    </view>
+  </view>
+  
+  <view class="menu-section">
+    <text class="section-title">{{examRecordText}}</text>
+    <view class="menu-list">
+      <view 
+        class="menu-item" 
+        bindtap="gotoPage"
+        data-url="/pages/exam/home"
+      >
+        <view class="menu-left">
+          <text class="menu-icon">📝</text>
+          <text class="menu-text">{{examHistoryText}}</text>
+        </view>
+        <text class="menu-arrow">›</text>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 版本信息 -->
+  <view class="version-info">
+    <text>{{versionText}} v1.0.0</text>
+  </view>
+</view>

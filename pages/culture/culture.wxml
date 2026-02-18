@@ -1,0 +1,52 @@
+<!--pages/culture/culture.wxml-->
+<view class="container">
+  <!-- 顶部标题 -->
+  <view class="header">
+    <text class="title">中国文化</text>
+  </view>
+  
+  <!-- 分类标签栏 -->
+  <scroll-view scroll-x="true" class="category-tabs" enhanced show-scrollbar="{{false}}">
+    <view 
+      class="category-tab {{currentTab === index ? 'active' : ''}}"
+      wx:for="{{categoryList}}"
+      wx:key="id"
+      bindtap="changeTab"
+      data-index="{{index}}"
+    >
+      <text class="tab-name">{{item.name}}</text>
+      <view class="level-tag {{item.level === '初级' ? 'beginner' : (item.level === '中级' ? 'intermediate' : 'advanced')}}">
+        {{item.level}}
+      </view>
+    </view>
+  </scroll-view>
+  
+  <!-- 内容列表 -->
+  <view class="content-list" wx:if="{{!loading && contentList.length > 0}}">
+    <view class="content-item card" wx:for="{{contentList}}" wx:key="id" bindtap="viewDetail" data-id="{{item.id}}">
+      <image src="{{item.coverImage}}" mode="aspectFill" class="content-image"></image>
+      <view class="content-info">
+        <text class="content-title text-ellipsis">{{item.title}}</text>
+        <text class="content-summary">{{item.summary}}</text>
+        <view class="content-footer">
+          <view class="view-count">
+            <image src="/images/icons/eye.png" class="icon-small"></image>
+            <text>{{item.viewCount}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 空状态 -->
+  <view class="empty-state" wx:if="{{!loading && contentList.length === 0}}">
+    <image src="/images/empty.png" class="empty-image"></image>
+    <text>暂无内容</text>
+  </view>
+  
+  <!-- 加载中状态 -->
+  <view class="loading-state" wx:if="{{loading}}">
+    <view class="loading-icon"></view>
+    <text>加载中...</text>
+  </view>
+</view> 

@@ -1,0 +1,162 @@
+/* 学习进度 */
+.progress-page {
+  min-height: 100vh;
+  background: #F5F7FA;
+  padding: 30rpx;
+}
+
+.overall-stats {
+  background: linear-gradient(135deg, #5B9FD7 0%, #4A8BC2 100%);
+  border-radius: 20rpx;
+  padding: 40rpx;
+  margin-bottom: 30rpx;
+  box-shadow: 0 8rpx 24rpx rgba(91, 159, 215, 0.3);
+}
+
+.stats-title {
+  display: block;
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 24rpx;
+}
+
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20rpx;
+}
+
+.stat-box {
+  text-align: center;
+}
+
+.stat-value {
+  display: block;
+  font-size: 48rpx;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 8rpx;
+}
+
+.stat-label {
+  font-size: 24rpx;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.section-title {
+  display: block;
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #303133;
+  margin-bottom: 24rpx;
+}
+
+.level-progress {
+  background: #fff;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+}
+
+.level-item {
+  margin-bottom: 30rpx;
+}
+
+.level-item:last-child {
+  margin-bottom: 0;
+}
+
+.level-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12rpx;
+}
+
+.level-name {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #303133;
+}
+
+.level-percent {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #5B9FD7;
+}
+
+.level-bar {
+  height: 12rpx;
+  background: #F5F7FA;
+  border-radius: 6rpx;
+  overflow: hidden;
+  margin-bottom: 8rpx;
+}
+
+.level-fill {
+  height: 100%;
+  border-radius: 6rpx;
+  transition: width 0.3s;
+}
+
+.level-fill-1 { background: linear-gradient(90deg, #7CB8E8, #5B9FD7); }
+.level-fill-2 { background: linear-gradient(90deg, #5B9FD7, #4A8BC2); }
+.level-fill-3 { background: linear-gradient(90deg, #7CB8E8, #5B9FD7); }
+.level-fill-4 { background: linear-gradient(90deg, #5B9FD7, #4A8BC2); }
+.level-fill-5 { background: #909399; }
+.level-fill-6 { background: #303133; }
+
+.level-text {
+  font-size: 24rpx;
+  color: #909399;
+}
+
+.recent-activity {
+  background: #fff;
+  border-radius: 20rpx;
+  padding: 30rpx;
+}
+
+.activity-item {
+  display: flex;
+  align-items: center;
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #F0F0F0;
+}
+
+.activity-item:last-child {
+  border-bottom: none;
+}
+
+.activity-icon {
+  font-size: 40rpx;
+  margin-right: 20rpx;
+}
+
+.activity-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.activity-text {
+  font-size: 28rpx;
+  color: #303133;
+  margin-bottom: 6rpx;
+}
+
+.activity-time {
+  font-size: 24rpx;
+  color: #C0C4CC;
+}
+
+.empty-activity {
+  padding: 80rpx 0;
+  text-align: center;
+}
+
+.empty-activity .empty-text {
+  font-size: 28rpx;
+  color: #999;
+}

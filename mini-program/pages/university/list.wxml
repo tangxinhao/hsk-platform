@@ -1,0 +1,90 @@
+<!-- 高校列表页面 -->
+<view class="university-container">
+  <!-- 页面标题 -->
+  <view class="page-header">
+    <text class="header-title">高校列表</text>
+  </view>
+
+  <!-- 搜索区域 -->
+  <view class="search-area">
+    <view class="search-input-container">
+      <input class="search-input" placeholder="搜索高校名称" bindinput="onSearchInput" value="{{searchQuery}}" />
+      <view class="search-icon" bindtap="handleSearch">
+        <image src="../../images/tab-home.png" mode="aspectFit"></image>
+      </view>
+    </view>
+    
+    <!-- 筛选器 -->
+    <view class="filter-container">
+      <picker bindchange="onRegionChange" range="{{regions}}" range-key="label" value="{{regionIndex}}">
+        <view class="filter-item">
+          <text>{{selectedRegion ? selectedRegion : '地区'}}</text>
+          <image class="dropdown-icon" src="../../images/tab-home.png" mode="aspectFit"></image>
+        </view>
+      </picker>
+      
+      <picker bindchange="on985Change" range="{{options985}}" range-key="label" value="{{index985}}">
+        <view class="filter-item">
+          <text>{{selected985 ? selected985 : '985工程'}}</text>
+          <image class="dropdown-icon" src="../../images/tab-home.png" mode="aspectFit"></image>
+        </view>
+      </picker>
+      
+      <picker bindchange="on211Change" range="{{options211}}" range-key="label" value="{{index211}}">
+        <view class="filter-item">
+          <text>{{selected211 ? selected211 : '211工程'}}</text>
+          <image class="dropdown-icon" src="../../images/tab-home.png" mode="aspectFit"></image>
+        </view>
+      </picker>
+    </view>
+  </view>
+
+  <!-- 高校列表 -->
+  <view class="university-list">
+    <block wx:if="{{loading}}">
+      <view class="loading-container">
+        <image class="loading-icon" src="../../images/tab-home.png" mode="aspectFit"></image>
+        <text class="loading-text">加载中...</text>
+      </view>
+    </block>
+    
+    <block wx:elif="{{universities.length === 0}}">
+      <view class="empty-container">
+        <image class="empty-icon" src="../../images/tab-home.png" mode="aspectFit"></image>
+        <text class="empty-text">暂无高校信息</text>
+      </view>
+    </block>
+    
+    <block wx:else>
+      <view class="university-item" wx:for="{{universities}}" wx:key="id" bindtap="navigateToDetail" data-id="{{item.id}}">
+        <view class="university-info">
+          <view class="university-name-container">
+            <text class="university-name">{{item.name}}</text>
+            <view class="university-tags">
+              <text class="tag tag-985" wx:if="{{item.is985}}">985</text>
+              <text class="tag tag-211" wx:if="{{item.is211}}">211</text>
+              <text class="tag tag-double" wx:if="{{item.isDoubleFirstClass}}">双一流</text>
+            </view>
+          </view>
+          <text class="university-english">{{item.englishName}}</text>
+          <view class="university-meta">
+            <text class="university-region">{{item.region}}</text>
+            <text class="university-year">建校: {{item.establishYear}}年</text>
+            <text class="university-ranking">排名: {{item.ranking}}</text>
+          </view>
+        </view>
+        <view class="university-arrow">
+          <image src="../../images/tab-home.png" mode="aspectFit"></image>
+        </view>
+      </view>
+      
+      <!-- 加载更多 -->
+      <view class="load-more" wx:if="{{hasMoreData}}" bindtap="loadMore">
+        <text>加载更多</text>
+      </view>
+      <view class="load-more-end" wx:else>
+        <text>没有更多数据了</text>
+      </view>
+    </block>
+  </view>
+</view> 

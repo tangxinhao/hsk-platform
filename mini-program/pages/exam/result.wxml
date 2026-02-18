@@ -1,0 +1,33 @@
+<!-- 考试结果页 -->
+<view class="result-page">
+  <view class="result-header">
+    <text class="result-title">考试完成</text>
+    <text class="result-emoji">{{scoreEmoji}}</text>
+  </view>
+
+  <view class="score-card">
+    <text class="score-label">总分</text>
+    <text class="score-value">{{result.score}}</text>
+    <text class="score-total">/100分</text>
+  </view>
+
+  <view class="stats-card">
+    <view class="stat-row">
+      <text class="stat-label">正确题数</text>
+      <text class="stat-value">{{result.correct}}/{{result.total}}</text>
+    </view>
+    <view class="stat-row">
+      <text class="stat-label">用时</text>
+      <text class="stat-value">{{result.duration}}分钟</text>
+    </view>
+    <view class="stat-row">
+      <text class="stat-label">等级</text>
+      <text class="stat-value">HSK {{result.level}}级</text>
+    </view>
+  </view>
+
+  <view class="action-buttons">
+    <button class="btn btn-secondary" bindtap="backHome">返回首页</button>
+    <button class="btn btn-primary" bindtap="retryExam">再考一次</button>
+  </view>
+</view>

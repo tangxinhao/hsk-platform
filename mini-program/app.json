@@ -1,0 +1,62 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/practice/home",
+    "pages/practice/list",
+    "pages/practice/detail",
+    "pages/exam/home",
+    "pages/exam/exam",
+    "pages/exam/result",
+    "pages/culture/index",
+    "pages/culture/list",
+    "pages/culture/detail",
+    "pages/user/user",
+    "pages/user/login",
+    "pages/user/register",
+    "pages/user/progress",
+    "pages/user/wrong",
+    "pages/user/favorites"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#5B9FD7",
+    "navigationBarTitleText": "HSK学习助手",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#F5F7FA"
+  },
+  "tabBar": {
+    "color": "#909399",
+    "selectedColor": "#5B9FD7",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/tab-home.png",
+        "selectedIconPath": "images/tab-home-active.png"
+      },
+      {
+        "pagePath": "pages/practice/home",
+        "text": "练习",
+        "iconPath": "images/tab-hsk.png",
+        "selectedIconPath": "images/tab-hsk-active.png"
+      },
+      {
+        "pagePath": "pages/culture/index",
+        "text": "文化",
+        "iconPath": "images/tab-culture.png",
+        "selectedIconPath": "images/tab-culture-active.png"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "text": "我的",
+        "iconPath": "images/tab-user.png",
+        "selectedIconPath": "images/tab-user-active.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}

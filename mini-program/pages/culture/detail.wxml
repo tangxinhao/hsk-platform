@@ -1,0 +1,166 @@
+<view class="container">
+  <!-- 加载状态 -->
+  <view wx:if="{{loading}}" class="loading-wrapper">
+    <van-loading size="40rpx" vertical>加载中...</van-loading>
+  </view>
+
+  <!-- 错误状态 -->
+  <view wx:elif="{{error}}" class="error-wrapper">
+    <van-empty description="{{errorMsg}}" />
+    <van-button type="primary" size="small" bind:tap="onPullDownRefresh">重新加载</van-button>
+  </view>
+
+  <!-- 内容展示 -->
+  <view wx:else>
+    <!-- 封面图片 -->
+    <image 
+      wx:if="{{content.cover_image}}" 
+      class="cover" 
+      src="{{content.cover_image}}" 
+      mode="aspectFill"
+      bind:tap="previewImage"
+      data-url="{{content.cover_image}}"
+    />
+
+    <!-- 标题和基本信息 -->
+    <view class="header-section">
+      <view class="header-top">
+        <view class="header-content-wrapper">
+          <view class="title">{{displayTitle}}</view>
+          <view class="subtitle" wx:if="{{displaySubtitle}}">
+            {{displaySubtitle}}
+          </view>
+        </view>
+        <language-switcher class="detail-lang-btn"></language-switcher>
+      </view>
+      <view class="meta">
+        <text class="meta-item">{{displayCategory}}</text>
+        <text class="meta-divider">|</text>
+        <text class="meta-item">{{displayLevel}}</text>
+        <text class="meta-divider" wx:if="{{content.view_count}}">|</text>
+        <text class="meta-item" wx:if="{{content.view_count}}">{{viewText}} {{content.view_count}}</text>
+      </view>
+    </view>
+
+    <!-- 如果是八大菜系，显示详细信息 -->
+    <view wx:if="{{isCuisine && cuisineDetail}}" class="cuisine-detail">
+      
+      <!-- 导航标签 -->
+      <view class="section-tabs">
+        <view 
+          wx:for="{{sections}}" 
+          wx:key="index"
+          class="tab-item {{activeSection === index ? 'active' : ''}}"
+          bind:tap="switchSection"
+          data-index="{{index}}"
+        >
+          {{item}}
+        </view>
+      </view>
+
+      <!-- 简介 -->
+      <view wx:if="{{activeSection === 0}}" class="content-section">
+        <view class="section-title">
+          <text class="icon">📖</text>
+          <text>简介</text>
+        </view>
+        <view class="section-content">
+          <text class="description">{{cuisineDetail.description}}</text>
+          <view class="info-item">
+            <text class="label">发源地：</text>
+            <text class="value">{{cuisineDetail.origin}}</text>
+          </view>
+        </view>
+      </view>
+
+      <!-- 特点 -->
+      <view wx:if="{{activeSection === 1}}" class="content-section">
+        <view class="section-title">
+          <text class="icon">⭐</text>
+          <text>菜系特点</text>
+        </view>
+        <view class="section-content">
+          <view 
+            wx:for="{{cuisineDetail.characteristics}}" 
+            wx:key="index"
+            class="characteristic-item"
+          >
+            <text class="bullet">•</text>
+            <text class="text">{{item}}</text>
+          </view>
+        </view>
+      </view>
+
+      <!-- 名菜 -->
+      <view wx:if="{{activeSection === 2}}" class="content-section">
+        <view class="section-title">
+          <text class="icon">🍽️</text>
+          <text>代表名菜</text>
+        </view>
+        <view class="section-content">
+          <view 
+            wx:for="{{cuisineDetail.famous_dishes}}" 
+            wx:key="name"
+            class="dish-card"
+          >
+            <view class="dish-name">{{item.name}}</view>
+            <view class="dish-desc">{{item.desc}}</view>
+          </view>
+        </view>
+      </view>
+
+      <!-- 文化 -->
+      <view wx:if="{{activeSection === 3}}" class="content-section">
+        <view class="section-title">
+          <text class="icon">🏛️</text>
+          <text>文化内涵</text>
+        </view>
+        <view class="section-content">
+          <text class="culture-text">{{cuisineDetail.culture}}</text>
+        </view>
+      </view>
+
+      <!-- 小贴士 -->
+      <view wx:if="{{activeSection === 4}}" class="content-section">
+        <view class="section-title">
+          <text class="icon">💡</text>
+          <text>品尝小贴士</text>
+        </view>
+        <view class="section-content">
+          <view class="tips-box">
+            <text class="tips-text">{{cuisineDetail.tips}}</text>
+          </view>
+        </view>
+      </view>
+
+    </view>
+
+    <!-- 普通文章内容 -->
+    <view wx:else class="article-content">
+      <rich-text nodes="{{content.content}}"></rich-text>
+    </view>
+
+    <!-- 底部操作按钮 -->
+    <view class="action-bar">
+      <view class="action-buttons">
+        <view class="action-btn" bind:tap="toggleLike">
+          <van-icon name="{{isLiked ? 'like' : 'like-o'}}" size="48rpx" color="{{isLiked ? '#ee0a24' : '#666'}}" />
+          <text class="action-text {{isLiked ? 'active' : ''}}">
+            {{isLiked ? '已点赞' : '点赞'}}
+          </text>
+        </view>
+        <view class="action-btn" bind:tap="toggleFavorite">
+          <van-icon name="{{isFavorite ? 'star' : 'star-o'}}" size="48rpx" color="{{isFavorite ? '#ff976a' : '#666'}}" />
+          <text class="action-text {{isFavorite ? 'active' : ''}}">
+            {{isFavorite ? '已收藏' : '收藏'}}
+          </text>
+        </view>
+        <button open-type="share" class="action-btn share-btn">
+          <van-icon name="share-o" size="48rpx" color="#666" />
+          <text class="action-text">分享</text>
+        </button>
+      </view>
+    </view>
+
+  </view>
+</view> 

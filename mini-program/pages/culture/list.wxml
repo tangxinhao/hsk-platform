@@ -1,0 +1,66 @@
+<!-- 中国文化列表页面 -->
+<view class="culture-container">
+  <!-- 页面标题 -->
+  <view class="page-header">
+    <text class="header-title">{{pageTitle}}</text>
+    <language-switcher class="language-btn"></language-switcher>
+  </view>
+
+  <!-- 分类标签页 -->
+  <scroll-view scroll-x class="category-tabs" enable-flex>
+    <view 
+      class="category-tab {{currentCategory.id == category.id ? 'active' : ''}}" 
+      wx:for="{{categories}}" 
+      wx:for-item="category" 
+      wx:key="id"
+      bindtap="switchCategory"
+      data-id="{{category.id}}"
+      data-name="{{category.displayName || category.name}}"
+    >
+      {{category.displayName || category.name}}
+    </view>
+  </scroll-view>
+
+  <!-- 文化内容列表 -->
+  <view class="culture-list">
+    <block wx:if="{{loading}}">
+      <view class="loading-container">
+        <view class="loading-spinner"></view>
+        <text class="loading-text">{{loadingText}}</text>
+      </view>
+    </block>
+    
+    <block wx:elif="{{contentList.length === 0}}">
+      <view class="empty-container">
+        <text class="empty-icon">🏮</text>
+        <text class="empty-text">{{emptyText}}</text>
+      </view>
+    </block>
+    
+    <block wx:else>
+      <!-- 卡片列表 -->
+      <view class="culture-item" wx:for="{{contentList}}" wx:key="id" bindtap="navigateToDetail" data-id="{{item.id}}">
+        <image class="culture-image" src="{{item.cover_image || item.coverImage || '/images/default-culture.png'}}" mode="aspectFill" lazy-load></image>
+        <view class="culture-info">
+          <text class="culture-title">{{item.displayTitle}}</text>
+          <text class="culture-desc">{{item.displayDesc}}</text>
+          <view class="culture-meta">
+            <view class="culture-level">
+              <text class="level-icon">⭐</text>
+              <text>{{item.displayDifficulty}}</text>
+            </view>
+            <text class="culture-date">{{item.created_at || item.createdAt || ''}}</text>
+          </view>
+        </view>
+      </view>
+      
+      <!-- 加载更多 -->
+      <view class="load-more" wx:if="{{hasMoreData}}" bindtap="loadMore">
+        <text>{{loadMoreText}}</text>
+      </view>
+      <view class="load-more-end" wx:else>
+        <text>{{noMoreText}}</text>
+      </view>
+    </block>
+  </view>
+</view> 

@@ -1,0 +1,127 @@
+version: '3.8'
+
+services:
+  # MySQL数据库
+  db:
+    image: mysql:8.0
+    container_name: hsk-mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD:-your_strong_password_here}
+      # 这里的默认库名改为 hsk_schema，与备份 SQL 中的 schema 名保持一致
+      MYSQL_DATABASE: ${DB_NAME:-hsk_schema}
+      MYSQL_CHARACTER_SET_SERVER: utf8mb4
+      MYSQL_COLLATION_SERVER: utf8mb4_unicode_ci
+    ports:
+      - "127.0.0.1:3306:3306" # 只允许本地访问
+    volumes:
+      - mysql_data:/var/lib/mysql
+      # - ./database/hsk_schema.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    command: --default-authentication-plugin=mysql_native_password --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    networks:
+      - hsk-network
+    healthcheck:
+      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
+      timeout: 20s
+      retries: 10
+
+  # Django后端
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.prod
+    container_name: hsk-backend
+    restart: always
+    volumes:
+      - ./backend/media:/app/media
+      - ./backend/static:/app/static
+    expose:
+      - "8000"
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      - DJANGO_SETTINGS_MODULE=hsk_project.settings_prod
+      - DB_HOST=db
+      - DB_PORT=3306
+      # 这里的默认库名同样改为 hsk_schema
+      - DB_NAME=${DB_NAME:-hsk_schema}
+      - DB_USER=${DB_USER:-root}
+      - DB_PASSWORD=${DB_PASSWORD:-your_strong_password_here}
+      - SECRET_KEY=${SECRET_KEY:-your_django_secret_key_here}
+      - ALLOWED_HOSTS=${ALLOWED_HOSTS:-tangxinhao.cn,www.tangxinhao.cn,tangxinhao.online,www.tangxinhao.online,localhost,118.190.106.159}
+    networks:
+      - hsk-network
+
+  # 用户前台
+  frontend-user:
+    build:
+      context: ./frontend-user
+      dockerfile: Dockerfile
+      args:
+        - VITE_API_BASE_URL=${API_BASE_URL:-https://tangxinhao.online}
+    container_name: hsk-frontend-user
+    restart: always
+    expose:
+      - "80"
+    depends_on:
+      - backend
+    networks:
+      - hsk-network
+
+  # 管理后台
+  frontend-admin:
+    build:
+      context: ./frontend-admin
+      dockerfile: Dockerfile
+      args:
+        - VITE_API_BASE_URL=${API_BASE_URL:-https://tangxinhao.online}
+    container_name: hsk-frontend-admin
+    restart: always
+    expose:
+      - "80"
+    depends_on:
+      - backend
+    networks:
+      - hsk-network
+
+  # Nginx反向代理
+  nginx:
+    image: nginx:alpine
+    container_name: hsk-nginx
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/conf.d:/etc/nginx/conf.d:ro
+      - ./ssl:/etc/nginx/ssl:ro  # 阿里云 SSL 证书目录
+      - ./certbot/www:/var/www/certbot:ro
+      - ./certbot/conf:/etc/letsencrypt:ro
+      - ./backend/media:/var/www/media:ro
+      - ./backend/static:/var/www/static:ro
+    depends_on:
+      - backend
+      - frontend-user
+      - frontend-admin
+    networks:
+      - hsk-network
+
+  # SSL证书自动续期 (可选)
+  certbot:
+    image: certbot/certbot
+    container_name: hsk-certbot
+    volumes:
+      - ./certbot/www:/var/www/certbot
+      - ./certbot/conf:/etc/letsencrypt
+    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
+    networks:
+      - hsk-network
+
+networks:
+  hsk-network:
+    driver: bridge
+
+volumes:
+  mysql_data:

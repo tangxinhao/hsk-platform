@@ -1,0 +1,67 @@
+<!-- 模拟考试首页 -->
+<view class="exam-home">
+  <view class="page-title">
+    <view class="title-content">
+      <text class="title-text">{{pageTitle}}</text>
+      <text class="subtitle-text">{{pageSubtitle}}</text>
+    </view>
+    <language-switcher class="title-lang-btn"></language-switcher>
+  </view>
+
+  <!-- 考试列表 -->
+  <view class="exam-list">
+    <view 
+      class="exam-card"
+      wx:for="{{exams}}"
+      wx:key="level"
+      bindtap="startExam"
+      data-level="{{item.level}}"
+    >
+      <view class="exam-header">
+        <text class="exam-level">HSK {{item.level}}{{levelSuffix}}</text>
+        <text class="exam-emoji">{{item.emoji}}</text>
+      </view>
+      
+      <view class="exam-info">
+        <view class="info-row">
+          <text class="info-icon">📝</text>
+          <text class="info-text">{{item.questionsText}}</text>
+        </view>
+        <view class="info-row">
+          <text class="info-icon">⏰</text>
+          <text class="info-text">{{item.durationText}}</text>
+        </view>
+        <view class="info-row">
+          <text class="info-icon">🎯</text>
+          <text class="info-text">{{item.scoreText}}</text>
+        </view>
+      </view>
+
+      <view class="exam-parts">
+        <text class="part-tag" wx:for="{{item.displayParts}}" wx:key="*this" wx:for-item="part">
+          {{part}}
+        </text>
+      </view>
+
+      <button class="start-exam-btn">{{startExamText}}</button>
+    </view>
+  </view>
+
+  <!-- 考试记录 -->
+  <view class="exam-history" wx:if="{{history.length > 0}}">
+    <text class="history-title">{{historyTitle}}</text>
+    <view 
+      class="history-item"
+      wx:for="{{history}}"
+      wx:key="id"
+      bindtap="viewResult"
+      data-id="{{item.id}}"
+    >
+      <view class="history-header">
+        <text class="history-level">HSK {{item.level}}{{levelSuffix}}</text>
+        <text class="history-score">{{item.score}}{{scoreSuffix}}</text>
+      </view>
+      <text class="history-date">{{item.date}}</text>
+    </view>
+  </view>
+</view>

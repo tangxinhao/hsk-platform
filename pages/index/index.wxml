@@ -1,0 +1,99 @@
+<!--pages/index/index.wxml-->
+<view class="container">
+  <!-- 顶部用户信息 -->
+  <view class="user-info-section" wx:if="{{hasUserInfo}}">
+    <view class="greeting">
+      <text>你好，{{userInfo.nickName}}！</text>
+      <text class="welcome-text">欢迎使用HSK学习助手</text>
+    </view>
+    <image class="avatar" src="{{userInfo.avatarUrl}}"></image>
+  </view>
+  <view class="user-info-section" wx:else>
+    <view class="greeting">
+      <text>欢迎使用HSK学习助手</text>
+      <text class="welcome-text">登录获取更多个性化学习体验</text>
+    </view>
+    <button wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo" class="login-btn">登录</button>
+  </view>
+  
+  <!-- 今日目标 -->
+  <view class="today-goal-card">
+    <view class="goal-header">
+      <text class="goal-title">今日学习目标</text>
+      <text class="goal-subtitle">每日坚持，稳步提高</text>
+    </view>
+    <view class="goal-progress-container">
+      <view class="goal-progress-circle">
+        <text class="goal-percentage">{{dailyGoal.percentage}}%</text>
+        <text class="goal-time">{{dailyGoal.completed}}/{{dailyGoal.minutes}}分钟</text>
+      </view>
+      <view class="goal-bar">
+        <view class="goal-bar-inner" style="width: {{dailyGoal.percentage}}%"></view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 学习提示 -->
+  <view class="study-tip-container">
+    <text class="tip-icon">💡</text>
+    <view class="tip-content">
+      <text class="study-tip">{{studyTips[currentTip]}}</text>
+    </view>
+  </view>
+  
+  <!-- 主要功能入口 -->
+  <view class="section-header">
+    <text class="section-title">学习功能</text>
+  </view>
+  
+  <view class="entrance-section">
+    <view class="entrance-item" wx:for="{{entranceList}}" wx:key="id" bindtap="navigateTo" data-url="{{item.url}}">
+      <text class="entrance-icon">{{index + 1}}</text>
+      <text>{{item.title}}</text>
+    </view>
+  </view>
+  
+  <!-- 学习统计 -->
+  <view class="section-header">
+    <text class="section-title">学习统计</text>
+  </view>
+  
+  <view class="stats-container">
+    <view class="stat-item">
+      <text class="stat-value">{{learningStats.totalTime}}</text>
+      <text class="stat-label">学习时长(小时)</text>
+    </view>
+    <view class="stat-item">
+      <text class="stat-value">{{learningStats.daysStreak}}</text>
+      <text class="stat-label">连续学习(天)</text>
+    </view>
+    <view class="stat-item">
+      <text class="stat-value">{{learningStats.wordsLearned}}</text>
+      <text class="stat-label">已学词汇</text>
+    </view>
+    <view class="stat-item">
+      <text class="stat-value">{{learningStats.exercisesCompleted}}</text>
+      <text class="stat-label">完成练习</text>
+    </view>
+  </view>
+  
+  <!-- 最近学习 -->
+  <view class="section-header">
+    <text class="section-title">最近学习</text>
+    <text class="more-link" bindtap="viewAllLearning">查看全部</text>
+  </view>
+  
+  <view class="recent-list">
+    <view class="recent-item card" wx:for="{{recentLearning}}" wx:key="id" bindtap="navigateTo" data-url="/pages/learning/continue?id={{item.id}}">
+      <text class="recent-icon">📚</text>
+      <view class="recent-info">
+        <text class="recent-title">{{item.title}}</text>
+        <text class="recent-time">上次学习：{{item.lastTime}}</text>
+        <view class="progress-bar">
+          <view class="progress-inner" style="width: {{item.progress}}%"></view>
+        </view>
+        <text class="progress-text">完成{{item.progress}}%</text>
+      </view>
+    </view>
+  </view>
+</view> 

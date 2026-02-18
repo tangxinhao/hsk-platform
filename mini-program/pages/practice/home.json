@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "Practice",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "language-switcher": "/components/language-switcher/language-switcher"
+  }
+}

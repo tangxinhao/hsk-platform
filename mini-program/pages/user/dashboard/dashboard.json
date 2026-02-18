@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "学习Dashboard",
+  "usingComponents": {
+    "ec-canvas": "/components/ec-canvas/ec-canvas"
+  }
+}

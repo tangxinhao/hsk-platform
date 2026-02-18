@@ -1,0 +1,179 @@
+/* 全局样式 - 高级简约蓝灰系 */
+
+/* ==================== 统一配色系统 ==================== */
+page {
+  /* 现代直流教育设计色板 */
+  --primary: #5B9FD7;
+  --primary-dark: #4A8BC2;
+  --primary-light: #7CB8E8;
+  --primary-soft: #E8F4FF;
+  --success: #34C759;
+  --warning: #FF9500;
+  --danger: #FF3B30;
+  
+  --text-primary: #1D1D1F;
+  --text-secondary: #6D6D73;
+  --text-tertiary: #8E8E93;
+  
+  --bg-page: #F2F2F7;
+  --bg-white: #FFFFFF;
+  
+  --radius-sm: 12rpx;
+  --radius-md: 20rpx;
+  --radius-lg: 32rpx;
+  --radius-xl: 48rpx;
+  
+  --shadow-card: 0 8rpx 24rpx rgba(0, 0, 0, 0.04);
+  --shadow-floating: 0 16rpx 48rpx rgba(91, 159, 215, 0.15);
+  
+  /* 间距系统 */
+  --space-xs: 12rpx;
+  --space-sm: 16rpx;
+  --space-md: 24rpx;
+  --space-lg: 32rpx;
+  --space-xl: 40rpx;
+  --space-xxl: 56rpx;
+  
+  /* 字号 */
+  --font-xs: 22rpx;
+  --font-sm: 24rpx;
+  --font-md: 28rpx;
+  --font-lg: 32rpx;
+  --font-xl: 36rpx;
+  --font-xxl: 48rpx;
+
+  /* 基础设置 */
+  color: var(--text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Segoe UI, Arial, Roboto, 'PingFang SC', 'miui', 'Hiragino Sans GB', 'Microsoft Yahei', sans-serif;
+}
+
+/* ==================== 容器 ==================== */
+.container {
+  min-height: 100vh;
+  background: var(--bg-page);
+}
+
+/* ==================== 卡片 ==================== */
+.card {
+  background: var(--bg-white);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: var(--space-md);
+}
+
+.card-title {
+  font-size: var(--font-lg);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--space-md);
+}
+
+/* ==================== 按钮 ==================== */
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 88rpx;
+  border-radius: var(--radius-md);
+  font-size: var(--font-md);
+  font-weight: 500;
+  transition: all 0.2s;
+  border: none;
+}
+
+.btn::after {
+  border: none;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: white;
+}
+
+.btn-primary:active {
+  background: var(--primary-dark);
+}
+
+.btn-secondary {
+  background: var(--gray-100);
+  color: var(--text-primary);
+}
+
+.btn-secondary:active {
+  background: var(--gray-200);
+}
+
+/* ==================== 标签 ==================== */
+.tag {
+  display: inline-block;
+  padding: 4rpx 12rpx;
+  border-radius: 4rpx;
+  font-size: var(--font-xs);
+  font-weight: 500;
+}
+
+.tag-primary {
+  background: var(--primary-soft);
+  color: var(--primary);
+}
+
+.tag-gray {
+  background: var(--gray-100);
+  color: var(--text-secondary);
+}
+
+/* ==================== 分割线 ==================== */
+.divider {
+  height: 1rpx;
+  background: var(--border);
+  margin: var(--space-lg) 0;
+}
+
+/* ==================== Loading ==================== */
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 100rpx 0;
+}
+
+.loading-spinner {
+  width: 40rpx;
+  height: 40rpx;
+  border: 4rpx solid var(--border);
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.loading-text {
+  margin-top: var(--space-md);
+  font-size: var(--font-sm);
+  color: var(--text-tertiary);
+}
+
+/* ==================== 空状态 ==================== */
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 100rpx 0;
+}
+
+.empty-icon {
+  font-size: 80rpx;
+  opacity: 0.2;
+  margin-bottom: var(--space-md);
+}
+
+.empty-text {
+  font-size: var(--font-sm);
+  color: var(--text-tertiary);
+}

@@ -1,0 +1,8 @@
+<view class="container">
+  <view class="title">答题记录</view>
+  <van-list>
+    <block wx:for="{{records}}" wx:key="id">
+      <van-cell title="{{item.question}}" label="{{item.result}}" />
+    </block>
+  </van-list>
+</view> 

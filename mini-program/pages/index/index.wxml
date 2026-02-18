@@ -1,0 +1,80 @@
+<!-- 学习首页 -->
+<view class="index-page">
+  <!-- 顶部欢迎卡片 -->
+  <view class="welcome-card">
+    <view class="welcome-header">
+      <view class="user-info">
+        <text class="greeting">{{greeting}}{{userInfo ? (currentLang === 'zh' ? '，' : ', ') + userInfo.username : ''}}！</text>
+        <text class="study-tip">{{studyTip}}</text>
+      </view>
+      <language-switcher class="lang-btn"></language-switcher>
+    </view>
+  </view>
+
+  <!-- 今日学习进度 -->
+  <view class="progress-card">
+    <view class="card-header">
+      <text class="card-title">{{todayStudyText}}</text>
+      <text class="progress-percent">{{todayProgress}}%</text>
+    </view>
+    <view class="progress-bar">
+      <view class="progress-fill" style="width: {{todayProgress}}%"></view>
+    </view>
+    <text class="progress-text">{{completedText}} {{completedQuestions}}/{{totalQuestions}} {{questionsText}}</text>
+  </view>
+
+  <!-- 快速入口 -->
+  <view class="quick-actions">
+    <view class="action-item" bindtap="gotoPractice">
+      <text class="action-icon">✏️</text>
+      <text class="action-text">{{continuePracticeText}}</text>
+    </view>
+    <view class="action-item" bindtap="gotoExam">
+      <text class="action-icon">📝</text>
+      <text class="action-text">{{mockExamText}}</text>
+    </view>
+    <view class="action-item" bindtap="gotoWrongBook">
+      <text class="action-icon">❌</text>
+      <text class="action-text">{{wrongBookText}}</text>
+    </view>
+    <view class="action-item" bindtap="gotoProgress">
+      <text class="action-icon">📊</text>
+      <text class="action-text">{{studyProgressText}}</text>
+    </view>
+  </view>
+
+  <!-- 学习统计 -->
+  <view class="stats-card">
+    <text class="card-title">{{studyStatsText}}</text>
+    <view class="stats-grid">
+      <view class="stat-item">
+        <text class="stat-value">{{totalStudyDays}}</text>
+        <text class="stat-label">{{studyDaysText}}</text>
+      </view>
+      <view class="stat-item">
+        <text class="stat-value">{{totalQuestions}}</text>
+        <text class="stat-label">{{totalQuestionsText}}</text>
+      </view>
+      <view class="stat-item">
+        <text class="stat-value">{{accuracy}}%</text>
+        <text class="stat-label">{{accuracyText}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- HSK等级快速入口 -->
+  <view class="level-card">
+    <text class="card-title">{{hskLevelText}}</text>
+    <view class="level-list">
+      <view 
+        class="level-badge level-{{item}}"
+        wx:for="{{[1,2,3,4,5,6]}}"
+        wx:key="*this"
+        bindtap="selectLevel"
+        data-level="{{item}}"
+      >
+        <text>HSK {{item}}</text>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,95 @@
+<!--pages/university/university.wxml-->
+<view class="container">
+  <!-- 页面标题 -->
+  <view class="header">
+    <text class="title">大学查询</text>
+  </view>
+  
+  <!-- 搜索框 -->
+  <view class="search-box">
+    <image src="/images/icons/search.png" class="search-icon"></image>
+    <input 
+      type="text" 
+      class="search-input" 
+      placeholder="搜索大学名称" 
+      value="{{searchText}}"
+      bindinput="searchUniversity"
+    />
+  </view>
+  
+  <!-- 筛选条件栏 -->
+  <view class="filter-bar">
+    <!-- 标签筛选 -->
+    <scroll-view scroll-x class="tab-container" enhanced show-scrollbar="{{false}}">
+      <view 
+        class="tab {{currentTab === index ? 'active' : ''}}" 
+        wx:for="{{tabs}}" 
+        wx:key="*this"
+        data-index="{{index}}"
+        bindtap="selectTab"
+      >
+        <text>{{item}}</text>
+      </view>
+    </scroll-view>
+    
+    <!-- 地区筛选 -->
+    <view class="region-filter" bindtap="toggleRegionPicker">
+      <text>{{selectedRegion}}</text>
+      <image src="/images/icons/dropdown.png" class="dropdown-icon"></image>
+    </view>
+  </view>
+  
+  <!-- 地区选择器弹出框 -->
+  <view class="region-picker {{showRegionPicker ? 'show' : ''}}" wx:if="{{showRegionPicker}}">
+    <view 
+      class="region-item {{selectedRegion === item ? 'active' : ''}}" 
+      wx:for="{{regions}}" 
+      wx:key="*this"
+      data-region="{{item}}"
+      bindtap="selectRegion"
+    >
+      <text>{{item}}</text>
+      <image src="/images/icons/check.png" class="check-icon" wx:if="{{selectedRegion === item}}"></image>
+    </view>
+  </view>
+  
+  <!-- 大学列表 -->
+  <view class="university-list" wx:if="{{!loading && filteredUniversities.length > 0}}">
+    <view 
+      class="university-item"
+      wx:for="{{filteredUniversities}}"
+      wx:key="id"
+      bindtap="viewUniversityDetail"
+      data-id="{{item.id}}"
+    >
+      <image src="{{item.badge}}" class="university-badge" mode="aspectFit"></image>
+      <view class="university-info">
+        <view class="university-title-row">
+          <text class="university-name">{{item.name}}</text>
+          <text class="university-ranking">全国排名: {{item.ranking}}</text>
+        </view>
+        <text class="university-english">{{item.englishName}}</text>
+        <text class="university-region">{{item.region}}</text>
+        <view class="university-tags">
+          <view class="university-tag" wx:if="{{item.is985}}">985工程</view>
+          <view class="university-tag" wx:if="{{item.is211}}">211工程</view>
+          <view class="university-tag" wx:if="{{item.isDoubleFirstClass}}">双一流</view>
+        </view>
+        <text class="university-summary">{{item.summary}}</text>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 加载中状态 -->
+  <view class="loading-state" wx:if="{{loading}}">
+    <view class="loading-icon"></view>
+    <text>加载中...</text>
+  </view>
+  
+  <!-- 无结果状态 -->
+  <view class="empty-state" wx:if="{{!loading && filteredUniversities.length === 0}}">
+    <image src="/images/empty-search.png" class="empty-image"></image>
+    <text>未找到符合条件的大学</text>
+    <text class="empty-tip">尝试更改搜索条件或删除筛选条件</text>
+  </view>
+</view> 

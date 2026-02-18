@@ -1,0 +1,192 @@
+/* HSK练习页面样式 */
+.hsk-container {
+  padding: 20rpx;
+  background-color: #f5f7fa;
+  min-height: 100vh;
+}
+
+/* 页面标题 */
+.header {
+  padding: 20rpx 0;
+}
+
+.title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #303133;
+}
+
+/* 每日练习卡片 */
+.daily-card {
+  background-color: #409eff;
+  border-radius: 12rpx;
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.1);
+}
+
+.daily-info {
+  flex: 1;
+}
+
+.daily-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-bottom: 10rpx;
+}
+
+.daily-subtitle {
+  font-size: 24rpx;
+  opacity: 0.8;
+  margin-bottom: 20rpx;
+}
+
+.progress-container {
+  display: flex;
+  align-items: center;
+}
+
+.progress-bar {
+  width: 200rpx;
+  height: 16rpx;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 8rpx;
+  overflow: hidden;
+  margin-right: 15rpx;
+}
+
+.progress-inner {
+  height: 100%;
+  background-color: #fff;
+  border-radius: 8rpx;
+}
+
+.progress-text {
+  font-size: 24rpx;
+}
+
+.daily-button {
+  background-color: #fff;
+  color: #409eff;
+  font-size: 26rpx;
+  padding: 15rpx 30rpx;
+  border-radius: 30rpx;
+  line-height: 1.5;
+}
+
+/* 错题本卡片 */
+.wrong-book-card {
+  background-color: #fff;
+  border-radius: 12rpx;
+  padding: 20rpx;
+  margin-bottom: 30rpx;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.1);
+}
+
+.wrong-book-icon {
+  width: 80rpx;
+  height: 80rpx;
+  margin-right: 20rpx;
+}
+
+.wrong-book-info {
+  flex: 1;
+}
+
+.wrong-book-title {
+  font-size: 30rpx;
+  color: #303133;
+  margin-bottom: 5rpx;
+}
+
+.wrong-book-count {
+  font-size: 24rpx;
+  color: #909399;
+}
+
+.arrow-icon {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+/* 级别选择 */
+.level-tabs {
+  display: flex;
+  background-color: #fff;
+  border-radius: 12rpx 12rpx 0 0;
+  overflow-x: auto;
+  white-space: nowrap;
+  margin-bottom: 0;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.1);
+}
+
+.level-tab {
+  padding: 20rpx 30rpx;
+  font-size: 28rpx;
+  color: #606266;
+  position: relative;
+}
+
+.level-tab.active {
+  color: #409eff;
+  font-weight: bold;
+}
+
+.level-tab.active:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40rpx;
+  height: 4rpx;
+  background-color: #409eff;
+  border-radius: 2rpx;
+}
+
+/* 题型列表 */
+.question-types {
+  background-color: #fff;
+  padding: 30rpx;
+  border-radius: 0 0 12rpx 12rpx;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 30rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.1);
+}
+
+.question-type-item {
+  background-color: #f5f7fa;
+  border-radius: 12rpx;
+  padding: 30rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.05);
+}
+
+.question-type-icon {
+  width: 80rpx;
+  height: 80rpx;
+  margin-bottom: 15rpx;
+}
+
+.question-type-name {
+  font-size: 28rpx;
+  color: #303133;
+}
+
+/* 提示 */
+.tip {
+  text-align: center;
+  padding: 20rpx 0;
+  font-size: 26rpx;
+  color: #909399;
+} 

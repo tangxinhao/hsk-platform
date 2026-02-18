@@ -1,0 +1,225 @@
+/* 高校列表页面样式 */
+.university-container {
+  padding: 20rpx;
+  background-color: #f5f7fa;
+  min-height: 100vh;
+}
+
+/* 页面标题 */
+.page-header {
+  padding: 20rpx 0;
+  margin-bottom: 20rpx;
+}
+
+.header-title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #303133;
+}
+
+/* 搜索区域 */
+.search-area {
+  margin-bottom: 20rpx;
+}
+
+.search-input-container {
+  position: relative;
+  margin-bottom: 20rpx;
+}
+
+.search-input {
+  background-color: #fff;
+  height: 80rpx;
+  border-radius: 40rpx;
+  padding: 0 80rpx 0 30rpx;
+  font-size: 28rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.1);
+}
+
+.search-icon {
+  position: absolute;
+  right: 30rpx;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.search-icon image {
+  width: 100%;
+  height: 100%;
+}
+
+/* 筛选器 */
+.filter-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20rpx;
+}
+
+.filter-item {
+  background-color: #fff;
+  height: 70rpx;
+  border-radius: 35rpx;
+  padding: 0 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26rpx;
+  color: #606266;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.1);
+  flex: 1;
+  margin: 0 10rpx;
+}
+
+.dropdown-icon {
+  width: 24rpx;
+  height: 24rpx;
+  margin-left: 10rpx;
+}
+
+/* 高校列表 */
+.university-list {
+  padding-bottom: 30rpx;
+}
+
+.university-item {
+  background-color: #fff;
+  border-radius: 12rpx;
+  margin-bottom: 20rpx;
+  padding: 30rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.1);
+}
+
+.university-info {
+  flex: 1;
+}
+
+.university-name-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10rpx;
+  flex-wrap: wrap;
+}
+
+.university-name {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #303133;
+  margin-right: 16rpx;
+}
+
+.university-tags {
+  display: flex;
+}
+
+.tag {
+  font-size: 20rpx;
+  padding: 4rpx 12rpx;
+  border-radius: 10rpx;
+  margin-right: 10rpx;
+}
+
+.tag-985 {
+  background-color: #67c23a;
+  color: #fff;
+}
+
+.tag-211 {
+  background-color: #409eff;
+  color: #fff;
+}
+
+.tag-double {
+  background-color: #e6a23c;
+  color: #fff;
+}
+
+.university-english {
+  font-size: 24rpx;
+  color: #909399;
+  margin-bottom: 10rpx;
+}
+
+.university-meta {
+  display: flex;
+  font-size: 24rpx;
+  color: #606266;
+  flex-wrap: wrap;
+}
+
+.university-region {
+  margin-right: 20rpx;
+}
+
+.university-year {
+  margin-right: 20rpx;
+}
+
+.university-arrow {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.university-arrow image {
+  width: 100%;
+  height: 100%;
+}
+
+/* 加载状态 */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60rpx 0;
+}
+
+.loading-icon {
+  width: 80rpx;
+  height: 80rpx;
+  margin-bottom: 20rpx;
+}
+
+.loading-text {
+  font-size: 28rpx;
+  color: #909399;
+}
+
+/* 空状态 */
+.empty-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 100rpx 0;
+}
+
+.empty-icon {
+  width: 120rpx;
+  height: 120rpx;
+  margin-bottom: 20rpx;
+}
+
+.empty-text {
+  font-size: 28rpx;
+  color: #909399;
+}
+
+/* 加载更多 */
+.load-more {
+  text-align: center;
+  padding: 20rpx 0;
+  font-size: 28rpx;
+  color: #409eff;
+}
+
+.load-more-end {
+  text-align: center;
+  padding: 20rpx 0;
+  font-size: 28rpx;
+  color: #909399;
+} 

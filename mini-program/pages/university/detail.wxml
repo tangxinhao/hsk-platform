@@ -1,0 +1,214 @@
+<!-- 高校详情页面 -->
+<view class="university-detail-container">
+  <!-- 加载状态 -->
+  <view class="loading-container" wx:if="{{loading}}">
+    <view class="loading-spinner"></view>
+    <text class="loading-text">加载中...</text>
+  </view>
+
+  <!-- 错误状态 -->
+  <view class="error-container" wx:elif="{{error}}">
+    <view class="error-icon">⚠️</view>
+    <text class="error-text">{{errorMsg || '加载失败'}}</text>
+    <button class="retry-button" bindtap="fetchUniversityDetail">重试</button>
+  </view>
+
+  <!-- 高校详情内容 -->
+  <block wx:else>
+    <!-- 高校头部信息 -->
+    <view class="university-header">
+      <view class="university-banner-gradient"></view>
+      <view class="university-badge-container">
+        <text class="university-badge-emoji">🎓</text>
+      </view>
+      
+      <view class="university-title-container">
+        <text class="university-name">{{university.name}}</text>
+        <text class="university-english-name">{{university.englishName}}</text>
+        
+        <view class="university-tags">
+          <text class="tag tag-985" wx:if="{{university.is985}}">985工程</text>
+          <text class="tag tag-211" wx:if="{{university.is211}}">211工程</text>
+          <text class="tag tag-double" wx:if="{{university.isDoubleFirstClass}}">双一流</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 高校快速信息 -->
+    <view class="quick-info">
+      <view class="info-item">
+        <text class="info-icon">📍</text>
+        <text class="info-text">{{university.region}}</text>
+      </view>
+      <view class="info-item">
+        <text class="info-icon">📅</text>
+        <text class="info-text">{{university.establishYear}}年建校</text>
+      </view>
+      <view class="info-item">
+        <text class="info-icon">🏆</text>
+        <text class="info-text">全国排名 {{university.ranking}}</text>
+      </view>
+    </view>
+
+    <!-- 内容标签页 -->
+    <view class="tab-container">
+      <view 
+        class="tab-item {{currentTab === 'info' ? 'active' : ''}}" 
+        data-tab="info" 
+        bindtap="switchTab"
+      >
+        基本信息
+      </view>
+      <view 
+        class="tab-item {{currentTab === 'departments' ? 'active' : ''}}" 
+        data-tab="departments" 
+        bindtap="switchTab"
+      >
+        院系专业
+      </view>
+      <view 
+        class="tab-item {{currentTab === 'admission' ? 'active' : ''}}" 
+        data-tab="admission" 
+        bindtap="switchTab"
+      >
+        招生政策
+      </view>
+      <view 
+        class="tab-item {{currentTab === 'scenery' ? 'active' : ''}}" 
+        data-tab="scenery" 
+        bindtap="switchTab"
+      >
+        校园风光
+      </view>
+    </view>
+
+    <!-- 内容区域 -->
+    <view class="content-container">
+      <!-- 基本信息 -->
+      <view class="content-section" wx:if="{{currentTab === 'info'}}">
+        <view class="info-card">
+          <view class="card-title">学校简介</view>
+          <view class="card-content">
+            <text class="description-text">{{university.description || '暂无简介信息'}}</text>
+          </view>
+        </view>
+        
+        <view class="info-card">
+          <view class="card-title">联系方式</view>
+          <view class="card-content">
+            <view class="contact-item">
+              <text class="contact-icon">🌐</text>
+              <text class="contact-text" bindtap="openWebsite" data-url="{{university.website}}">{{university.website}}</text>
+            </view>
+            <view class="contact-item" wx:if="{{university.phone}}">
+              <text class="contact-icon">📞</text>
+              <text class="contact-text" bindtap="makePhoneCall" data-phone="{{university.phone}}">{{university.phone}}</text>
+            </view>
+            <view class="contact-item" wx:if="{{university.email}}">
+              <text class="contact-icon">📧</text>
+              <text class="contact-text">{{university.email}}</text>
+            </view>
+            <view class="contact-item" wx:if="{{university.address}}">
+              <text class="contact-icon">📫</text>
+              <text class="contact-text">{{university.address}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <!-- 院系专业 -->
+      <view class="content-section" wx:if="{{currentTab === 'departments'}}">
+        <view class="info-card" wx:if="{{departments.length > 0}}">
+          <block wx:for="{{departments}}" wx:key="id">
+            <view class="department-item">
+              <view class="department-name">{{item.name}}</view>
+              <view class="major-list">
+                <text class="major-item" wx:for="{{item.majors}}" wx:for-item="major" wx:key="id">{{major.name}}</text>
+              </view>
+            </view>
+          </block>
+        </view>
+        <view class="empty-container" wx:else>
+          <text class="empty-icon">📝</text>
+          <text class="empty-text">暂无院系专业信息</text>
+        </view>
+      </view>
+
+      <!-- 招生政策 -->
+      <view class="content-section" wx:if="{{currentTab === 'admission'}}">
+        <view class="info-card" wx:if="{{admission}}">
+          <view class="admission-section">
+            <view class="admission-title">招生计划</view>
+            <text class="admission-text">{{admission.plan || '暂无招生计划信息'}}</text>
+          </view>
+          
+          <view class="admission-section">
+            <view class="admission-title">招生要求</view>
+            <text class="admission-text">{{admission.requirements || '暂无招生要求信息'}}</text>
+          </view>
+          
+          <view class="admission-section">
+            <view class="admission-title">录取政策</view>
+            <text class="admission-text">{{admission.policy || '暂无录取政策信息'}}</text>
+          </view>
+          
+          <view class="admission-section" wx:if="{{admission.links && admission.links.length > 0}}">
+            <view class="admission-title">相关链接</view>
+            <view class="admission-links">
+              <view 
+                class="admission-link" 
+                wx:for="{{admission.links}}" 
+                wx:key="index"
+                bindtap="openWebsite"
+                data-url="{{item.url}}"
+              >
+                <text>{{item.title}}</text>
+                <text class="link-icon">🔗</text>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="empty-container" wx:else>
+          <text class="empty-icon">📋</text>
+          <text class="empty-text">暂无招生政策信息</text>
+        </view>
+      </view>
+
+      <!-- 校园风光 -->
+      <view class="content-section" wx:if="{{currentTab === 'scenery'}}">
+        <view class="scenery-grid" wx:if="{{sceneryImages && sceneryImages.length > 0}}">
+          <view 
+            class="scenery-item" 
+            wx:for="{{sceneryImages}}" 
+            wx:key="index"
+            bindtap="previewImage"
+            data-index="{{index}}"
+          >
+            <image class="scenery-image" src="{{item.url}}" mode="aspectFill"></image>
+            <text class="scenery-caption">{{item.caption}}</text>
+          </view>
+        </view>
+        <view class="empty-container" wx:else>
+          <text class="empty-icon">🏫</text>
+          <text class="empty-text">暂无校园风光图片</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 底部操作栏 -->
+    <view class="action-bar">
+      <button class="action-button share-button" open-type="share">
+        <text class="action-icon">📤</text>
+        <text>分享</text>
+      </button>
+      <button class="action-button favorite-button" bindtap="toggleFavorite">
+        <text class="action-icon">{{isFavorite ? '❤️' : '🤍'}}</text>
+        <text>{{isFavorite ? '已收藏' : '收藏'}}</text>
+      </button>
+      <button class="action-button website-button" bindtap="openWebsite" data-url="{{university.website}}">
+        <text class="action-icon">🌐</text>
+        <text>官网</text>
+      </button>
+    </view>
+  </block>
+</view> 
