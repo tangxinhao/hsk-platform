@@ -61,7 +61,7 @@
 import { ref, reactive } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import { ElMessage } from 'element-plus'
-import axios from 'axios'
+import apiClient from '@/api'
 
 const router = useRouter()
 const route = useRoute()
@@ -91,8 +91,10 @@ const handleLogin = async () => {
     
     try {
       loading.value = true
-      
-      const response = await axios.post('/user/login/', loginForm)
+
+      // 通过统一封装的 apiClient 调用后端登录接口
+      // 实际请求路径为 POST /api/user/login/
+      const response = await apiClient.post('/user/login/', loginForm)
       
       console.log('登录响应:', response.data)
       
