@@ -354,7 +354,8 @@ export default {
 }
 
 .university-header {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #CCFFFF;
+  color: #333333;
   border-radius: 16px;
   padding: 40px;
   margin-bottom: 24px;
@@ -426,7 +427,7 @@ export default {
 
 .content-section h2 {
   font-size: 24px;
-  color: #303133;
+  color: #333333;
   margin-bottom: 16px;
   padding-left: 12px;
   border-left: 4px solid #667eea;
@@ -435,7 +436,7 @@ export default {
 .description-zh, .advantage-zh, .life-zh {
   font-size: 16px;
   line-height: 1.8;
-  color: #303133;
+  color: #333333;
   margin-bottom: 12px;
 }
 
@@ -445,7 +446,8 @@ export default {
   color: #606266;
   font-style: italic;
   padding: 12px;
-  background: #f8f9fa;
+  background: #FFFFFF;
+  border: 1px solid #CCFFFF;
   border-radius: 8px;
   border-left: 3px solid #667eea;
 }
@@ -460,13 +462,14 @@ export default {
   display: flex;
   gap: 16px;
   padding: 20px;
-  background: #f8f9fa;
+  background: #FFFFFF;
+  border: 1px solid #CCFFFF;
   border-radius: 12px;
   transition: all 0.3s ease;
 }
 
 .advantage-item:hover {
-  background: #e8eaf6;
+  background: #FFFFCC;
   transform: translateX(8px);
 }
 
@@ -474,7 +477,8 @@ export default {
   flex-shrink: 0;
   width: 40px;
   height: 40px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #CCFFFF;
+  color: #333333;
   color: white;
   border-radius: 50%;
   display: flex;
@@ -527,7 +531,8 @@ export default {
 
 .requirement-item, .contact-item {
   padding: 24px;
-  background: #f8f9fa;
+  background: #FFFFFF;
+  border: 1px solid #CCFFFF;
   border-radius: 12px;
   text-align: center;
 }
@@ -539,7 +544,7 @@ export default {
 
 .requirement-item h3, .contact-item h3 {
   font-size: 18px;
-  color: #303133;
+  color: #333333;
   margin-bottom: 8px;
 }
 
@@ -559,7 +564,8 @@ export default {
   display: flex;
   gap: 12px;
   padding: 16px;
-  background: #f8f9fa;
+  background: #FFFFFF;
+  border: 1px solid #CCFFFF;
   border-radius: 8px;
 }
 
@@ -581,7 +587,8 @@ export default {
 
 .stat-box {
   padding: 24px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #CCFFFF;
+  color: #333333;
   border-radius: 12px;
   text-align: center;
   color: white;

@@ -226,14 +226,15 @@ onMounted(() => {
 <style scoped>
 .home-container {
   padding: 24px;
-  background: #f5f7fa;
+  background: #FFFFCC;
   min-height: calc(100vh - 60px);
 }
 
 .welcome-section {
   margin-bottom: 24px;
   padding: 32px 24px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #CCFFFF;
+  color: #333333;
   border-radius: 12px;
   color: white;
 }
@@ -276,7 +277,7 @@ onMounted(() => {
 }
 
 .stat-icon.primary {
-  color: #1a1f2e;
+  color: #333333;
 }
 
 .stat-icon.success {
@@ -342,13 +343,13 @@ onMounted(() => {
 }
 
 .management-item:hover {
-  border-color: #1a1f2e;
+  border-color: #CCFFFF;
   background: #ecf5ff;
   transform: translateY(-2px);
 }
 
 .management-item .el-icon {
-  color: #1a1f2e;
+  color: #333333;
 }
 
 .management-item span {

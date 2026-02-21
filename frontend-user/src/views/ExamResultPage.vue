@@ -104,7 +104,8 @@ const retryExam = () => {
 <style scoped>
 .exam-result-page {
   min-height: calc(100vh - 64px);
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(to bottom, #CCFFFF 0%, #FFFFCC 100%);
+  color: #333333;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -125,7 +126,7 @@ const retryExam = () => {
 .score-section {
   text-align: center;
   padding: 60px 40px 40px;
-  background: linear-gradient(135deg, #f5f7fa 0%, #ffffff 100%);
+  background: #FFFFCC;
 }
 
 .score-icon {
@@ -146,7 +147,7 @@ const retryExam = () => {
 
 .exam-title {
   font-size: 24px;
-  color: #2c3e50;
+  color: #333333;
   margin-bottom: 30px;
   font-weight: 600;
 }
@@ -161,7 +162,8 @@ const retryExam = () => {
 .score-number {
   font-size: 96px;
   font-weight: 800;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(to bottom, #CCFFFF 0%, #FFFFCC 100%);
+  color: #333333;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   line-height: 1;
@@ -199,7 +201,7 @@ const retryExam = () => {
   align-items: center;
   gap: 15px;
   padding: 20px;
-  background: #f5f7fa;
+  background: #FFFFCC;
   border-radius: 12px;
   transition: all 0.3s;
 }
@@ -220,7 +222,8 @@ const retryExam = () => {
 }
 
 .stat-icon.correct {
-  background: #f0f9ff;
+  background: #FFFFFF;
+  border: 1px solid #CCFFFF;
   color: #67c23a;
 }
 
@@ -241,7 +244,7 @@ const retryExam = () => {
 .stat-value {
   font-size: 32px;
   font-weight: 700;
-  color: #2c3e50;
+  color: #333333;
   line-height: 1;
   margin-bottom: 8px;
 }

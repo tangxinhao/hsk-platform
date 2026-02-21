@@ -330,7 +330,7 @@ onMounted(() => {
 <style scoped>
 .user-center-page {
   min-height: 100vh;
-  background: #f5f7fa;
+  background: #FFFFCC;
   padding-bottom: 40px;
 }
 
@@ -466,7 +466,7 @@ onMounted(() => {
 .stat-number {
   font-size: 32px;
   font-weight: 700;
-  color: #2c3e50;
+  color: #333333;
   margin-bottom: 4px;
 }
 
@@ -512,7 +512,7 @@ onMounted(() => {
 .section-header h2 {
   font-size: 20px;
   font-weight: 700;
-  color: #2c3e50;
+  color: #333333;
   display: flex;
   align-items: center;
   gap: 8px;

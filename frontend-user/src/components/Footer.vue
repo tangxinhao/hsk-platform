@@ -40,10 +40,11 @@
 
 <style scoped>
 .footer {
-  background: #2C3E50;
-  color: white;
+  background: #FFFFFF;
+  color: #333333;
   padding: 40px 0 20px;
   margin-top: 80px;
+  border-top: 2px solid #CCFFFF;
 }
 
 .footer-content {
@@ -66,7 +67,7 @@
 }
 
 .desc {
-  color: rgba(255, 255, 255, 0.7);
+  color: #666666;
   font-size: 14px;
 }
 
@@ -82,7 +83,7 @@
 
 .link-group a {
   display: block;
-  color: rgba(255, 255, 255, 0.7);
+  color: #666666;
   text-decoration: none;
   margin-bottom: 10px;
   font-size: 14px;
@@ -90,12 +91,13 @@
 }
 
 .link-group a:hover {
-  color: white;
+  color: #CCFFFF;
+  text-decoration: underline;
 }
 
 .footer-right {
   text-align: right;
-  color: rgba(255, 255, 255, 0.7);
+  color: #666666;
   font-size: 14px;
 }
 

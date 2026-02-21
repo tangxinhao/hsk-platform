@@ -1059,7 +1059,7 @@ onMounted(() => {
 .stat-value {
   font-size: 32px;
   font-weight: 700;
-  color: #2c3e50;
+  color: #333333;
   line-height: 1;
   margin-bottom: 5px;
 }
@@ -1080,7 +1080,7 @@ onMounted(() => {
   gap: 8px;
   font-size: 20px;
   font-weight: 600;
-  color: #2c3e50;
+  color: #333333;
   margin-bottom: 20px;
 }
 
@@ -1126,7 +1126,7 @@ onMounted(() => {
 .mode-card h3 {
   font-size: 18px;
   margin: 10px 0;
-  color: #2c3e50;
+  color: #333333;
 }
 
 .mode-card p {
@@ -1267,7 +1267,7 @@ onMounted(() => {
 .question-text {
   font-size: 15px;
   line-height: 1.6;
-  color: #2c3e50;
+  color: #333333;
   margin-bottom: 10px;
 }
 
@@ -1373,7 +1373,7 @@ onMounted(() => {
 .dialog-question h3 {
   font-size: 18px;
   line-height: 1.8;
-  color: #2c3e50;
+  color: #333333;
   margin-bottom: 20px;
 }
 

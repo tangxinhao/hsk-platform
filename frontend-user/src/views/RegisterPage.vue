@@ -86,7 +86,7 @@ const handleRegister = async () => {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(to bottom, #CCFFFF 0%, #FFFFCC 100%);
   padding: 40px 20px;
 }
 
@@ -96,39 +96,52 @@ const handleRegister = async () => {
 }
 
 .register-card {
-  background: white;
+  background: rgba(255, 255, 255, 0.98);
+  border: 2px solid #CCFFFF;
   border-radius: 20px;
   padding: 50px 40px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 20px 60px rgba(204, 255, 255, 0.4);
   text-align: center;
 }
 
 .register-card h1 {
   font-size: 32px;
   font-weight: 700;
+  color: #333333;
   margin-bottom: 10px;
 }
 
 .register-card p {
-  color: #666;
+  color: #666666;
   margin-bottom: 40px;
 }
 
 .register-button {
   width: 100%;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  border: none;
+  background: #CCFFFF;
+  color: #333333;
+  border: 2px solid #CCFFFF;
   height: 48px;
+}
+
+.register-button:hover {
+  background: #99EEFF;
+  border-color: #99EEFF;
 }
 
 .login-tip {
   margin-top: 20px;
-  color: #666;
+  color: #666666;
 }
 
 .login-tip a {
-  color: #667eea;
+  color: #FFCCCC;
   text-decoration: none;
   font-weight: 600;
+}
+
+.login-tip a:hover {
+  color: #FF9999;
+  text-decoration: underline;
 }
 </style>

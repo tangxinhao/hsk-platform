@@ -272,7 +272,8 @@ export default {
 /* 顶部横幅 */
 .hero-section {
   position: relative;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #CCFFFF;
+  color: #333333;
   padding: 60px 20px 80px;
   overflow: hidden;
 }
@@ -348,14 +349,15 @@ section {
 .section-header h2 {
   font-size: 36px;
   font-weight: bold;
-  color: #303133;
+  color: #333333;
   margin: 0 0 15px 0;
 }
 
 .header-line {
   width: 80px;
   height: 4px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #CCFFFF;
+  color: #333333;
   margin: 0 auto;
   border-radius: 2px;
 }
@@ -392,7 +394,7 @@ section {
 
 .intro-card h3 {
   font-size: 24px;
-  color: #303133;
+  color: #333333;
   margin: 0 0 15px 0;
 }
 
@@ -431,9 +433,9 @@ section {
   opacity: 0.1;
 }
 
-.level-card.level-1::before { background: #667eea; }
-.level-card.level-2::before { background: #f093fb; }
-.level-card.level-3::before { background: #4facfe; }
+.level-card.level-1::before { background: #CCFFFF; }
+.level-card.level-2::before { background: #FFCCCC; }
+.level-card.level-3::before { background: #FFFFCC; }
 .level-card.level-4::before { background: #43e97b; }
 .level-card.level-5::before { background: #fa709a; }
 .level-card.level-6::before { background: #feca57; }
@@ -447,7 +449,8 @@ section {
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #CCFFFF;
+  color: #333333;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -464,7 +467,7 @@ section {
 .level-title {
   font-size: 24px;
   font-weight: bold;
-  color: #303133;
+  color: #333333;
   margin: 0 0 20px 0;
 }
 
@@ -507,7 +510,7 @@ section {
 
 .level-content h4 {
   font-size: 16px;
-  color: #303133;
+  color: #333333;
   margin: 0 0 10px 0;
 }
 
@@ -559,7 +562,7 @@ section {
 
 .notice-card h3 {
   font-size: 20px;
-  color: #303133;
+  color: #333333;
   margin: 0 0 15px 0;
 }
 
@@ -612,7 +615,8 @@ section {
   left: 30px;
   width: 40px;
   height: 40px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #CCFFFF;
+  color: #333333;
   color: white;
   border-radius: 50%;
   display: flex;
@@ -625,7 +629,7 @@ section {
 
 .tip-card h3 {
   font-size: 20px;
-  color: #303133;
+  color: #333333;
   margin: 15px 0 15px 0;
 }
 
@@ -642,7 +646,8 @@ section {
 }
 
 .cta-card {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #CCFFFF;
+  color: #333333;
   padding: 60px 40px;
   border-radius: 24px;
   text-align: center;

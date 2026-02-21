@@ -185,7 +185,7 @@ export default {
 <style scoped>
 .culture-detail-page {
   min-height: 100vh;
-  background: #f5f7fa;
+  background: #FFFFCC;
   padding-bottom: 40px;
 }
 
@@ -224,7 +224,7 @@ export default {
 .article-title {
   font-size: 36px;
   font-weight: bold;
-  color: #303133;
+  color: #333333;
   margin: 0 0 12px 0;
   line-height: 1.4;
 }
@@ -285,7 +285,8 @@ export default {
   flex-shrink: 0;
   width: 40px;
   height: 40px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #CCFFFF;
+  color: #333333;
   color: white;
   border-radius: 8px;
   display: flex;
@@ -299,11 +300,11 @@ export default {
   flex: 1;
   font-size: 18px;
   line-height: 2;
-  color: #303133;
+  color: #333333;
 }
 
 .paragraph-zh .paragraph-text {
-  color: #303133;
+  color: #333333;
   font-weight: 500;
 }
 
@@ -326,7 +327,7 @@ export default {
 .simple-content {
   font-size: 18px;
   line-height: 2;
-  color: #303133;
+  color: #333333;
 }
 
 .simple-content p {

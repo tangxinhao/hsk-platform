@@ -15,9 +15,9 @@
         <el-menu 
           :default-active="activeMenu"
           router
-          background-color="#1e293b"
-          text-color="#e2e8f0"
-          active-text-color="#3b82f6">
+          background-color="#FFFFFF"
+          text-color="#333333"
+          active-text-color="#CCFFFF">
           <el-menu-item index="/">
             <el-icon><HomeFilled /></el-icon>
             <span>首页</span>
@@ -160,7 +160,7 @@ body {
   font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #f8fafc;
+  background-color: #FFFFCC;
 }
 
 .app-container {
@@ -170,8 +170,9 @@ body {
 
 .sidebar {
   width: 240px;
-  background-color: #1e293b;
-  color: white;
+  background-color: #FFFFFF;
+  color: #333333;
+  border-right: 2px solid #CCFFFF;
   flex-shrink: 0;
 }
 
@@ -180,11 +181,11 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  border-bottom: 1px solid #334155;
+  border-bottom: 2px solid #CCFFFF;
 }
 
 .logo-container h1 {
-  color: white;
+  color: #333333;
   font-size: 18px;
   font-weight: 600;
 }
@@ -197,8 +198,8 @@ body {
 
 .top-navbar {
   height: 64px;
-  background-color: white;
-  border-bottom: 1px solid #f0f0f0;
+  background-color: #FFFFFF;
+  border-bottom: 2px solid #CCFFFF;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -221,10 +222,10 @@ body {
 
 .footer {
   text-align: center;
-  color: #999;
+  color: #666666;
   padding: 16px 0;
-  background-color: #f7f7f7;
-  border-top: 1px solid #e8e8e8;
+  background-color: #FFFFFF;
+  border-top: 2px solid #CCFFFF;
 }
 
 /* 页面过渡动画 */
@@ -257,11 +258,11 @@ body {
 }
 
 .highlight-menu {
-  background: rgba(59, 130, 246, 0.15) !important;
-  border-left: 3px solid #3b82f6;
+  background: rgba(204, 255, 255, 0.3) !important;
+  border-left: 3px solid #CCFFFF;
 }
 
 .highlight-menu:hover {
-  background: rgba(59, 130, 246, 0.2) !important;
+  background: rgba(204, 255, 255, 0.5) !important;
 }
 </style> 

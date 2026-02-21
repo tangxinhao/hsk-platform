@@ -428,13 +428,13 @@ export default {
 <style scoped>
 .universities-page {
   min-height: 100vh;
-  background: linear-gradient(to bottom, #f8f9fc 0%, #ffffff 100%);
+  background: linear-gradient(to bottom, #FFFFCC 0%, #FFFFFF 100%);
 }
 
 /* 顶部横幅 */
 .hero-section {
   position: relative;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  background: linear-gradient(to bottom, #CCFFFF 0%, #FFFFCC 50%, #FFCCCC 100%);
   padding: 60px 20px 80px;
   overflow: hidden;
 }
@@ -594,7 +594,8 @@ export default {
 .stat-number {
   font-size: 32px;
   font-weight: bold;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #CCFFFF;
+  color: #333333;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   line-height: 1;
@@ -633,7 +634,7 @@ export default {
 
 .empty-state h3 {
   font-size: 24px;
-  color: #303133;
+  color: #333333;
   margin: 0 0 10px 0;
 }
 
@@ -699,7 +700,8 @@ export default {
 .card-header {
   position: relative;
   height: 120px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #CCFFFF;
+  color: #333333;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -758,7 +760,8 @@ export default {
 .logo-placeholder span {
   font-size: 36px;
   font-weight: bold;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #CCFFFF;
+  color: #333333;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -815,7 +818,8 @@ export default {
 .ranking-number {
   font-size: 16px;
   font-weight: bold;
-  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  background: #FFCCCC;
+  color: #333333;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   line-height: 1;
@@ -829,7 +833,7 @@ export default {
 .university-name {
   font-size: 19px;
   font-weight: bold;
-  color: #303133;
+  color: #333333;
   margin: 0 0 8px 0;
   text-align: center;
   line-height: 1.3;
@@ -858,7 +862,7 @@ export default {
   color: #606266;
   font-size: 13px;
   padding: 5px 10px;
-  background: #f5f7fa;
+  background: #FFFFCC;
   border-radius: 8px;
 }
 

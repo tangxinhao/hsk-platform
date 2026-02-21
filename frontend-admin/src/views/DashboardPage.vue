@@ -395,7 +395,7 @@ export default {
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 20px;
-  color: #303133;
+  color: #333333;
 }
 
 .stats-row {
@@ -430,19 +430,23 @@ export default {
 }
 
 .user-icon {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #CCFFFF;
+  color: #333333;
 }
 
 .question-icon {
-  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  background: #FFCCCC;
+  color: #333333;
 }
 
 .practice-icon {
-  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  background: #CCFFFF;
+  color: #333333;
 }
 
 .exam-icon {
-  background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+  background: #FFFFCC;
+  color: #333333;
 }
 
 .stat-info {
@@ -452,7 +456,7 @@ export default {
 .stat-value {
   font-size: 28px;
   font-weight: bold;
-  color: #303133;
+  color: #333333;
   line-height: 1;
   margin-bottom: 8px;
 }
@@ -478,7 +482,7 @@ export default {
 .card-header {
   font-size: 16px;
   font-weight: bold;
-  color: #303133;
+  color: #333333;
 }
 
 :deep(.el-card__header) {

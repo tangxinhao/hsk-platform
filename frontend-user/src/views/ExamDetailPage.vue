@@ -367,7 +367,7 @@ onUnmounted(() => {
 <style scoped>
 .exam-detail-page {
   min-height: calc(100vh - 64px);
-  background: #f5f7fa;
+  background: #FFFFCC;
   padding: 20px;
 }
 
@@ -389,7 +389,7 @@ onUnmounted(() => {
 
 .exam-info h2 {
   margin: 0 0 10px 0;
-  color: #2c3e50;
+  color: #333333;
 }
 
 .exam-meta {
@@ -432,12 +432,13 @@ onUnmounted(() => {
 .question-text {
   font-size: 18px;
   line-height: 1.8;
-  color: #2c3e50;
+  color: #333333;
   margin-bottom: 20px;
 }
 
 .audio-player {
-  background: #f0f9ff;
+  background: #FFFFFF;
+  border: 1px solid #CCFFFF;
   padding: 15px;
   border-radius: 8px;
   border: 1px solid #b3d8ff;
@@ -468,13 +469,13 @@ onUnmounted(() => {
 
 .answer-options :deep(.el-radio:hover),
 .answer-options :deep(.el-checkbox:hover) {
-  border-color: #667eea;
+  border-color: #CCFFFF;
   background: #f5f7ff;
 }
 
 .answer-options :deep(.el-radio.is-checked),
 .answer-options :deep(.el-checkbox.is-checked) {
-  border-color: #667eea;
+  border-color: #CCFFFF;
   background: #f0f4ff;
 }
 
@@ -490,7 +491,7 @@ onUnmounted(() => {
 
 .question-nav h3 {
   margin: 0 0 15px 0;
-  color: #2c3e50;
+  color: #333333;
 }
 
 .nav-grid {
@@ -513,12 +514,12 @@ onUnmounted(() => {
 }
 
 .nav-item:hover {
-  border-color: #667eea;
+  border-color: #CCFFFF;
   background: #f5f7ff;
 }
 
 .nav-item.active {
-  border-color: #667eea;
+  border-color: #CCFFFF;
   background: #667eea;
   color: white;
 }
@@ -531,7 +532,7 @@ onUnmounted(() => {
 
 .nav-item.answered.active {
   background: #667eea;
-  border-color: #667eea;
+  border-color: #CCFFFF;
 }
 
 @media (max-width: 768px) {

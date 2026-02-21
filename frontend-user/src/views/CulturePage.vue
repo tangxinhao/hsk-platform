@@ -220,7 +220,8 @@ export default {
 <style scoped>
 .culture-page {
   min-height: 100vh;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(to bottom, #CCFFFF 0%, #FFFFCC 100%);
+  color: #333333;
   padding: 30px 20px;
 }
 
@@ -264,7 +265,7 @@ export default {
   align-items: center;
   gap: 6px;
   padding: 8px 14px;
-  background: #f5f7fa;
+  background: #FFFFCC;
   border-radius: 10px;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -272,14 +273,16 @@ export default {
 }
 
 .category-item:hover {
-  background: #e4e7ed;
+  background: #FFFFFF;
+  border: 1px solid #CCFFFF;
   transform: translateY(-2px);
 }
 
 .category-item.active {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(to bottom, #CCFFFF 0%, #FFFFCC 100%);
+  color: #333333;
   color: white;
-  border-color: #667eea;
+  border-color: #CCFFFF;
 }
 
 .category-icon {
@@ -315,7 +318,8 @@ export default {
   width: 100%;
   height: 160px;
   overflow: hidden;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(to bottom, #CCFFFF 0%, #FFFFCC 100%);
+  color: #333333;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -357,7 +361,7 @@ export default {
 .card-content h3 {
   margin: 0 0 6px 0;
   font-size: 16px;
-  color: #303133;
+  color: #333333;
   line-height: 1.4;
 }
 

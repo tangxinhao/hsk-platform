@@ -604,7 +604,7 @@ onMounted(() => {
 <style scoped>
 .wrong-book-page {
   min-height: 100vh;
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  background: linear-gradient(to bottom, #FFFFCC 0%, #FFFFFF 100%);
   padding: 20px 0;
 }
 

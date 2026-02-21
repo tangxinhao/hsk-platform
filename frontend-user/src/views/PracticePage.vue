@@ -554,13 +554,13 @@ onMounted(() => {
 .page-header h1 {
   font-size: 36px;
   font-weight: 700;
-  color: #2c3e50;
+  color: #333333;
   margin-bottom: 10px;
 }
 
 .page-header p {
   font-size: 16px;
-  color: #666;
+  color: #666666;
 }
 
 .filter-section {
@@ -606,7 +606,7 @@ onMounted(() => {
 .question-content p {
   font-size: 15px;
   line-height: 1.6;
-  color: #2c3e50;
+  color: #333333;
 }
 
 .question-footer {
@@ -621,7 +621,8 @@ onMounted(() => {
 
 /* 练习弹窗样式 */
 .practice-dialog-wrapper :deep(.el-dialog__header) {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #CCFFFF;
+  color: #333333;
   color: white;
   padding: 20px 24px;
   margin: 0;
@@ -646,7 +647,7 @@ onMounted(() => {
   gap: 10px;
   padding: 20px 24px;
   border-bottom: 1px solid #f0f0f0;
-  background: #fafafa;
+  background: #FFFFFF;
 }
 
 .dialog-question {
@@ -660,7 +661,8 @@ onMounted(() => {
   right: 20px;
   width: 50px;
   height: 50px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #CCFFFF;
+  color: #333333;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -675,7 +677,7 @@ onMounted(() => {
   font-size: 20px;
   line-height: 1.8;
   margin-bottom: 24px;
-  color: #2c3e50;
+  color: #333333;
   padding-right: 70px;
   font-weight: 600;
 }
@@ -704,7 +706,7 @@ onMounted(() => {
 
 .audio-icon {
   font-size: 32px;
-  color: #667eea;
+  color: #CCFFFF;
 }
 
 .audio-info {
@@ -714,7 +716,7 @@ onMounted(() => {
 .audio-title {
   font-size: 16px;
   font-weight: 600;
-  color: #2c3e50;
+  color: #333333;
   margin: 0 0 4px 0;
 }
 
@@ -763,7 +765,8 @@ onMounted(() => {
   top: 0;
   height: 100%;
   width: 4px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #CCFFFF;
+  color: #333333;
   transform: scaleY(0);
   transition: transform 0.3s ease;
 }
@@ -812,7 +815,8 @@ onMounted(() => {
 }
 
 .option-card.is-selected .option-label-circle {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #CCFFFF;
+  color: #333333;
   color: white;
   transform: scale(1.1);
   box-shadow: 0 6px 16px rgba(102, 126, 234, 0.4);
@@ -833,11 +837,11 @@ onMounted(() => {
 }
 
 .option-card:hover .option-text {
-  color: #667eea;
+  color: #CCFFFF;
 }
 
 .option-card.is-selected .option-text {
-  color: #667eea;
+  color: #CCFFFF;
   font-weight: 600;
 }
 
@@ -848,7 +852,8 @@ onMounted(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #CCFFFF;
+  color: #333333;
   border-radius: 50%;
   opacity: 0;
   transform: scale(0);
@@ -1157,7 +1162,7 @@ onMounted(() => {
 
 .image-option-item.is-selected .image-option-label {
   background: white;
-  color: #667eea;
+  color: #CCFFFF;
   transform: scale(1.1);
 }
 
