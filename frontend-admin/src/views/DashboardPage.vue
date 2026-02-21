@@ -430,23 +430,23 @@ export default {
 }
 
 .user-icon {
-  background: #CCFFFF;
-  color: #333333;
+  background: #6699CC;
+  color: #FFFFFF;
 }
 
 .question-icon {
-  background: #FFCCCC;
-  color: #333333;
+  background: #FF9966;
+  color: #FFFFFF;
 }
 
 .practice-icon {
-  background: #CCFFFF;
-  color: #333333;
+  background: #6699CC;
+  color: #FFFFFF;
 }
 
 .exam-icon {
-  background: #FFFFCC;
-  color: #333333;
+  background: #99CC99;
+  color: #FFFFFF;
 }
 
 .stat-info {

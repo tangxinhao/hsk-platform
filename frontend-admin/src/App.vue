@@ -16,8 +16,8 @@
           :default-active="activeMenu"
           router
           background-color="#FFFFFF"
-          text-color="#333333"
-          active-text-color="#CCFFFF">
+          text-color="#2C3E50"
+          active-text-color="#6699CC">
           <el-menu-item index="/">
             <el-icon><HomeFilled /></el-icon>
             <span>首页</span>
@@ -160,7 +160,7 @@ body {
   font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #FFFFCC;
+  background-color: #F8F9FA;
 }
 
 .app-container {
@@ -171,8 +171,8 @@ body {
 .sidebar {
   width: 240px;
   background-color: #FFFFFF;
-  color: #333333;
-  border-right: 2px solid #CCFFFF;
+  color: #2C3E50;
+  border-right: 1px solid #E5E7EB;
   flex-shrink: 0;
 }
 
@@ -181,11 +181,11 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  border-bottom: 2px solid #CCFFFF;
+  border-bottom: 1px solid #E5E7EB;
 }
 
 .logo-container h1 {
-  color: #333333;
+  color: #2C3E50;
   font-size: 18px;
   font-weight: 600;
 }
@@ -199,7 +199,7 @@ body {
 .top-navbar {
   height: 64px;
   background-color: #FFFFFF;
-  border-bottom: 2px solid #CCFFFF;
+  border-bottom: 1px solid #E5E7EB;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -222,10 +222,10 @@ body {
 
 .footer {
   text-align: center;
-  color: #666666;
+  color: #64748B;
   padding: 16px 0;
   background-color: #FFFFFF;
-  border-top: 2px solid #CCFFFF;
+  border-top: 1px solid #E5E7EB;
 }
 
 /* 页面过渡动画 */
@@ -258,11 +258,11 @@ body {
 }
 
 .highlight-menu {
-  background: rgba(204, 255, 255, 0.3) !important;
-  border-left: 3px solid #CCFFFF;
+  background: rgba(102, 153, 204, 0.1) !important;
+  border-left: 3px solid #6699CC;
 }
 
 .highlight-menu:hover {
-  background: rgba(204, 255, 255, 0.5) !important;
+  background: rgba(102, 153, 204, 0.15) !important;
 }
 </style> 

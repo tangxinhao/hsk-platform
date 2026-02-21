@@ -428,13 +428,14 @@ export default {
 <style scoped>
 .universities-page {
   min-height: 100vh;
-  background: linear-gradient(to bottom, #FFFFCC 0%, #FFFFFF 100%);
+  background: linear-gradient(to bottom, #F8F9FA 0%, #FFFFFF 100%);
 }
 
 /* 顶部横幅 */
 .hero-section {
   position: relative;
-  background: linear-gradient(to bottom, #CCFFFF 0%, #FFFFCC 50%, #FFCCCC 100%);
+  background: linear-gradient(to bottom, #6699CC 0%, #5A8AB8 50%, #FF9966 100%);
+  color: #FFFFFF;
   padding: 60px 20px 80px;
   overflow: hidden;
 }
@@ -594,8 +595,8 @@ export default {
 .stat-number {
   font-size: 32px;
   font-weight: bold;
-  background: #CCFFFF;
-  color: #333333;
+  background: #6699CC;
+  color: #FFFFFF;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   line-height: 1;
@@ -700,8 +701,8 @@ export default {
 .card-header {
   position: relative;
   height: 120px;
-  background: #CCFFFF;
-  color: #333333;
+  background: #6699CC;
+  color: #FFFFFF;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -760,8 +761,8 @@ export default {
 .logo-placeholder span {
   font-size: 36px;
   font-weight: bold;
-  background: #CCFFFF;
-  color: #333333;
+  background: #6699CC;
+  color: #FFFFFF;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -818,8 +819,8 @@ export default {
 .ranking-number {
   font-size: 16px;
   font-weight: bold;
-  background: #FFCCCC;
-  color: #333333;
+  background: #FF9966;
+  color: #FFFFFF;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   line-height: 1;
@@ -862,7 +863,7 @@ export default {
   color: #606266;
   font-size: 13px;
   padding: 5px 10px;
-  background: #FFFFCC;
+  background: #F8F9FA;
   border-radius: 8px;
 }
 

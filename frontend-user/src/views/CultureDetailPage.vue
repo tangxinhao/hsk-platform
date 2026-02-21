@@ -185,7 +185,7 @@ export default {
 <style scoped>
 .culture-detail-page {
   min-height: 100vh;
-  background: #FFFFCC;
+  background: #F8F9FA;
   padding-bottom: 40px;
 }
 
@@ -285,8 +285,8 @@ export default {
   flex-shrink: 0;
   width: 40px;
   height: 40px;
-  background: #CCFFFF;
-  color: #333333;
+  background: #6699CC;
+  color: #FFFFFF;
   color: white;
   border-radius: 8px;
   display: flex;

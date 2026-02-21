@@ -139,7 +139,7 @@ const handleLogin = async () => {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(to bottom, #CCFFFF 0%, #FFFFCC 100%);
+  background: linear-gradient(to bottom, #F8F9FA 0%, #FFFFFF 100%);
   padding: 60px 20px;
   position: relative;
   overflow-x: hidden;
@@ -169,9 +169,9 @@ const handleLogin = async () => {
   backdrop-filter: blur(10px);
   border-radius: 24px;
   padding: 50px 40px;
-  box-shadow: 0 25px 70px rgba(204, 255, 255, 0.4), 
-              0 10px 25px rgba(255, 204, 204, 0.3);
-  border: 2px solid #CCFFFF;
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.1), 
+              0 10px 25px rgba(0, 0, 0, 0.08);
+  border: 1px solid #E5E7EB;
   animation: slideUp 0.6s ease-out;
   margin: 20px auto;
 }
@@ -195,13 +195,13 @@ const handleLogin = async () => {
 .login-header h1 {
   font-size: 36px;
   font-weight: 700;
-  color: #333333;
+  color: #2C3E50;
   margin-bottom: 12px;
   letter-spacing: -0.5px;
 }
 
 .login-header p {
-  color: #666666;
+  color: #64748B;
   font-size: 17px;
   font-weight: 400;
 }
@@ -218,12 +218,12 @@ const handleLogin = async () => {
 }
 
 .login-form :deep(.el-input__wrapper:hover) {
-  box-shadow: 0 2px 8px rgba(204, 255, 255, 0.3);
+  box-shadow: 0 2px 8px rgba(102, 153, 204, 0.15);
 }
 
 .login-form :deep(.el-input__wrapper.is-focus) {
-  box-shadow: 0 0 0 3px rgba(204, 255, 255, 0.3);
-  border-color: #CCFFFF;
+  box-shadow: 0 0 0 3px rgba(102, 153, 204, 0.1);
+  border-color: #6699CC;
 }
 
 .form-options {
@@ -235,7 +235,7 @@ const handleLogin = async () => {
 }
 
 .forgot-link {
-  color: #CCFFFF;
+  color: #6699CC;
   text-decoration: none;
   font-size: 14px;
   font-weight: 500;
@@ -243,15 +243,15 @@ const handleLogin = async () => {
 }
 
 .forgot-link:hover {
-  color: #99EEFF;
+  color: #5A8AB8;
   text-decoration: underline;
 }
 
 .login-button {
   width: 100%;
-  background: #CCFFFF;
-  color: #333333;
-  border: 2px solid #CCFFFF;
+  background: #6699CC;
+  color: #FFFFFF;
+  border: none;
   height: 54px;
   font-size: 17px;
   font-weight: 600;
@@ -262,9 +262,8 @@ const handleLogin = async () => {
 }
 
 .login-button:hover {
-  background: #99EEFF;
-  border-color: #99EEFF;
-  box-shadow: 0 4px 12px rgba(204, 255, 255, 0.5);
+  background: #5A8AB8;
+  box-shadow: 0 4px 12px rgba(102, 153, 204, 0.4);
   transform: translateY(-1px);
 }
 
@@ -274,15 +273,15 @@ const handleLogin = async () => {
 
 .register-tip {
   text-align: center;
-  color: #666666;
+  color: #64748B;
   font-size: 15px;
   padding-top: 25px;
-  border-top: 1px solid #CCFFFF;
+  border-top: 1px solid #E5E7EB;
   margin-top: 25px;
 }
 
 .register-link {
-  color: #FFCCCC;
+  color: #6699CC;
   text-decoration: none;
   font-weight: 600;
   margin-left: 5px;
@@ -290,7 +289,7 @@ const handleLogin = async () => {
 }
 
 .register-link:hover {
-  color: #FF9999;
+  color: #5A8AB8;
   text-decoration: underline;
 }
 </style>

@@ -102,7 +102,7 @@ watch(() => route.path, () => {
 
 .logo-text {
   font-size: 18px;
-  color: #333333;
+  color: #2C3E50;
   font-weight: 600;
 }
 
@@ -114,7 +114,7 @@ watch(() => route.path, () => {
 }
 
 .nav-link {
-  color: #666666;
+  color: #64748B;
   text-decoration: none;
   font-weight: 500;
   font-size: 15px;
@@ -124,13 +124,13 @@ watch(() => route.path, () => {
 }
 
 .nav-link:hover {
-  color: #333333;
-  background: #CCFFFF;
+  color: #2C3E50;
+  background: #F1F5F9;
 }
 
 .nav-link.router-link-active {
-  color: #333333;
-  background: #CCFFFF;
+  color: #6699CC;
+  background: #EFF6FF;
   font-weight: 600;
 }
 
@@ -155,27 +155,26 @@ watch(() => route.path, () => {
 }
 
 .btn-login {
-  color: #333333;
+  color: #6699CC;
   background: #FFFFFF;
-  border: 2px solid #CCFFFF;
+  border: 1px solid #D1D5DB;
 }
 
 .btn-login:hover {
-  background: #CCFFFF;
-  border-color: #99EEFF;
-  color: #333333;
+  background: #F8F9FA;
+  border-color: #6699CC;
+  color: #6699CC;
 }
 
 .btn-register {
-  background: #CCFFFF;
-  color: #333333;
-  border: 2px solid #CCFFFF;
+  background: #6699CC;
+  color: #FFFFFF;
+  border: none;
 }
 
 .btn-register:hover {
-  background: #99EEFF;
-  border-color: #99EEFF;
-  box-shadow: 0 4px 12px rgba(204, 255, 255, 0.5);
+  background: #5A8AB8;
+  box-shadow: 0 4px 12px rgba(102, 153, 204, 0.3);
 }
 
 .btn-logout {

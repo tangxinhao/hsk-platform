@@ -354,8 +354,8 @@ export default {
 }
 
 .university-header {
-  background: #CCFFFF;
-  color: #333333;
+  background: #6699CC;
+  color: #FFFFFF;
   border-radius: 16px;
   padding: 40px;
   margin-bottom: 24px;
@@ -447,7 +447,7 @@ export default {
   font-style: italic;
   padding: 12px;
   background: #FFFFFF;
-  border: 1px solid #CCFFFF;
+  border: 1px solid #6699CC;
   border-radius: 8px;
   border-left: 3px solid #667eea;
 }
@@ -463,13 +463,13 @@ export default {
   gap: 16px;
   padding: 20px;
   background: #FFFFFF;
-  border: 1px solid #CCFFFF;
+  border: 1px solid #6699CC;
   border-radius: 12px;
   transition: all 0.3s ease;
 }
 
 .advantage-item:hover {
-  background: #FFFFCC;
+  background: #F8F9FA;
   transform: translateX(8px);
 }
 
@@ -477,8 +477,8 @@ export default {
   flex-shrink: 0;
   width: 40px;
   height: 40px;
-  background: #CCFFFF;
-  color: #333333;
+  background: #6699CC;
+  color: #FFFFFF;
   color: white;
   border-radius: 50%;
   display: flex;
@@ -532,7 +532,7 @@ export default {
 .requirement-item, .contact-item {
   padding: 24px;
   background: #FFFFFF;
-  border: 1px solid #CCFFFF;
+  border: 1px solid #6699CC;
   border-radius: 12px;
   text-align: center;
 }
@@ -565,7 +565,7 @@ export default {
   gap: 12px;
   padding: 16px;
   background: #FFFFFF;
-  border: 1px solid #CCFFFF;
+  border: 1px solid #6699CC;
   border-radius: 8px;
 }
 
@@ -587,8 +587,8 @@ export default {
 
 .stat-box {
   padding: 24px;
-  background: #CCFFFF;
-  color: #333333;
+  background: #6699CC;
+  color: #FFFFFF;
   border-radius: 12px;
   text-align: center;
   color: white;

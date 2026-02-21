@@ -330,7 +330,7 @@ onMounted(() => {
 <style scoped>
 .user-center-page {
   min-height: 100vh;
-  background: #FFFFCC;
+  background: #F8F9FA;
   padding-bottom: 40px;
 }
 

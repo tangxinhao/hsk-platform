@@ -217,7 +217,7 @@ onMounted(() => {
 
 <style scoped>
 .exam-page {
-  background: linear-gradient(to bottom, #CCFFFF 0%, #FFFFCC 100%);
+  background: linear-gradient(to bottom, #F8F9FA 0%, #FFFFFF 100%);
   min-height: 100vh;
   padding-bottom: 60px;
 }
@@ -297,20 +297,20 @@ onMounted(() => {
 .level-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-  border-color: #CCFFFF;
+  border-color: #6699CC;
 }
 
 .level-card.is-active {
-  background: linear-gradient(to bottom, #CCFFFF 0%, #FFFFCC 100%);
+  background: linear-gradient(to bottom, #F8F9FA 0%, #FFFFFF 100%);
   color: white;
-  border-color: #CCFFFF;
+  border-color: #6699CC;
   box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
   transform: translateY(-5px) scale(1.05);
 }
 
 .level-icon {
   margin-bottom: 10px;
-  color: #CCFFFF;
+  color: #6699CC;
   transition: all 0.3s;
 }
 
@@ -353,7 +353,7 @@ onMounted(() => {
 
 .exam-card-header {
   padding: 20px;
-  background: #FFFFCC;
+  background: #F8F9FA;
 }
 
 .exam-card-body {

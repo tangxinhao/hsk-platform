@@ -367,7 +367,7 @@ onUnmounted(() => {
 <style scoped>
 .exam-detail-page {
   min-height: calc(100vh - 64px);
-  background: #FFFFCC;
+  background: #F8F9FA;
   padding: 20px;
 }
 
@@ -438,7 +438,7 @@ onUnmounted(() => {
 
 .audio-player {
   background: #FFFFFF;
-  border: 1px solid #CCFFFF;
+  border: 1px solid #6699CC;
   padding: 15px;
   border-radius: 8px;
   border: 1px solid #b3d8ff;
@@ -469,13 +469,13 @@ onUnmounted(() => {
 
 .answer-options :deep(.el-radio:hover),
 .answer-options :deep(.el-checkbox:hover) {
-  border-color: #CCFFFF;
+  border-color: #6699CC;
   background: #f5f7ff;
 }
 
 .answer-options :deep(.el-radio.is-checked),
 .answer-options :deep(.el-checkbox.is-checked) {
-  border-color: #CCFFFF;
+  border-color: #6699CC;
   background: #f0f4ff;
 }
 
@@ -514,12 +514,12 @@ onUnmounted(() => {
 }
 
 .nav-item:hover {
-  border-color: #CCFFFF;
+  border-color: #6699CC;
   background: #f5f7ff;
 }
 
 .nav-item.active {
-  border-color: #CCFFFF;
+  border-color: #6699CC;
   background: #667eea;
   color: white;
 }
@@ -532,7 +532,7 @@ onUnmounted(() => {
 
 .nav-item.answered.active {
   background: #667eea;
-  border-color: #CCFFFF;
+  border-color: #6699CC;
 }
 
 @media (max-width: 768px) {

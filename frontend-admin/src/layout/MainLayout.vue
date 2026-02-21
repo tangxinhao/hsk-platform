@@ -115,7 +115,7 @@ const handleUserCommand = async (command) => {
 .header {
   display: flex;
   align-items: center;
-  background: linear-gradient(to bottom, #CCFFFF 0%, #FFFFCC 100%);
+  background: linear-gradient(to bottom, #6699CC 0%, #5A8AB8 100%);
   box-shadow: 0 2px 12px 0 rgba(204, 255, 255, 0.3);
   padding: 0 20px;
 }
@@ -126,7 +126,7 @@ const handleUserCommand = async (command) => {
 }
 
 .logo {
-  color: #333333;
+  color: #FFFFFF;
   font-size: 22px;
   font-weight: bold;
   margin: 0;
@@ -141,19 +141,19 @@ const handleUserCommand = async (command) => {
 
 :deep(.el-menu--horizontal > .el-menu-item),
 :deep(.el-menu--horizontal > .el-sub-menu .el-sub-menu__title) {
-  color: #333333;
+  color: #FFFFFF;
   border-bottom: 2px solid transparent;
 }
 
 :deep(.el-menu--horizontal > .el-menu-item:hover),
 :deep(.el-menu--horizontal > .el-sub-menu .el-sub-menu__title:hover) {
   background-color: rgba(255, 255, 255, 0.5);
-  color: #333333;
+  color: #FFFFFF;
 }
 
 :deep(.el-menu--horizontal > .el-menu-item.is-active) {
-  border-bottom-color: #CCFFFF;
-  color: #333333;
+  border-bottom-color: #6699CC;
+  color: #FFFFFF;
   background-color: rgba(255, 255, 255, 0.5);
 }
 
@@ -166,7 +166,7 @@ const handleUserCommand = async (command) => {
   display: flex;
   align-items: center;
   gap: 5px;
-  color: #333333;
+  color: #FFFFFF;
   cursor: pointer;
   padding: 5px 10px;
   border-radius: 4px;
@@ -178,7 +178,7 @@ const handleUserCommand = async (command) => {
 }
 
 .main-content {
-  background: #FFFFCC;
+  background: #F8F9FA;
   padding: 0;
   overflow-y: auto;
 }

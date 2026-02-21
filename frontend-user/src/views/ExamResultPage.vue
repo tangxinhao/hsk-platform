@@ -104,7 +104,7 @@ const retryExam = () => {
 <style scoped>
 .exam-result-page {
   min-height: calc(100vh - 64px);
-  background: linear-gradient(to bottom, #CCFFFF 0%, #FFFFCC 100%);
+  background: linear-gradient(to bottom, #F8F9FA 0%, #FFFFFF 100%);
   color: #333333;
   display: flex;
   align-items: center;
@@ -126,7 +126,7 @@ const retryExam = () => {
 .score-section {
   text-align: center;
   padding: 60px 40px 40px;
-  background: #FFFFCC;
+  background: #F8F9FA;
 }
 
 .score-icon {
@@ -162,7 +162,7 @@ const retryExam = () => {
 .score-number {
   font-size: 96px;
   font-weight: 800;
-  background: linear-gradient(to bottom, #CCFFFF 0%, #FFFFCC 100%);
+  background: linear-gradient(to bottom, #F8F9FA 0%, #FFFFFF 100%);
   color: #333333;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -201,7 +201,7 @@ const retryExam = () => {
   align-items: center;
   gap: 15px;
   padding: 20px;
-  background: #FFFFCC;
+  background: #F8F9FA;
   border-radius: 12px;
   transition: all 0.3s;
 }
@@ -223,7 +223,7 @@ const retryExam = () => {
 
 .stat-icon.correct {
   background: #FFFFFF;
-  border: 1px solid #CCFFFF;
+  border: 1px solid #6699CC;
   color: #67c23a;
 }
 

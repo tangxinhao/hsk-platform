@@ -86,7 +86,7 @@ const handleRegister = async () => {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(to bottom, #CCFFFF 0%, #FFFFCC 100%);
+  background: linear-gradient(to bottom, #F8F9FA 0%, #FFFFFF 100%);
   padding: 40px 20px;
 }
 
@@ -97,7 +97,7 @@ const handleRegister = async () => {
 
 .register-card {
   background: rgba(255, 255, 255, 0.98);
-  border: 2px solid #CCFFFF;
+  border: 1px solid #E5E7EB;
   border-radius: 20px;
   padding: 50px 40px;
   box-shadow: 0 20px 60px rgba(204, 255, 255, 0.4);
@@ -118,9 +118,9 @@ const handleRegister = async () => {
 
 .register-button {
   width: 100%;
-  background: #CCFFFF;
-  color: #333333;
-  border: 2px solid #CCFFFF;
+  background: #6699CC;
+  color: #FFFFFF;
+  border: 1px solid #E5E7EB;
   height: 48px;
 }
 
@@ -135,7 +135,7 @@ const handleRegister = async () => {
 }
 
 .login-tip a {
-  color: #FFCCCC;
+  color: #6699CC;
   text-decoration: none;
   font-weight: 600;
 }

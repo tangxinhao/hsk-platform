@@ -621,8 +621,8 @@ onMounted(() => {
 
 /* 练习弹窗样式 */
 .practice-dialog-wrapper :deep(.el-dialog__header) {
-  background: #CCFFFF;
-  color: #333333;
+  background: #6699CC;
+  color: #FFFFFF;
   color: white;
   padding: 20px 24px;
   margin: 0;
@@ -661,8 +661,8 @@ onMounted(() => {
   right: 20px;
   width: 50px;
   height: 50px;
-  background: #CCFFFF;
-  color: #333333;
+  background: #6699CC;
+  color: #FFFFFF;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -706,7 +706,7 @@ onMounted(() => {
 
 .audio-icon {
   font-size: 32px;
-  color: #CCFFFF;
+  color: #6699CC;
 }
 
 .audio-info {
@@ -765,8 +765,8 @@ onMounted(() => {
   top: 0;
   height: 100%;
   width: 4px;
-  background: #CCFFFF;
-  color: #333333;
+  background: #6699CC;
+  color: #FFFFFF;
   transform: scaleY(0);
   transition: transform 0.3s ease;
 }
@@ -815,8 +815,8 @@ onMounted(() => {
 }
 
 .option-card.is-selected .option-label-circle {
-  background: #CCFFFF;
-  color: #333333;
+  background: #6699CC;
+  color: #FFFFFF;
   color: white;
   transform: scale(1.1);
   box-shadow: 0 6px 16px rgba(102, 126, 234, 0.4);
@@ -837,11 +837,11 @@ onMounted(() => {
 }
 
 .option-card:hover .option-text {
-  color: #CCFFFF;
+  color: #6699CC;
 }
 
 .option-card.is-selected .option-text {
-  color: #CCFFFF;
+  color: #6699CC;
   font-weight: 600;
 }
 
@@ -852,8 +852,8 @@ onMounted(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #CCFFFF;
-  color: #333333;
+  background: #6699CC;
+  color: #FFFFFF;
   border-radius: 50%;
   opacity: 0;
   transform: scale(0);
@@ -1162,7 +1162,7 @@ onMounted(() => {
 
 .image-option-item.is-selected .image-option-label {
   background: white;
-  color: #CCFFFF;
+  color: #6699CC;
   transform: scale(1.1);
 }
 

@@ -23,8 +23,8 @@ import Footer from './components/Footer.vue'
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 
                'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
-  background: #FFFFCC;
-  color: #333333;
+  background: #F8F9FA;
+  color: #2C3E50;
 }
 
 #app {
@@ -47,22 +47,21 @@ body {
 
 /* 通用按钮 */
 .btn-primary {
-  background: #CCFFFF;
-  color: #333333;
-  border: 2px solid #CCFFFF;
+  background: #6699CC;
+  color: #FFFFFF;
+  border: none;
   padding: 12px 30px;
   border-radius: 8px;
   font-size: 16px;
   font-weight: 500;
   cursor: pointer;
   transition: all 0.2s ease;
-  box-shadow: 0 2px 8px rgba(204, 255, 255, 0.4);
+  box-shadow: 0 2px 8px rgba(102, 153, 204, 0.3);
 }
 
 .btn-primary:hover {
-  background: #99EEFF;
-  border-color: #99EEFF;
-  box-shadow: 0 4px 12px rgba(204, 255, 255, 0.6);
+  background: #5A8AB8;
+  box-shadow: 0 4px 12px rgba(102, 153, 204, 0.4);
   transform: translateY(-1px);
 }
 
@@ -71,14 +70,14 @@ body {
   background: #FFFFFF;
   border-radius: 12px;
   padding: 24px;
-  box-shadow: 0 2px 8px rgba(204, 255, 255, 0.3);
-  border: 1px solid #CCFFFF;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border: 1px solid #E5E7EB;
   transition: all 0.2s ease;
 }
 
 .card:hover {
-  box-shadow: 0 4px 16px rgba(204, 255, 255, 0.5);
-  border-color: #99EEFF;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  border-color: #D1D5DB;
   transform: translateY(-2px);
 }
 </style>

@@ -137,7 +137,7 @@ const handleLogin = async () => {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(to bottom, #CCFFFF 0%, #FFFFCC 100%);
+  background: linear-gradient(to bottom, #F8F9FA 0%, #FFFFFF 100%);
   padding: 40px 20px;
   position: relative;
   overflow-x: hidden;
@@ -195,14 +195,14 @@ const handleLogin = async () => {
 .login-header h1 {
   font-size: 36px;
   font-weight: 700;
-  color: #333333;
+  color: #2C3E50;
   -webkit-text-fill-color: transparent;
   margin-bottom: 12px;
   letter-spacing: -1px;
 }
 
 .login-header p {
-  color: #666666;
+  color: #64748B;
   font-size: 16px;
   font-weight: 400;
 }
@@ -229,8 +229,8 @@ const handleLogin = async () => {
 
 .login-button {
   width: 100%;
-  background: #CCFFFF;
-  color: #333333;
+  background: #6699CC;
+  color: #FFFFFF;
   border: none;
   height: 54px;
   font-size: 17px;
@@ -242,7 +242,7 @@ const handleLogin = async () => {
 }
 
 .login-button:hover {
-  background: #99EEFF;
+  background: #5A8AB8;
   box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
   transform: translateY(-1px);
 }
@@ -264,13 +264,13 @@ const handleLogin = async () => {
 .login-tip p {
   margin: 8px 0;
   font-size: 14px;
-  color: #666666;
+  color: #64748B;
   line-height: 1.8;
   font-weight: 400;
 }
 
 .login-tip p:first-child {
-  color: #333333;
+  color: #2C3E50;
   font-weight: 600;
 }
 </style>

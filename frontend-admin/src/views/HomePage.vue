@@ -226,15 +226,15 @@ onMounted(() => {
 <style scoped>
 .home-container {
   padding: 24px;
-  background: #FFFFCC;
+  background: #F8F9FA;
   min-height: calc(100vh - 60px);
 }
 
 .welcome-section {
   margin-bottom: 24px;
   padding: 32px 24px;
-  background: #CCFFFF;
-  color: #333333;
+  background: #6699CC;
+  color: #FFFFFF;
   border-radius: 12px;
   color: white;
 }
@@ -343,7 +343,7 @@ onMounted(() => {
 }
 
 .management-item:hover {
-  border-color: #CCFFFF;
+  border-color: #6699CC;
   background: #ecf5ff;
   transform: translateY(-2px);
 }

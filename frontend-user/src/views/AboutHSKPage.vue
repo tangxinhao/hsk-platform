@@ -272,8 +272,8 @@ export default {
 /* 顶部横幅 */
 .hero-section {
   position: relative;
-  background: #CCFFFF;
-  color: #333333;
+  background: #6699CC;
+  color: #FFFFFF;
   padding: 60px 20px 80px;
   overflow: hidden;
 }
@@ -356,8 +356,8 @@ section {
 .header-line {
   width: 80px;
   height: 4px;
-  background: #CCFFFF;
-  color: #333333;
+  background: #6699CC;
+  color: #FFFFFF;
   margin: 0 auto;
   border-radius: 2px;
 }
@@ -433,9 +433,9 @@ section {
   opacity: 0.1;
 }
 
-.level-card.level-1::before { background: #CCFFFF; }
-.level-card.level-2::before { background: #FFCCCC; }
-.level-card.level-3::before { background: #FFFFCC; }
+.level-card.level-1::before { background: #6699CC; }
+.level-card.level-2::before { background: #FF9966; }
+.level-card.level-3::before { background: #99CC99; }
 .level-card.level-4::before { background: #43e97b; }
 .level-card.level-5::before { background: #fa709a; }
 .level-card.level-6::before { background: #feca57; }
@@ -449,8 +449,8 @@ section {
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  background: #CCFFFF;
-  color: #333333;
+  background: #6699CC;
+  color: #FFFFFF;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -615,8 +615,8 @@ section {
   left: 30px;
   width: 40px;
   height: 40px;
-  background: #CCFFFF;
-  color: #333333;
+  background: #6699CC;
+  color: #FFFFFF;
   color: white;
   border-radius: 50%;
   display: flex;
@@ -646,8 +646,8 @@ section {
 }
 
 .cta-card {
-  background: #CCFFFF;
-  color: #333333;
+  background: #6699CC;
+  color: #FFFFFF;
   padding: 60px 40px;
   border-radius: 24px;
   text-align: center;

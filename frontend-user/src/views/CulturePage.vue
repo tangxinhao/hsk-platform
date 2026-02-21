@@ -220,8 +220,8 @@ export default {
 <style scoped>
 .culture-page {
   min-height: 100vh;
-  background: linear-gradient(to bottom, #CCFFFF 0%, #FFFFCC 100%);
-  color: #333333;
+  background: linear-gradient(to bottom, #6699CC 0%, #5A8AB8 100%);
+  color: #FFFFFF;
   padding: 30px 20px;
 }
 
@@ -265,7 +265,7 @@ export default {
   align-items: center;
   gap: 6px;
   padding: 8px 14px;
-  background: #FFFFCC;
+  background: #F8F9FA;
   border-radius: 10px;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -274,15 +274,15 @@ export default {
 
 .category-item:hover {
   background: #FFFFFF;
-  border: 1px solid #CCFFFF;
+  border: 1px solid #6699CC;
   transform: translateY(-2px);
 }
 
 .category-item.active {
-  background: linear-gradient(to bottom, #CCFFFF 0%, #FFFFCC 100%);
-  color: #333333;
+  background: linear-gradient(to bottom, #6699CC 0%, #5A8AB8 100%);
+  color: #FFFFFF;
   color: white;
-  border-color: #CCFFFF;
+  border-color: #6699CC;
 }
 
 .category-icon {
@@ -318,8 +318,8 @@ export default {
   width: 100%;
   height: 160px;
   overflow: hidden;
-  background: linear-gradient(to bottom, #CCFFFF 0%, #FFFFCC 100%);
-  color: #333333;
+  background: linear-gradient(to bottom, #6699CC 0%, #5A8AB8 100%);
+  color: #FFFFFF;
   display: flex;
   align-items: center;
   justify-content: center;
