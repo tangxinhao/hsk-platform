@@ -370,7 +370,7 @@ export default {
             type: 'bar',
             data: questionData.map(item => item.count),
             itemStyle: {
-              color: '#409EFF'
+              color: '#1a1f2e'
             }
           }
         ]

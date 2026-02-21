@@ -276,7 +276,7 @@ onMounted(() => {
 }
 
 .stat-icon.primary {
-  color: #409EFF;
+  color: #1a1f2e;
 }
 
 .stat-icon.success {
@@ -342,13 +342,13 @@ onMounted(() => {
 }
 
 .management-item:hover {
-  border-color: #409EFF;
+  border-color: #1a1f2e;
   background: #ecf5ff;
   transform: translateY(-2px);
 }
 
 .management-item .el-icon {
-  color: #409EFF;
+  color: #1a1f2e;
 }
 
 .management-item span {

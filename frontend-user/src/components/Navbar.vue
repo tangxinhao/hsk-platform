@@ -102,7 +102,7 @@ watch(() => route.path, () => {
 
 .logo-text {
   font-size: 18px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #1a1f2e 0%, #2d3748 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -126,13 +126,13 @@ watch(() => route.path, () => {
 }
 
 .nav-link:hover {
-  color: #667eea;
-  background: #f5f7ff;
+  color: #1a1f2e;
+  background: #f1f3f5;
 }
 
 .nav-link.router-link-active {
-  color: #667eea;
-  background: #ecf5ff;
+  color: #1a1f2e;
+  background: #e9ecef;
 }
 
 .nav-actions {
@@ -156,24 +156,24 @@ watch(() => route.path, () => {
 }
 
 .btn-login {
-  color: #667eea;
+  color: #1a1f2e;
   background: white;
-  border: 1.5px solid #667eea;
+  border: 1.5px solid #1a1f2e;
 }
 
 .btn-login:hover {
-  background: #667eea;
+  background: #1a1f2e;
   color: white;
 }
 
 .btn-register {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #1a1f2e 0%, #2d3748 100%);
   color: white;
 }
 
 .btn-register:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+  box-shadow: 0 4px 12px rgba(26, 31, 46, 0.3);
 }
 
 .btn-logout {

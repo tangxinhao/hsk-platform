@@ -139,7 +139,7 @@ const handleLogin = async () => {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #1a1f2e 0%, #2d3748 100%);
   padding: 60px 20px;
   position: relative;
   overflow-x: hidden;
@@ -194,7 +194,7 @@ const handleLogin = async () => {
 .login-header h1 {
   font-size: 36px;
   font-weight: 800;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #1a1f2e 0%, #2d3748 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-bottom: 12px;
@@ -235,7 +235,7 @@ const handleLogin = async () => {
 }
 
 .forgot-link {
-  color: #667eea;
+  color: #1a1f2e;
   text-decoration: none;
   font-size: 14px;
   font-weight: 500;
@@ -243,13 +243,13 @@ const handleLogin = async () => {
 }
 
 .forgot-link:hover {
-  color: #764ba2;
+  color: #2d3748;
   text-decoration: underline;
 }
 
 .login-button {
   width: 100%;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #1a1f2e 0%, #2d3748 100%);
   border: none;
   height: 54px;
   font-size: 17px;
@@ -279,7 +279,7 @@ const handleLogin = async () => {
 }
 
 .register-link {
-  color: #667eea;
+  color: #1a1f2e;
   text-decoration: none;
   font-weight: 700;
   margin-left: 5px;
@@ -287,7 +287,7 @@ const handleLogin = async () => {
 }
 
 .register-link:hover {
-  color: #764ba2;
+  color: #2d3748;
   text-decoration: underline;
 }
 </style>

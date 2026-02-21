@@ -115,7 +115,7 @@ const handleUserCommand = async (command) => {
 .header {
   display: flex;
   align-items: center;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #1a1f2e 0%, #2d3748 100%);
   box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
   padding: 0 20px;
 }

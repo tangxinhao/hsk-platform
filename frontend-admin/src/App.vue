@@ -15,9 +15,9 @@
         <el-menu 
           :default-active="activeMenu"
           router
-          background-color="#001529"
+          background-color="#0f172a"
           text-color="#fff"
-          active-text-color="#ffd04b">
+          active-text-color="#f97316">
           <el-menu-item index="/">
             <el-icon><HomeFilled /></el-icon>
             <span>首页</span>
@@ -170,7 +170,7 @@ body {
 
 .sidebar {
   width: 240px;
-  background-color: #001529;
+  background-color: #0f172a;
   color: white;
   flex-shrink: 0;
 }
@@ -180,7 +180,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  border-bottom: 1px solid #002140;
+  border-bottom: 1px solid #1e293b;
 }
 
 .logo-container h1 {
@@ -258,7 +258,7 @@ body {
 
 .highlight-menu {
   background: linear-gradient(90deg, #667eea 0%, #764ba2 100%) !important;
-  border-left: 3px solid #ffd04b;
+  border-left: 3px solid #f97316;
 }
 
 .highlight-menu:hover {
