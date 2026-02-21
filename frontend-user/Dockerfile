@@ -18,7 +18,8 @@ COPY . .
 ARG VITE_API_BASE_URL=https://tangxinhao.online
 ENV VITE_API_BASE_URL=$VITE_API_BASE_URL
 
-# 构建应用
+# 构建应用（限制 Node.js 内存使用，避免 OOM）
+ENV NODE_OPTIONS="--max-old-space-size=1024"
 RUN npm run build
 
 # 生产阶段
