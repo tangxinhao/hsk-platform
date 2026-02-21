@@ -61,7 +61,7 @@
 import { ref, reactive } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import { ElMessage } from 'element-plus'
-import apiClient from '@/api'
+import apiClient from '@/api/index.js'
 
 const router = useRouter()
 const route = useRoute()
