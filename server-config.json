@@ -1,0 +1,53 @@
+{
+  "server_info": {
+    "host": "118.190.106.159",
+    "project_path": "/home/hsk",
+    "domain": "tangxinhao.online",
+    "www_domain": "www.tangxinhao.online"
+  },
+  "database": {
+    "host": "db",
+    "port": 3306,
+    "name": "hsk_schema",
+    "user": "root",
+    "password": "tangxinhao521"
+  },
+  "docker": {
+    "compose_file": "docker-compose.prod.yml",
+    "network": "hsk_hsk-network",
+    "services": {
+      "backend": "hsk-backend",
+      "frontend_user": "hsk-frontend-user",
+      "frontend_admin": "hsk-frontend-admin",
+      "nginx": "hsk-nginx",
+      "mysql": "hsk-mysql"
+    }
+  },
+  "deployment": {
+    "git_repo": "https://github.com/tangxinhao/hsk-platform.git",
+    "git_branch": "main",
+    "swap_size": "2G",
+    "swap_file": "/swapfile"
+  },
+  "common_issues": {
+    "database_permission_fix": "CREATE USER IF NOT EXISTS 'root'@'%' IDENTIFIED BY 'tangxinhao521'; GRANT ALL PRIVILEGES ON hsk_schema.* TO 'root'@'%' WITH GRANT OPTION; FLUSH PRIVILEGES;",
+    "env_file_path": "/home/hsk/.env",
+    "required_env_vars": [
+      "DB_PASSWORD",
+      "DB_NAME",
+      "DB_USER",
+      "SECRET_KEY",
+      "ALLOWED_HOSTS",
+      "API_BASE_URL"
+    ],
+    "secret_key": "your_django_secret_key_here"
+  },
+  "notes": {
+    "last_updated": "2026-02-21",
+    "known_issues": [
+      "MySQL 8.0 需要使用 CREATE USER 而不是 GRANT ... IDENTIFIED BY",
+      "重启容器不会重新读取 .env，需要重新创建容器",
+      "服务器资源有限，需要启用交换空间避免卡死"
+    ]
+  }
+}
