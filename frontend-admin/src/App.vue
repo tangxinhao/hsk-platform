@@ -15,9 +15,9 @@
         <el-menu 
           :default-active="activeMenu"
           router
-          background-color="#0f172a"
-          text-color="#fff"
-          active-text-color="#f97316">
+          background-color="#1e293b"
+          text-color="#e2e8f0"
+          active-text-color="#3b82f6">
           <el-menu-item index="/">
             <el-icon><HomeFilled /></el-icon>
             <span>首页</span>
@@ -160,7 +160,7 @@ body {
   font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #f0f2f5;
+  background-color: #f8fafc;
 }
 
 .app-container {
@@ -170,7 +170,7 @@ body {
 
 .sidebar {
   width: 240px;
-  background-color: #0f172a;
+  background-color: #1e293b;
   color: white;
   flex-shrink: 0;
 }
@@ -180,7 +180,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  border-bottom: 1px solid #1e293b;
+  border-bottom: 1px solid #334155;
 }
 
 .logo-container h1 {
@@ -257,11 +257,11 @@ body {
 }
 
 .highlight-menu {
-  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%) !important;
-  border-left: 3px solid #f97316;
+  background: rgba(59, 130, 246, 0.15) !important;
+  border-left: 3px solid #3b82f6;
 }
 
 .highlight-menu:hover {
-  background: linear-gradient(90deg, #764ba2 0%, #667eea 100%) !important;
+  background: rgba(59, 130, 246, 0.2) !important;
 }
 </style> 

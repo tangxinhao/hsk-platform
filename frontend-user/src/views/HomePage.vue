@@ -206,8 +206,8 @@ const hskLevels = ref([
 
 <style scoped>
 .hero-section {
-  background: radial-gradient(circle at top left, #f1f3f5 0%, #f8f9fa 45%, #e9ecef 100%);
-  color: #1e293b;
+  background: linear-gradient(to bottom, #ffffff 0%, #f8fafc 100%);
+  color: #0f172a;
   padding: 120px 0 80px;
   position: relative;
   overflow: hidden;
@@ -222,20 +222,21 @@ const hskLevels = ref([
 
 .hero-title {
   font-size: 48px;
-  font-weight: 800;
+  font-weight: 700;
   margin-bottom: 20px;
   line-height: 1.2;
-  color: #1a1f2e;
+  color: #0f172a;
 }
 
 .highlight {
-  color: #f97316;
+  color: #3b82f6;
 }
 
 .hero-subtitle {
   font-size: 20px;
   margin-bottom: 40px;
-  color: #4b5563;
+  color: #64748b;
+  font-weight: 400;
 }
 
 .hero-actions {
@@ -244,11 +245,16 @@ const hskLevels = ref([
 }
 
 .btn-start {
-  background: #1a1f2e;
+  background: #3b82f6;
   border: none;
   padding: 12px 40px;
   font-size: 18px;
-  box-shadow: 0 10px 30px rgba(26, 31, 46, 0.2);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.btn-start:hover {
+  background: #2563eb;
+  box-shadow: 0 6px 16px rgba(59, 130, 246, 0.4);
 }
 
 /* 浮动卡片 */
@@ -262,18 +268,19 @@ const hskLevels = ref([
   background: white;
   padding: 20px 30px;
   border-radius: 12px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
+  border: 1px solid #e2e8f0;
   display: flex;
   align-items: center;
   gap: 12px;
-  color: #2C3E50;
-  font-weight: 600;
+  color: #0f172a;
+  font-weight: 500;
   animation: float 3s ease-in-out infinite;
 }
 
 .card-icon {
   font-size: 32px;
-  color: #1a1f2e;
+  color: #3b82f6;
 }
 
 .card-1 {
@@ -322,16 +329,15 @@ const hskLevels = ref([
 
 .stat-number {
   font-size: 48px;
-  font-weight: 800;
-  background: linear-gradient(120deg, #1a1f2e 0%, #2d3748 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+  color: #3b82f6;
   margin-bottom: 10px;
 }
 
 .stat-label {
   font-size: 16px;
-  color: #666;
+  color: #64748b;
+  font-weight: 500;
 }
 
 /* HSK等级 */
@@ -343,14 +349,16 @@ const hskLevels = ref([
   text-align: center;
   font-size: 36px;
   font-weight: 700;
+  color: #0f172a;
   margin-bottom: 15px;
 }
 
 .section-subtitle {
   text-align: center;
   font-size: 18px;
-  color: #666;
+  color: #64748b;
   margin-bottom: 50px;
+  font-weight: 400;
 }
 
 .levels-grid {
@@ -362,16 +370,17 @@ const hskLevels = ref([
 .level-card {
   background: white;
   padding: 30px;
-  border-radius: 16px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+  border: 1px solid #e2e8f0;
   text-align: center;
-  transition: all 0.3s;
+  transition: all 0.2s ease;
   cursor: pointer;
 }
 
 .level-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
+  border-color: #cbd5e1;
 }
 
 .level-badge {
@@ -385,12 +394,13 @@ const hskLevels = ref([
 }
 
 .level-vocab {
-  color: #666;
+  color: #64748b;
   margin: 15px 0;
+  font-weight: 500;
 }
 
 .level-desc {
-  color: #999;
+  color: #94a3b8;
   font-size: 14px;
   margin-bottom: 20px;
 }
@@ -398,7 +408,7 @@ const hskLevels = ref([
 /* 功能特色 */
 .features-section {
   padding: 80px 0;
-  background: #f5f7fb;
+  background: #f8fafc;
 }
 
 .features-grid {
@@ -410,14 +420,15 @@ const hskLevels = ref([
 .feature-item {
   background: white;
   padding: 40px 30px;
-  border-radius: 16px;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
   text-align: center;
-  transition: all 0.3s;
+  transition: all 0.2s ease;
 }
 
 .feature-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
+  border-color: #cbd5e1;
 }
 
 .feature-icon {
@@ -433,20 +444,20 @@ const hskLevels = ref([
 }
 
 .feature-icon--primary {
-  background: linear-gradient(135deg, #1a1f2e 0%, #2d3748 100%);
+  background: #3b82f6;
   }
   
   .feature-icon--accent {
-    background: linear-gradient(135deg, #2d3748 0%, #334155 100%);
+    background: #06b6d4;
   }
   
   .feature-icon--info {
-    background: linear-gradient(135deg, #475569 0%, #64748b 100%);
+    background: #8b5cf6;
   }
   
   .feature-icon--success {
-    background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
-}
+    background: #10b981;
+  }
 
 .feature-item h3 {
   font-size: 20px;
@@ -454,7 +465,7 @@ const hskLevels = ref([
 }
 
 .feature-item p {
-  color: #666;
+  color: #64748b;
   font-size: 14px;
   line-height: 1.6;
 }
@@ -462,7 +473,7 @@ const hskLevels = ref([
 /* CTA区域 */
 .cta-section {
   padding: 100px 0;
-  background: linear-gradient(135deg, #1a1f2e 0%, #2d3748 50%, #0f172a 100%);
+  background: linear-gradient(to bottom, #3b82f6 0%, #2563eb 100%);
   color: white;
   text-align: center;
 }
@@ -480,11 +491,18 @@ const hskLevels = ref([
 
 .cta-button {
   background: white;
-  color: #1a1f2e;
+  color: #2563eb;
   border: none;
   padding: 15px 50px;
   font-size: 18px;
-  font-weight: 700;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.cta-button:hover {
+  background: #f8fafc;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 /* 响应式 */

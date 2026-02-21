@@ -139,7 +139,7 @@ const handleLogin = async () => {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #1a1f2e 0%, #2d3748 100%);
+  background: linear-gradient(to bottom, #3b82f6 0%, #2563eb 100%);
   padding: 60px 20px;
   position: relative;
   overflow-x: hidden;
@@ -193,18 +193,16 @@ const handleLogin = async () => {
 
 .login-header h1 {
   font-size: 36px;
-  font-weight: 800;
-  background: linear-gradient(135deg, #1a1f2e 0%, #2d3748 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+  color: #0f172a;
   margin-bottom: 12px;
-  letter-spacing: -1px;
+  letter-spacing: -0.5px;
 }
 
 .login-header p {
-  color: #666;
+  color: #64748b;
   font-size: 17px;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .login-form {
@@ -219,11 +217,12 @@ const handleLogin = async () => {
 }
 
 .login-form :deep(.el-input__wrapper:hover) {
-  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.15);
 }
 
 .login-form :deep(.el-input__wrapper.is-focus) {
-  box-shadow: 0 4px 16px rgba(102, 126, 234, 0.25);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  border-color: #3b82f6;
 }
 
 .form-options {
@@ -235,34 +234,35 @@ const handleLogin = async () => {
 }
 
 .forgot-link {
-  color: #1a1f2e;
+  color: #3b82f6;
   text-decoration: none;
   font-size: 14px;
   font-weight: 500;
-  transition: color 0.3s;
+  transition: color 0.2s ease;
 }
 
 .forgot-link:hover {
-  color: #2d3748;
+  color: #2563eb;
   text-decoration: underline;
 }
 
 .login-button {
   width: 100%;
-  background: linear-gradient(135deg, #1a1f2e 0%, #2d3748 100%);
+  background: #3b82f6;
   border: none;
   height: 54px;
   font-size: 17px;
-  font-weight: 700;
-  border-radius: 12px;
-  letter-spacing: 0.5px;
-  transition: all 0.3s;
+  font-weight: 600;
+  border-radius: 8px;
+  letter-spacing: 0.3px;
+  transition: all 0.2s ease;
   margin-top: 10px;
 }
 
 .login-button:hover {
-  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
-  transform: translateY(-2px);
+  background: #2563eb;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+  transform: translateY(-1px);
 }
 
 .login-button:active {
@@ -271,23 +271,23 @@ const handleLogin = async () => {
 
 .register-tip {
   text-align: center;
-  color: #666;
+  color: #64748b;
   font-size: 15px;
   padding-top: 25px;
-  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  border-top: 1px solid #e2e8f0;
   margin-top: 25px;
 }
 
 .register-link {
-  color: #1a1f2e;
+  color: #3b82f6;
   text-decoration: none;
-  font-weight: 700;
+  font-weight: 600;
   margin-left: 5px;
-  transition: color 0.3s;
+  transition: color 0.2s ease;
 }
 
 .register-link:hover {
-  color: #2d3748;
+  color: #2563eb;
   text-decoration: underline;
 }
 </style>

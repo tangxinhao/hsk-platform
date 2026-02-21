@@ -23,8 +23,8 @@ import Footer from './components/Footer.vue'
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 
                'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
-  background: #f8f9fa;
-  color: #1e293b;
+  background: #ffffff;
+  color: #0f172a;
 }
 
 #app {
@@ -47,22 +47,22 @@ body {
 
 /* 通用按钮 */
 .btn-primary {
-  background: linear-gradient(135deg, #1a1f2e 0%, #2d3748 100%);
+  background: #3b82f6;
   color: white;
   border: none;
   padding: 12px 30px;
-  border-radius: 25px;
+  border-radius: 8px;
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 500;
   cursor: pointer;
-  transition: all 0.3s;
-  box-shadow: 0 4px 12px rgba(26, 31, 46, 0.2);
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(59, 130, 246, 0.3);
 }
 
 .btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(26, 31, 46, 0.3);
-  background: linear-gradient(135deg, #2d3748 0%, #1a1f2e 100%);
+  background: #2563eb;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+  transform: translateY(-1px);
 }
 
 /* 卡片样式 */
@@ -70,12 +70,13 @@ body {
   background: white;
   border-radius: 12px;
   padding: 24px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
-  transition: all 0.3s;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+  border: 1px solid #e2e8f0;
+  transition: all 0.2s ease;
 }
 
 .card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
+  border-color: #cbd5e1;
 }
 </style>
