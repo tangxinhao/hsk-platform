@@ -235,7 +235,7 @@ const hskLevels = ref([
 .hero-subtitle {
   font-size: 20px;
   margin-bottom: 40px;
-  color: #64748B;
+  color: #475569;
   font-weight: 400;
 }
 
@@ -338,7 +338,7 @@ const hskLevels = ref([
 
 .stat-label {
   font-size: 16px;
-  color: #64748B;
+  color: #475569;
   font-weight: 500;
 }
 
@@ -358,7 +358,7 @@ const hskLevels = ref([
 .section-subtitle {
   text-align: center;
   font-size: 18px;
-  color: #64748B;
+  color: #475569;
   margin-bottom: 50px;
   font-weight: 400;
 }
@@ -398,13 +398,13 @@ const hskLevels = ref([
 }
 
 .level-vocab {
-  color: #64748B;
+  color: #475569;
   margin: 15px 0;
   font-weight: 500;
 }
 
 .level-desc {
-  color: #94A3B8;
+  color: #475569;
   font-size: 14px;
   margin-bottom: 20px;
 }
@@ -412,7 +412,7 @@ const hskLevels = ref([
 /* 功能特色 */
 .features-section {
   padding: 80px 0;
-  background: #F8F9FA;
+  background: #F1F5F9;
 }
 
 .features-grid {
@@ -474,7 +474,7 @@ const hskLevels = ref([
 }
 
 .feature-item p {
-  color: #64748B;
+  color: #475569;
   font-size: 14px;
   line-height: 1.6;
 }

@@ -201,7 +201,7 @@ const handleLogin = async () => {
 }
 
 .login-header p {
-  color: #64748B;
+  color: #475569;
   font-size: 17px;
   font-weight: 400;
 }
@@ -273,7 +273,7 @@ const handleLogin = async () => {
 
 .register-tip {
   text-align: center;
-  color: #64748B;
+  color: #475569;
   font-size: 15px;
   padding-top: 25px;
   border-top: 1px solid #E5E7EB;

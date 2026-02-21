@@ -73,8 +73,9 @@ watch(() => route.path, () => {
   left: 0;
   right: 0;
   height: 64px;
-  background: white;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  background: #FFFFFF;
+  border-bottom: 2px solid #D1D5DB;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   z-index: 1000;
 }
 
@@ -114,7 +115,7 @@ watch(() => route.path, () => {
 }
 
 .nav-link {
-  color: #64748B;
+  color: #475569;
   text-decoration: none;
   font-weight: 500;
   font-size: 15px;

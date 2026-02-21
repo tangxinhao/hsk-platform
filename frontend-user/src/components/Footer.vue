@@ -67,7 +67,7 @@
 }
 
 .desc {
-  color: #64748B;
+  color: #475569;
   font-size: 14px;
 }
 
@@ -83,7 +83,7 @@
 
 .link-group a {
   display: block;
-  color: #64748B;
+  color: #475569;
   text-decoration: none;
   margin-bottom: 10px;
   font-size: 14px;
@@ -97,7 +97,7 @@
 
 .footer-right {
   text-align: right;
-  color: #64748B;
+  color: #475569;
   font-size: 14px;
 }
 
