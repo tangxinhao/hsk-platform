@@ -3,7 +3,10 @@
     "host": "118.190.106.159",
     "project_path": "/home/hsk",
     "domain": "tangxinhao.online",
-    "www_domain": "www.tangxinhao.online"
+    "www_domain": "www.tangxinhao.online",
+    "ssl_cert_path": "/home/hsk/ssl",
+    "ssl_cert_file": "/home/hsk/ssl/tangxinhao.online/cert.pem",
+    "ssl_key_file": "/home/hsk/ssl/tangxinhao.online/cert.key"
   },
   "database": {
     "host": "db",
@@ -27,7 +30,9 @@
     "git_repo": "https://github.com/tangxinhao/hsk-platform.git",
     "git_branch": "main",
     "swap_size": "2G",
-    "swap_file": "/swapfile"
+    "swap_file": "/swapfile",
+    "build_memory_limit": "1024",
+    "node_options": "--max-old-space-size=1024"
   },
   "common_issues": {
     "database_permission_fix": "CREATE USER IF NOT EXISTS 'root'@'%' IDENTIFIED BY 'tangxinhao521'; GRANT ALL PRIVILEGES ON hsk_schema.* TO 'root'@'%' WITH GRANT OPTION; FLUSH PRIVILEGES;",
@@ -47,7 +52,13 @@
     "known_issues": [
       "MySQL 8.0 需要使用 CREATE USER 而不是 GRANT ... IDENTIFIED BY",
       "重启容器不会重新读取 .env，需要重新创建容器",
-      "服务器资源有限，需要启用交换空间避免卡死"
+      "服务器资源有限，需要启用交换空间避免卡死",
+      "前端构建时 Node.js 内存限制为 1024MB，避免 OOM"
+    ],
+    "tips": [
+      "使用 smart-deploy.sh 脚本可以自动处理大部分常见问题",
+      "配置文件包含敏感信息，已添加到 .gitignore",
+      "修改配置后，需要重新创建容器才能生效（不只是重启）"
     ]
   }
 }
